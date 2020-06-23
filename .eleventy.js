@@ -3,8 +3,8 @@
 
 module.exports = function(config) {
   config.setUseGitIgnore(false);
-
   config.addLayoutAlias('default', 'base.njk')
+  config.addPassthroughCopy("src/robots.txt")
 
   return {
     dir: {
