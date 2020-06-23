@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const fs = require("fs");
+const _ = require("lodash");
 
 (async() => {
 
@@ -24,7 +25,22 @@ const fs = require("fs");
   })
 
   const data = await response.json();
-  fs.writeFile('src/site/_data/jobs.json', JSON.stringify(data.jobs, null, 2), (err) => {});
+  data.jobs.map(job => {
+    job.location = `${job.jobFields.SLOVLIST13.split('(')[0].trim()}, ${job.jobFields.SLOVLIST15.split('(')[0].trim()}`
+    return job
+  });
+  fs.writeFile('src/_data/jobs.json', JSON.stringify(data.jobs, null, 2), (err) => {});
+
+  console.log(data)
+
+  let locations = data.jobs.map(job => ({
+    cityLabel: job.jobFields.SLOVLIST13.split('(')[0].trim(),
+    countryLabel: job.jobFields.SLOVLIST15.split('(')[0].trim(),
+    city: job.jobFields.SLOVLIST13,
+    country: job.jobFields.SLOVLIST15
+  }));
+  locations = _.uniqBy(locations, 'cityLabel');
+  fs.writeFile('src/_data/jobsLocations.json', JSON.stringify(locations, null, 2), (err) => {});
 })();
 
 

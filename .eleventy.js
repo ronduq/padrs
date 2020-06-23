@@ -3,12 +3,15 @@
 
 module.exports = function(config) {
   config.setUseGitIgnore(false);
+
   config.addLayoutAlias('default', 'base.njk')
+
   return {
     dir: {
-      input: "src/site",
+      input: "src",
       output: "dist",
-      data: "_data"
+      data: "_data",
+      includes: "_partials"
     },
     templateFormats : ["njk", "md", "11ty.js"],
     htmlTemplateEngine : "njk",

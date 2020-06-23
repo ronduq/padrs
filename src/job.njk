@@ -1,0 +1,37 @@
+---
+title: Job
+layout: default
+pagination:
+    data: jobs
+    size: 1
+    alias: job
+permalink: "jobs/{{ job.jobFields.jobTitle | slug }}-{{ job.id }}/"
+---
+
+<h1>{{ job.jobFields.jobTitle }}</h1>
+
+<a href="{{ job.jobFields.applicationUrl }}">Apply now</a>
+
+<dl>
+  <dt>Location</dt>
+  <dd>{{ job.location }}</dd>
+  <dt>Contract</dt>
+  <dd>{{ job.jobFields.SLOVLIST16 }}, {{ job.jobFields.ContractTyplabel }}</dd>
+  <dt>Experience</dt>
+  <dd>???</dd>
+  <dt>Rank</dt>
+  <dd>???</dd>
+</dl>
+
+{% for f in job.customFields %}
+  {% if f.title == "Become part of the team" %}
+    {{ f.content | safe }}
+  {% elseif f.title == "About us" %}
+    <!-- nothing -->
+  {% elseif f.title == "Benefits" %}
+    <!-- nothing -->
+  {% else %}
+    <h2>{{ f.title }}</h2>
+    {{ f.content | safe }}
+  {% endif %}
+{% endfor %}

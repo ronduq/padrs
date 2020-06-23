@@ -1,0 +1,41 @@
+---
+title: PA digital recruitment
+layout: default
+---
+
+# Careers at PA digital
+There's never been a better time to join.
+
+<h2>{{ jobs.length }} open job positions</h2>
+<form>
+  <input type="text" name="q">
+  <select name="location">
+  </select>
+</form>
+
+<h2>Featured roles</h2>
+<a href="/jobs">View all open roles</a>
+
+{%- for featuredJobId in featuredJobs -%}
+  {%- for job in jobs -%}
+    {%- if job.jobFields.jobNumber === featuredJobId -%}
+      {% include "jobCard.njk" %}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+<h2>Working at PA digital</h2>
+
+<h3>What do we do?</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna. Cras finibus egestas laoreet. Aliquam nec purus arcu. Sed semper ante at commodo suscipit. Integer imperdiet diam ut nunc bibendum, id sodales lectus dignissim. Praesent facilisis tincidunt pellentesque.</p>
+
+<h3>What is it like working here?</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna. Cras finibus egestas laoreet. Aliquam nec purus arcu. Sed semper ante at commodo suscipit. Integer imperdiet diam ut nunc bibendum, id sodales lectus dignissim. Praesent facilisis tincidunt pellentesque.</p>
+
+<h3>Benefits</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna. Cras finibus egestas laoreet. Aliquam nec purus arcu. Sed semper ante at commodo suscipit. Integer imperdiet diam ut nunc bibendum, id sodales lectus dignissim. Praesent facilisis tincidunt pellentesque.</p>
+<ul>
+  <li>Benefit 1</li>
+  <li>Benefit 2</li>
+  <li>Benefit 3</li>
+</ul>
