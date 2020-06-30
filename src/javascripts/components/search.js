@@ -9,7 +9,7 @@ class Search {
       return {
         element: element,
         id: element.getAttribute('data-search-id'),
-        content: [...element.querySelectorAll('[data-search')].map((e) => e.innerText).join(' '),
+        content: [...element.querySelectorAll('[data-search-fulltext')].map((e) => e.innerText).join(' '),
         location: element.querySelector('[data-search-location]').getAttribute('data-search-location'),
         capability: element.querySelector('[data-search-capability]').innerText
       }

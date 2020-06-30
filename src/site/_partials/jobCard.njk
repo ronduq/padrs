@@ -1,9 +1,11 @@
 <div class="card" data-search-id="{{ job.id }}">
   <h3 data-search>{{ job.title }}</h3>
   <a href="/jobs/{{ job.title | slug }}-{{ job.id }}">View role</a>
-  <p data-search>{{ job.summary }}</p>
+  <p>{{ job.summary }}</p>
   <p data-search-location="{{ job.city }}">{{ job.location }}</p>
   <p data-search-capability>{{ job.capability }}</p>
+  <p data-search-fulltext style="display:none;">{{ job.fulltext }}</p>
+
 </div>
 
 <script type="application/ld+json">

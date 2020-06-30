@@ -69,7 +69,16 @@ const _ = require("lodash");
       return string;
     }
     return string.slice(0, length) + '...';
+  }
 
+  const parseJobFullText = (job) => {
+    const text = [];
+    job.customFields.forEach((field) => {
+      if (field.title.toLowerCase() === 'benefits') return;
+      if (field.title.toLowerCase() === 'diversity statement') return;
+      text.push(stripHTML(field.content));
+    })
+    return text.join(' ');
   }
 
   jobs.map(job => {
@@ -81,6 +90,7 @@ const _ = require("lodash");
     job.location = `${city}, ${country}`;
     job.capability = findJobCapability(job)
     job.summary = truncate(stripHTML(job.customFields[0].content), 500)
+    job.fulltext = parseJobFullText(job)
     return job;
   });
 
