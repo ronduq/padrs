@@ -1,0 +1,26 @@
+---
+title: PA digital locations
+layout: default
+---
+
+{% set belfastJobs = ('Belfast' | jobsCountByCity) %}
+{% set londonJobs = ('London' | jobsCountByCity) %}
+
+<h1>PA digital locations</h1>
+
+<h2>Our digital hub offices</h2>
+
+<h3>Belfast</h3>
+{% if belfastJobs > 0 %}
+  <a href="/jobs?city=Belfast">View {{ belfastJobs }} open role{% if belfastJobs > 1 %}s{% endif %}</a>
+{% endif %}
+
+<h3>Farringdon, London</h3>
+{% if londonJobs > 0 %}
+  <a href="/jobs?city=London">View {{ londonJobs }} open role{% if londonJobs > 1 %}s{% endif %}</a>
+{% endif %}
+
+<h3>Victoria, London</h3>
+{% if londonJobs > 0 %}
+  <a href="/jobs?city=London">View {{ londonJobs }} open role{% if londonJobs > 1 %}s{% endif %}</a>
+{% endif %}

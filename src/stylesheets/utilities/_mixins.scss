@@ -1,0 +1,87 @@
+/// A public getter for the `$colours` map. Returns a hex colour as a string.
+/// Use this instead of `map-get($colours)`.
+/// @param {String} $name - The colour name from `$colours`
+/// @example
+///   h1 {
+///     color: colour('red');
+///   }
+@function colour($name) {
+  @return map-get($colours, $name);
+}
+
+/// Contain and clear floated elements inside a container.
+/// Use instead of `position: overflow` which has some side effects such as cropping drop shadows.
+/// @example
+///   .container {
+///     @include clearfix;
+///   }
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+/// Vertically centres a child inside a container.
+/// @example
+///   .child {
+///     @include vertical-middle;
+///   }
+@mixin vertical-middle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin spacing($property, $size) {
+  $spacing-properties: map-get($spacing, $size);
+  $spacing-breakpoints: map-get($spacing-properties, breakpoints);
+
+  @if $spacing-properties {
+    #{$property}: map-get($spacing-properties, space);
+  }
+
+  @if spacing-breakpoints {
+    @each $breakpoint-name, $breakpoint-spacing in $spacing-breakpoints {
+      @if $breakpoint-name and $breakpoint-spacing {
+        @include respond-to($breakpoint-name) {
+          #{$property}: map-get($breakpoint-spacing, space);
+        }
+      }
+    }
+  }
+}
+
+/// Returns a media query based on sizes defined in the `$breakpoints` map.
+/// @param {String} $point - Name of the breakpoint in the global `$breakpoints` map. If this is not found, a check will be made in a map named `$tweakpoints` that is used on a per-component basis when specific media queries are required.
+/// @param {String} $condition [max-width] - Breakpoint condition, such as `min-width` or `max-width`
+/// @example
+///   .container {
+///     @include respond-to('small') {
+///       ...
+///     }
+///   }
+$tweakpoints: ();
+
+@mixin respond-to($point, $condition: max-width) {
+  // Ensure media query isn't in quotes
+  $condition: unquote($condition);
+  // Check global breakpoints first
+  @if map-has-key($breakpoints, $point) {
+    /* stylelint-disable-next-line scss/media-feature-value-dollar-variable */
+    @media ($condition: map-get($breakpoints, $point)) {
+      @content;
+    }
+    // Failing that, check local tweakpoints
+  } @else if map-has-key($tweakpoints, $point) {
+    /* stylelint-disable-next-line scss/media-feature-value-dollar-variable */
+    @media ($condition: map-get($tweakpoints, $point)) {
+      @content;
+    }
+  } @else {
+    @warn 'Could not find `#{$point}` in both local ($tweakpoints) and global ($breakpoints) contexts. Media block omitted.';
+  }
+}

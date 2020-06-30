@@ -25,22 +25,98 @@ const _ = require("lodash");
   })
 
   const data = await response.json();
-  data.jobs.map(job => {
-    job.location = `${job.jobFields.SLOVLIST13.split('(')[0].trim()}, ${job.jobFields.SLOVLIST15.split('(')[0].trim()}`
-    return job
+  const jobs = data.jobs;
+
+  const capabilities = [
+    {
+      name: 'Delivery',
+      keywords: ['delivery manager']
+    },
+    {
+      name: 'Design',
+      keywords: ['designer', 'creative']
+    },
+    {
+      name: 'Engineering & DevOps',
+      keywords: ['engineer', 'qa', 'architect', 'technical director', 'cloud']
+    },
+    {
+      name: 'Transformation',
+      keywords: ['strategist', 'digital business']
+    },
+    {
+      name: 'Other',
+      keywords: []
+    }
+  ];
+
+  const findJobCapability = (job) => {
+    let capability = 'Other';
+    capabilities.forEach(c => {
+      if (c.keywords.some(word => job.title.toLowerCase().indexOf(word) !== -1)) {
+        capability = c.name;
+      }
+    })
+    return capability;
+  }
+
+  const stripHTML = (string) => {
+    return string.replace(/(<[^>]+>|<[^>]>|<\/[^>]>)/g, '');
+  }
+
+  const truncate = (string, length) => {
+    if (string.length <= length) {
+      return string;
+    }
+    return string.slice(0, length) + '...';
+
+  }
+
+  jobs.map(job => {
+    const city = job.jobFields.SLOVLIST13.split('(')[0].trim();
+    const country = job.jobFields.SLOVLIST15.split('(')[0].trim();
+    job.title = job.jobFields.sJobTitle;
+    job.city = city;
+    job.country = country;
+    job.location = `${city}, ${country}`;
+    job.capability = findJobCapability(job)
+    job.summary = truncate(stripHTML(job.customFields[0].content), 500)
+    return job;
   });
-  fs.writeFile('src/_data/jobs.json', JSON.stringify(data.jobs, null, 2), (err) => {});
 
-  console.log(data)
+  fs.writeFile('src/site/_data/jobs.json', JSON.stringify(jobs, null, 2), (err) => {});
 
-  let locations = data.jobs.map(job => ({
-    cityLabel: job.jobFields.SLOVLIST13.split('(')[0].trim(),
-    countryLabel: job.jobFields.SLOVLIST15.split('(')[0].trim(),
-    city: job.jobFields.SLOVLIST13,
-    country: job.jobFields.SLOVLIST15
+  const knownLocations = [
+    {
+      city: 'London',
+      country: 'UK',
+    },
+    {
+      city: 'Belfast',
+      country: 'UK'
+    }
+  ]
+
+  const openJobsLocations = jobs.map(job => ({
+    city: job.city,
+    country: job.country
   }));
-  locations = _.uniqBy(locations, 'cityLabel');
-  fs.writeFile('src/_data/jobsLocations.json', JSON.stringify(locations, null, 2), (err) => {});
+
+  const locationsList = _.uniqBy(_.concat(knownLocations, openJobsLocations), 'city');
+
+  locationsList.map(location => {
+    location.jobs = jobs.filter(job => job.city === location.city).length;
+    return location;
+  })
+
+  capabilities.map(capability => {
+    capability.jobs = jobs.filter(job => job.capability === capability.name).length;
+    return capability;
+  })
+
+  fs.writeFile('src/site/_data/jobsLocations.json', JSON.stringify(locationsList, null, 2), (err) => {});
+
+  fs.writeFile('src/site/_data/capabilities.json', JSON.stringify(capabilities, null, 2), (err) => {});
 })();
 
 

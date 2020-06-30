@@ -1,0 +1,17 @@
+[
+  {
+    "city": "London",
+    "country": "UK",
+    "jobs": 3
+  },
+  {
+    "city": "Belfast",
+    "country": "UK",
+    "jobs": 0
+  },
+  {
+    "city": "Utrecht",
+    "country": "Netherlands",
+    "jobs": 2
+  }
+]

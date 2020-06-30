@@ -1,0 +1,100 @@
+/// Returns font family and weight based on typography defined in the `$font-stacks` map.
+/// @param {String} $font-stack - Name of the font-family (a key from the `$font-stacks` map)
+/// @param {Boolean} $important - Adds an `!important` directive to the property to get you out of (or in to...) specificity nightmares
+/// @example .scss
+///   h1 {
+///     @include font-family('regular');
+///   }
+///
+///   h1 {
+///     font-family: MerriweatherSans, Arial, sans-serif;
+///     font-weight: 700;
+///   }
+@mixin font-family($font-stack, $important: false) {
+  $font-stack: map-get($font-stacks, $font-stack);
+
+  @if $font-stack {
+    @if $important == false {
+      font-family: map-get($font-stack, font-family);
+    } @else {
+      font-family: map-get($font-stack, font-family) !important;
+    }
+    font-weight: map-get($font-stack, font-weight);
+  } @else {
+    @error 'The font family '#{$font-stack}' does not exist in the list of font families!';
+  }
+}
+
+/// Returns font size and line height based on typography defined in the `$font-sizes` map.
+/// @param {String} $size - Name of the font size; either a key from the `$font-sizes` map or a numeric value if you need to override
+/// @example .scss
+///   h1 {
+///     @include font-size('xsmall');
+///   }
+///
+///   h1 {
+///     font-size: 12rem;
+///     line-height: 1.5,
+///   }
+/// @example .scss
+///   h1 {
+///     @include font-size(12);
+///   }
+///
+///   h1 {
+///     font-size: 12rem;
+///   }
+@mixin font-size($size) {
+  $font-size-properties: map-get($font-sizes, $size);
+
+  @if $font-size-properties {
+    @include font-size(map-get($font-size-properties, font-size));
+    line-height: map-get($font-size-properties, line-height);
+  } @else {
+    font-size: #{$size / 10}rem;
+  }
+}
+
+/// Returns font family and size based on the `$font-stacks` map, including media queries to change font styling at different breakpoints
+/// @param {String} $font-stack - Name of the font family (a key from the `$font-stacks` map)
+/// @param {String} $font-size - Name of the font size (a key from the `$font-sizes` map)
+/// @param {Boolean} $caps [false] - Mixin also returns `text-transform: uppercase`
+/// @param {Boolean} $responsive [true] - Mixin also returns a series of media queries according to the `breakpoints` map in the `$font-stacks` map
+@mixin font($font-stack, $font-size, $caps: false, $responsive: true) {
+  $font-size-properties: map-get($font-sizes, $font-size);
+  $tweaks: map-get($font-tweaks, #{$font-stack}-#{$font-size});
+  $type-breakpoints: map-get($font-size-properties, breakpoints);
+
+  @include font-size($font-size);
+  @include font-family($font-stack);
+
+  @if $tweaks {
+    @each $tweak-property, $tweak-value in $tweaks {
+      #{$tweak-property}: #{$tweak-value};
+    }
+  }
+
+  @if $caps == true {
+    text-transform: uppercase;
+  } @else {
+    text-transform: none;
+  }
+
+  @if $responsive == true {
+    @if type-breakpoints {
+      @each $breakpoint-name, $breakpoint-font-properties in $type-breakpoints {
+        @if $breakpoint-name and $breakpoint-font-properties {
+          @include respond-to($breakpoint-name) {
+            @each $breakpoint-font-property, $breakpoint-font-value in $breakpoint-font-properties {
+              @if $breakpoint-font-property == 'font-size' {
+                @include font-size($breakpoint-font-value);
+              } @else {
+                #{$breakpoint-font-property}: #{$breakpoint-font-value};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

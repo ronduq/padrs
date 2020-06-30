@@ -1,0 +1,18 @@
+---
+title: Jobs at PA digital
+layout: default
+---
+
+<h1>Find roles</h1>
+
+{% import "jobSearchForm.njk" as search with context %}
+{{ search.jobSearchForm('true') }}
+
+<h2 data-search-count>{{ jobs.length }} roles found</h2>
+
+{% for job in jobs %}
+  {% include "jobCard.njk" %}
+{% endfor %}
+
+<script type="text/javascript" src="/assets/javascripts/lunr.js"></script>
+<script type="text/javascript" src="/assets/javascripts/mark.js"></script>

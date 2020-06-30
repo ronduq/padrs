@@ -1,0 +1,17 @@
+/// Map of common colours used in the project. This should include brand colours and tints. Try to name the colours with meaningful names that describe the colour itself, as they are referred to by brand guidelines and designers (e.g. "gunmetal grey") rather than what the colour is used for (e.g. "button background").
+/// @type Map
+$colours: (
+  'black': #444, // never go to the dark side
+  'white': #fff,
+  'navy': #223658,
+  'grey': #999,
+  'mid-grey': #ddd,
+  'light-grey': #f5f5f2,
+  'blue': #0065ed,
+  'blue-grey': #5d717f,
+  'cyan': #48bdd7,
+  'beige': #f9e19d,
+  'red': #d04437,
+  'mint': #edf2f5,
+  'green': #d6e9c6
+);

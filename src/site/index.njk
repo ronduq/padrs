@@ -3,26 +3,12 @@ title: PA digital recruitment
 layout: default
 ---
 
-# Careers at PA digital
-There's never been a better time to join.
+<h1>There's never been a better time to join the Digital team at PA</h1>
 
 <h2>{{ jobs.length }} open job positions</h2>
-<form>
-  <input type="text" name="q">
-  <select name="location">
-  </select>
-</form>
 
-<h2>Featured roles</h2>
-<a href="/jobs">View all open roles</a>
-
-{%- for featuredJobId in featuredJobs -%}
-  {%- for job in jobs -%}
-    {%- if job.jobFields.jobNumber === featuredJobId -%}
-      {% include "jobCard.njk" %}
-    {%- endif -%}
-  {%- endfor -%}
-{%- endfor -%}
+{% import "jobSearchForm.njk" as search with context %}
+{{ search.jobSearchForm('false') }}
 
 <h2>Working at PA digital</h2>
 
