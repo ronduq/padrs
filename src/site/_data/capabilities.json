@@ -2,40 +2,42 @@
   {
     "name": "Delivery",
     "keywords": [
-      "delivery manager"
+      "Delivery Manager",
+      "Agile"
     ],
     "jobs": 0
   },
   {
     "name": "Design",
     "keywords": [
-      "designer",
-      "creative"
+      "Designer",
+      "Creative"
     ],
-    "jobs": 2
+    "jobs": 0
   },
   {
     "name": "Engineering & DevOps",
     "keywords": [
-      "engineer",
-      "qa",
-      "architect",
-      "technical director",
-      "cloud"
+      "Engineer",
+      "QA",
+      "Architect",
+      "Technical",
+      "Cloud",
+      "Data Scientist"
     ],
     "jobs": 1
   },
   {
     "name": "Transformation",
     "keywords": [
-      "strategist",
-      "digital business"
+      "Strategist",
+      "Digital Business"
     ],
-    "jobs": 1
+    "jobs": 0
   },
   {
     "name": "Other",
     "keywords": [],
-    "jobs": 1
+    "jobs": 0
   }
 ]

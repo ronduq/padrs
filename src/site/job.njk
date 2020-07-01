@@ -5,33 +5,113 @@ pagination:
     data: jobs
     size: 1
     alias: job
-permalink: "jobs/{{ job.jobFields.jobTitle | slug }}-{{ job.id }}/"
+permalink: "jobs/{{ job.title | slug }}-{{ job.id }}/"
 ---
 
-<h1>{{ job.jobFields.jobTitle }}</h1>
+<script type="application/ld+json">
+  {
+    "@context" : "https://schema.org/",
+    "@type" : "JobPosting",
+    "title" : "{{ job.title}}",
+    "description" : "{{ job.summary }}",
+    "employmentType" : "{{ job.length }}, {{ job.contract }}",
+    "hiringOrganization" : {
+      "@type" : "Organization",
+      "name" : "PA Consulting",
+      "sameAs" : "https://www.paconsulting.com",
+      "logo" : "https://www.paconsulting.com/Static/images/svgs/logo.svg"
+    }
+  }
+</script>
 
-<a href="{{ job.jobFields.applicationUrl }}">Apply now</a>
+<h1>{{ job.title }}</h1>
 
 <dl>
   <dt>Location</dt>
   <dd>{{ job.location }}</dd>
   <dt>Contract</dt>
-  <dd>{{ job.jobFields.SLOVLIST16 }}, {{ job.jobFields.ContractTyplabel }}</dd>
-  <dt>Experience</dt>
-  <dd>???</dd>
-  <dt>Rank</dt>
-  <dd>???</dd>
+  <dd>{{ job.length }}, {{ job.contract }}</dd>
 </dl>
 
-{% for f in job.customFields %}
-  {% if f.title == "Become part of the team" %}
+<ul>
+  <li><a href="#role">The role</a></li>
+  <li><a href="#benefits">Benefits</a></li>
+  <li><a href="#process">Recruitment process</a></li>
+  <li><a href="#location">Location</a></li>
+  <li><a href="{{ job.applyUrl }}">Apply</a></li>
+</ul>
+
+<h2>The role</h2>
+
+{% for f in job.description %}
+  {% if f.key == "become-part-of-the-team" %}
     {{ f.content | safe }}
-  {% elseif f.title == "About us" %}
-    <!-- nothing -->
-  {% elseif f.title == "Benefits" %}
-    <!-- nothing -->
+  {% elseif (f.key == "diversity-statement") or (f.key == "inclusion-and-diversity") %}
+  {% elseif f.key == "benefits" %}
   {% else %}
     <h2>{{ f.title }}</h2>
     {{ f.content | safe }}
   {% endif %}
 {% endfor %}
+
+<!-- TODO: switch these based on capability -->
+{% switch job.capability %}
+  {% case 'Design' %}
+   <h2>The Design team</h2>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+  {% case 'Engineering & DevOps' %}
+   <h2>The Engineering team</h2>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+   {% case 'Delivery' %}
+   <h2>The Delivery team</h2>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+   {% case 'Transformation' %}
+   <h2>The Transformation team</h2>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+{% endswitch %}
+
+<h2>The team</h2>
+<!-- TODO: insert team profile(s) -->
+
+<h2>Career growth</h2>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+
+<h2>Benefits</h2>
+<h3>What we offer</h3>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+<h3>Benefits</h3>
+<!-- TODO: should these come from the JD or hard coded? -->
+{% for f in job.description %}
+  {% if f.key == "benefits" %}
+    {{ f.content | safe }}
+  {% endif %}
+{% endfor %}
+
+
+<h2>Recruitment process</h2>
+<!-- TODO: swap this out per capability -->
+
+<h2>Location</h2>
+<!-- TODO: swap this out per location -->
+{% switch job.office %}
+  {% case 'Victoria' %}
+   Victoria!
+  {% case 'Farringdon' %}
+   Farringdon!
+  {% case 'Belfast' %}
+  Belfast!
+{% endswitch %}
+
+
+<h2>Still have some questions</h2>
+<a href="/faq">FAQs</a>
+
+{% for f in job.description %}
+  {% if f.key == "diversity-statement" %}
+    <h2>{{ f.title }}</h2>
+    {{ f.content | safe }}
+  {% endif %}
+{% endfor %}
+
+<h2>More roles at PA</h2>
+<!-- what is the logic here? in same capability? any? -->

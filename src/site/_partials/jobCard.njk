@@ -5,21 +5,4 @@
   <p data-search-location="{{ job.city }}">{{ job.location }}</p>
   <p data-search-capability>{{ job.capability }}</p>
   <p data-search-fulltext style="display:none;">{{ job.fulltext }}</p>
-
 </div>
-
-<script type="application/ld+json">
-  {
-    "@context" : "https://schema.org/",
-    "@type" : "JobPosting",
-    "title" : "{{ job.title}}",
-    "description" : "{{ job.summary }}",
-    "employmentType" : "CONTRACTOR",
-    "hiringOrganization" : {
-      "@type" : "Organization",
-      "name" : "PA Consulting",
-      "sameAs" : "https://www.paconsulting.com",
-      "logo" : "https://www.paconsulting.com/Static/images/svgs/logo.svg"
-    }
-  }
-</script>

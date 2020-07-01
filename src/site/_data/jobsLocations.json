@@ -2,16 +2,11 @@
   {
     "city": "London",
     "country": "UK",
-    "jobs": 3
+    "jobs": 1
   },
   {
     "city": "Belfast",
     "country": "UK",
     "jobs": 0
-  },
-  {
-    "city": "Utrecht",
-    "country": "Netherlands",
-    "jobs": 2
   }
 ]

@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require("fs");
 const _ = require("lodash");
+const slugify = require("slugify");
 
 (async() => {
 
@@ -26,23 +27,24 @@ const _ = require("lodash");
 
   const data = await response.json();
   const jobs = data.jobs;
+  console.log(`${jobs.length} jobs returned`, jobs);
 
   const capabilities = [
     {
       name: 'Delivery',
-      keywords: ['delivery manager']
+      keywords: ['Delivery Manager', 'Agile']
     },
     {
       name: 'Design',
-      keywords: ['designer', 'creative']
+      keywords: ['Designer', 'Creative']
     },
     {
       name: 'Engineering & DevOps',
-      keywords: ['engineer', 'qa', 'architect', 'technical director', 'cloud']
+      keywords: ['Engineer', 'QA', 'Architect', 'Technical', 'Cloud', 'Data Scientist']
     },
     {
       name: 'Transformation',
-      keywords: ['strategist', 'digital business']
+      keywords: ['Strategist', 'Digital Business']
     },
     {
       name: 'Other',
@@ -53,7 +55,7 @@ const _ = require("lodash");
   const findJobCapability = (job) => {
     let capability = 'Other';
     capabilities.forEach(c => {
-      if (c.keywords.some(word => job.title.toLowerCase().indexOf(word) !== -1)) {
+      if (c.keywords.some(word => job.title.toLowerCase().indexOf(word.toLowerCase()) !== -1)) {
         capability = c.name;
       }
     })
@@ -81,16 +83,42 @@ const _ = require("lodash");
     return text.join(' ');
   }
 
+  const parseOfficeName = (job) => {
+    switch (job.jobFields.SLOVLIST13) {
+      case 'London': return 'Victoria';
+      case 'London (DIG)': return 'Farringdon';
+      case 'Belfast (DIG)': return 'Belfast';
+      default: return job.jobFields.SLOVLIST13;
+    }
+  }
+
   jobs.map(job => {
     const city = job.jobFields.SLOVLIST13.split('(')[0].trim();
     const country = job.jobFields.SLOVLIST15.split('(')[0].trim();
-    job.title = job.jobFields.sJobTitle;
+    job.id = job.jobFields.id;
+    job.title = job.jobFields.jobTitle;
     job.city = city;
     job.country = country;
     job.location = `${city}, ${country}`;
+    job.office = parseOfficeName(job);
     job.capability = findJobCapability(job)
     job.summary = truncate(stripHTML(job.customFields[0].content), 500)
     job.fulltext = parseJobFullText(job)
+    job.contract = job.jobFields.ContractTyplabel
+    job.length = job.jobFields.SLOVLIST16
+    job.applyUrl = job.jobFields.applicationUrl
+    job.description = job.customFields.map((field) => {
+      return {
+        key: slugify(field.title, { lower: true, strict: true }),
+        title: field.title,
+        content: field.content
+          .replace(/<p> <\/p>/ig, '')
+          .replace(/<p><strong><br \/> <\/strong><\/p>/ig, '')
+          .replace(/<p><strong> <\/strong><\/p>/ig, '')
+      }
+    })
+    delete job.jobFields
+    delete job.customFields
     return job;
   });
 
