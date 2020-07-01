@@ -6,6 +6,7 @@ const browserify = require("browserify");
 const babelify = require("babelify");
 const plumber = require('gulp-plumber');
 const source = require("vinyl-source-stream");
+const exec = require('child_process').exec;
 
 const paths = {
   javascripts: {
@@ -66,9 +67,17 @@ const javascripts = () => {
   .pipe(gulp.dest(paths.javascripts.dist))
 };
 
+const javascriptTests = (cb) => {
+  exec('npm run test', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+}
+
 gulp.task('watch', () => {
   gulp.watch(paths.stylesheets.src, stylesheets);
-  gulp.watch(paths.javascripts.src, javascripts);
+  gulp.watch(paths.javascripts.src, gulp.parallel(javascriptTests, javascripts));
 });
 
 gulp.task('default', gulp.parallel(javascripts, stylesheets, images, fonts));

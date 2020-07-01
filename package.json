@@ -8,6 +8,10 @@
     "11ty:dev": "ELEVENTY_ENV=dev eleventy --serve",
     "11ty:build": "ELEVENTY_ENV=prod eleventy --passthroughall"
   },
+  "jest": {
+    "verbose": true,
+    "moduleFileExtensions": ["js"]
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
