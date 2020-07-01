@@ -8,11 +8,13 @@ layout: default
 {% import "jobSearchForm.njk" as search with context %}
 {{ search.jobSearchForm('true') }}
 
-<h2 data-search-count>{{ jobs.length }} roles found</h2>
+<div data-search-no-results>
+  <h2>No results</h2>
+</div>
 
-{% for job in jobs %}
-  {% include "jobCard.njk" %}
-{% endfor %}
-
-<script type="text/javascript" src="/assets/javascripts/lunr.js"></script>
-<script type="text/javascript" src="/assets/javascripts/mark.js"></script>
+<div data-search-results>
+  <h2 data-search-count></h2>
+  {% for job in jobs %}
+    {% include "jobCard.njk" %}
+  {% endfor %}
+</div>

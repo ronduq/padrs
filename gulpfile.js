@@ -7,7 +7,6 @@ const babelify = require("babelify");
 const plumber = require('gulp-plumber');
 const source = require("vinyl-source-stream");
 
-const sassOpts = { outputStyle: 'extended', errLogToConsole: true };
 const paths = {
   javascripts: {
     src: 'src/javascripts/**/*.js',
@@ -31,13 +30,13 @@ const paths = {
 
 const stylesheets = () => {
   return gulp.src(paths.stylesheets.src)
-    // .pipe(plumber({
-    //   errorHandler: function(error) {
-    //     console.log(error.message);
-    //     this.emit('end');
-    //   }
-    // }))
-    .pipe(sass(sassOpts))
+    .pipe(plumber({
+      errorHandler: function(error) {
+        console.log(error.message);
+        this.emit('end');
+      }
+    }))
+    .pipe(sass({ outputStyle: 'extended', errLogToConsole: true }))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(csso({
       restructure: true,
@@ -58,14 +57,13 @@ const images = () => {
 };
 
 const javascripts = () => {
-
   return browserify({
     entries: [paths.javascripts.mnanifest],
     transform: [babelify.configure({ presets: ["@babel/preset-env"] })]
   })
-    .bundle()
-    .pipe(source('application.js'))
-    .pipe(gulp.dest(paths.javascripts.dist))
+  .bundle()
+  .pipe(source('application.js'))
+  .pipe(gulp.dest(paths.javascripts.dist))
 };
 
 gulp.task('watch', () => {
@@ -74,5 +72,3 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', gulp.parallel(javascripts, stylesheets, images, fonts));
-
-// gulp.task('default', gulp.parallel('lint-javascripts', 'lint-stylesheets'));

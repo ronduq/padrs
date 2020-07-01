@@ -4,5 +4,7 @@
   <p>{{ job.summary }}</p>
   <p data-search-location="{{ job.city }}">{{ job.location }}</p>
   <p data-search-capability>{{ job.capability }}</p>
-  <p data-search-fulltext style="display:none;">{{ job.fulltext }}</p>
+  <!--googleoff: all-->
+  <p data-search-fulltext hidden>{{ job.fulltext }}</p>
+  <!--googleon: all-->
 </div>

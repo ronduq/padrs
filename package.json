@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "11ty:dev": "ELEVENTY_ENV=dev eleventy --serve",
     "11ty:build": "ELEVENTY_ENV=prod eleventy --passthroughall"
   },
@@ -27,6 +27,7 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-plumber": "^1.2.1",
+    "jest": "^26.1.0",
     "lodash": "^4.17.15",
     "vinyl-source-stream": "^2.0.0"
   }

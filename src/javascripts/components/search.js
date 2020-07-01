@@ -4,23 +4,16 @@ const querystring = require('query-string');
 class Search {
 
   constructor(form) {
-    // build data set
-    this.jobs = [...document.querySelectorAll('[data-search-id]')].map((element) => {
-      return {
-        element: element,
-        id: element.getAttribute('data-search-id'),
-        content: [...element.querySelectorAll('[data-search-fulltext')].map((e) => e.innerText).join(' '),
-        location: element.querySelector('[data-search-location]').getAttribute('data-search-location'),
-        capability: element.querySelector('[data-search-capability]').innerText
-      }
-    });
+    if (!form.length) return;
+
+    this.collectJobsFromDOM();
 
     this.params = querystring.parse(window.location.search);
 
     // pre-fill form elements
-    if (this.params.q) document.querySelector('input[name="q"]').value = this.params.q;
-    if (this.params.location) document.querySelector('select[name="location"]').value = this.params.location;
-    if (this.params.capability) document.querySelector('select[name="capability"]').value = this.params.capability;
+    if (this.params.q) form.querySelector('input[name="q"]').value = this.params.q;
+    if (this.params.location) form.querySelector('select[name="location"]').value = this.params.location;
+    if (this.params.capability) form.querySelector('select[name="capability"]').value = this.params.capability;
 
     const submitSearchForm = (e) => {
       e.preventDefault();
@@ -28,7 +21,7 @@ class Search {
       this.params.location = form.querySelector('select[name="location"]').value;
       this.params.capability = form.querySelector('select[name="capability"]').value;
       history.pushState(null, '', `${window.location.pathname}?${querystring.stringify(this.params)}`);
-      this.search();
+      this.renderSearchResults();
     }
 
     this.submitSearchForm = submitSearchForm.bind(this);
@@ -42,54 +35,94 @@ class Search {
     })
 
     // run search on page load
-    this.search();
+    this.renderSearchResults();
   }
 
-  search() {
-    const isFilteredSearch = (this.params.q && this.params.q.length || this.params.location && this.params.location.length || this.params.capability && this.params.capability.length || null);
-    let filteredJobs = this.jobs;
+  collectJobsFromDOM() {
+    this.jobs = [...document.querySelectorAll('[data-search-id]')].map((element) => {
+      return {
+        element: element,
+        id: element.getAttribute('data-search-id'),
+        content: [...element.querySelectorAll('[data-search-fulltext')].map((e) => e.innerText).join(' '),
+        location: element.querySelector('[data-search-location]').getAttribute('data-search-location'),
+        capability: element.querySelector('[data-search-capability]').innerText
+      }
+    });
+  }
+
+  showResultsContainer() {
+    document.querySelector('[data-search-results]').style.display = 'block';
+    document.querySelector('[data-search-no-results]').style.display = 'none';
+
+  }
+
+  showNoResultsContainer() {
+    document.querySelector('[data-search-results]').style.display = 'none';
+    document.querySelector('[data-search-no-results]').style.display = 'block';
+  }
+
+  showJobSearchResult(job) {
+    job.element.style.display = 'block';
+  }
+
+  hideJobSearchResult(job) {
+    job.element.style.display = 'none';
+  }
+
+  filterJobs(jobs, params) {
+    let filteredJobs = jobs;
 
     // searching by keyword
-    if (this.params.q) {
+    if (params.q) {
 
       const self = this; // HACK
       const index = lunr(function() {
         this.field('content');
         this.ref('id');
-
-        self.jobs.forEach((job) => this.add(job), this);
+        jobs.forEach((job) => this.add(job), this);
       });
 
-      const results = index.search(this.params.q);
+      const results = index.search(params.q);
       const matchingJobIds = results.map((result) => result.ref);
-      filteredJobs = this.jobs.filter((job) => matchingJobIds.includes(job.id))
+      filteredJobs = jobs.filter((job) => matchingJobIds.includes(job.id))
     }
 
-    if (this.params.location) {
-      filteredJobs = filteredJobs.filter((job) => job.location === this.params.location)
+    if (params.location) {
+      filteredJobs = filteredJobs.filter((job) => job.location === params.location)
     }
 
-    if (this.params.capability) {
-      filteredJobs = filteredJobs.filter((job) => job.capability === this.params.capability)
+    if (params.capability) {
+      filteredJobs = filteredJobs.filter((job) => job.capability === params.capability)
     }
+
+    return filteredJobs;
+  }
+
+  renderSearchResults() {
+    const isFilteredSearch = (this.params.q && this.params.q.length || this.params.location && this.params.location.length || this.params.capability && this.params.capability.length || null);
+    const filteredJobs = this.filterJobs(this.jobs, this.params);
 
     // found some matches
     if (isFilteredSearch && filteredJobs.length) {
+
+      this.showResultsContainer()
+
       this.jobs.forEach((job) => {
         if (filteredJobs.find((j) => j.id === job.id)) {
-          job.element.style.display = 'block';
+          this.showJobSearchResult(job);
         } else {
-          job.element.style.display = 'none';
+          this.hideJobSearchResult(job);
         }
       })
     }
     // no results
-    else if (isFilteredSearch) {
-      this.jobs.forEach((job) => job.element.style.display = 'none');
+    else if (isFilteredSearch && !filteredJobs.length) {
+      this.showNoResultsContainer()
     }
     // no filtering, show everything
     else {
-      this.jobs.forEach((job) => job.element.style.display = 'block');
+      this.showResultsContainer()
+      this.jobs.forEach((job) => this.showJobSearchResult(job));
     }
 
     // update the count of jobs
