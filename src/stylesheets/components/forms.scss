@@ -1,0 +1,17 @@
+label {
+  font-weight: 700;
+
+  .text-muted {
+    font-weight: 400;
+  }
+}
+
+.sticky-submit {
+  background: #fff;
+  padding: 30px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  // border-top: 30px solid $body-bg;
+  box-shadow: 0 -4px 6px rgba($body-bg, 0.99);
+}

@@ -1,0 +1,16 @@
+.btn {
+  font-weight: 700;
+}
+
+.btn.btn-dark {
+  background: $midnight;
+  color: $pink;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $midnight;
+    background: #E9EFF6;
+    border: 1px solid $midnight;
+  }
+}

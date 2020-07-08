@@ -11,11 +11,12 @@ const exec = require('child_process').exec;
 const paths = {
   javascripts: {
     src: 'src/javascripts/**/*.js',
-    mnanifest: 'src/javascripts/application.js',
+    manifest: 'src/javascripts/application.js',
     dist: 'src/site/assets/javascripts'
   },
   stylesheets: {
     src: ['src/stylesheets/**/*.scss'],
+    manifest: 'src/stylesheets/application.scss',
     dist: 'src/site/assets/stylesheets'
   },
   fonts: {
@@ -30,7 +31,7 @@ const paths = {
 };
 
 const stylesheets = () => {
-  return gulp.src(paths.stylesheets.src)
+  return gulp.src(paths.stylesheets.manifest)
     .pipe(plumber({
       errorHandler: function(error) {
         console.log(error.message);
@@ -59,7 +60,7 @@ const images = () => {
 
 const javascripts = () => {
   return browserify({
-    entries: [paths.javascripts.mnanifest],
+    entries: [paths.javascripts.manifest],
     transform: [babelify.configure({ presets: ["@babel/preset-env"] })]
   })
   .bundle()

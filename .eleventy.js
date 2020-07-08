@@ -20,8 +20,9 @@ module.exports = function(config) {
       input: "src/site",
       output: "dist",
       data: "_data",
-      includes: "_partials"
+      includes: "_partials",
     },
+    pathPrefix: "/careers/digital/",
     templateFormats : ["njk", "md", "11ty.js"],
     htmlTemplateEngine : "njk",
     markdownTemplateEngine : "njk",

@@ -1,6 +1,0 @@
-/// Map of breakpoints to be used in the `respond-to` mixin. These will generally match common device sizes. Any breakpoint in this list should be considered globally-available. If you need per-component "tweakpoints", create a `$tweakpoints` map inside your component Sass file rather than adding to the global breakpoints map.
-/// @type Map
-$breakpoints: (
-  'tablet': 800px,
-  'mobile': 480px
-);

@@ -1,0 +1,20 @@
+// lock a fluid container with a max width
+// needs a media query and not max-width to reset margins also
+// as it's left-aligned and not centred
+@include media-breakpoint-up(lock) {
+  .container-fluid {
+    width: map-get($grid-breakpoints, lock) - 100px;
+    margin: 0;
+  }
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+
+  @include media-breakpoint-down('md') {
+    display: block;
+    min-height: 0;
+  }
+}

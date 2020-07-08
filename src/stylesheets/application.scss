@@ -1,14 +1,9 @@
-@import 'settings/breakpoints';
-@import 'utilities/mixins';
+@import "settings/variables";
+@import "settings/bootstrap-overrides";
+@import "node_modules/bootstrap/scss/bootstrap";
 
-@import 'settings/colours';
-@import 'settings/fonts';
-
-@import 'utilities/fonts';
-
-@import 'vendor/reset';
-
-@import 'layouts/base';
-
-@import 'base/fonts';
-@import 'base/elements';
+@import "layout";
+@import "typography";
+@import "components/button";
+@import "components/card";
+@import "components/forms";

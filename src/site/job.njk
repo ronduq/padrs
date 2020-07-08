@@ -5,7 +5,7 @@ pagination:
     data: jobs
     size: 1
     alias: job
-permalink: "jobs/{{ job.title | slug }}-{{ job.id }}/"
+permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 ---
 
 <script type="application/ld+json">
@@ -24,7 +24,7 @@ permalink: "jobs/{{ job.title | slug }}-{{ job.id }}/"
   }
 </script>
 
-<h1>{{ job.title }}</h1>
+<h1 class="h1">{{ job.title }}</h1>
 
 <dl>
   <dt>Location</dt>
@@ -104,7 +104,7 @@ permalink: "jobs/{{ job.title | slug }}-{{ job.id }}/"
 
 
 <h2>Still have some questions</h2>
-<a href="/faq">FAQs</a>
+<a href="{{ "/faqs" | url }} ">FAQs</a>
 
 {% for f in job.description %}
   {% if f.key == "diversity-statement" %}

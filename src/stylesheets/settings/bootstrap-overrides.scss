@@ -1,0 +1,48 @@
+$body-color: $midnight;
+$body-bg: #E9EFF6;
+
+$primary: $pink;
+$link-color: #293846;
+
+$font-family-sans-serif: Arial, sans-serif;
+
+$h1-font-size: 4rem;
+$h2-font-size: 3rem;
+$h3-font-size: 1.625rem;
+$h4-font-size: 1.125rem;
+$h5-font-size: 1rem;
+$h6-font-size: 1rem;
+$headings-font-weight: 700;
+$headings-margin-bottom: 1rem;
+
+$btn-font-weight: 700;
+$border-radius: 5px;
+$input-border-color: #fff;
+
+$card-border-width: 0;
+
+$input-btn-padding-y: 0.45rem;
+$custom-select-indicator: url("data:image/svg+xml,<svg width='16' height='9' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><path d='M22.472 12.525a.74.74 0 010 1.05L15.705 20.3a1 1 0 01-1.41 0l-6.767-6.725a.74.74 0 010-1.05.75.75 0 011.057 0L15 18.899l6.415-6.374a.75.75 0 011.057 0z' id='a'/></defs><use fill='#{$midnight}' fill-rule='nonzero' xlink:href='#a' transform='translate(-7 -12)'/></svg>");
+$custom-select-bg-size: 16px 8px;
+$custom-select-height: calc(1.5em + 0.75rem + 4px);
+
+$badge-font-size: 14px;
+$badge-padding-y: .45em;
+$badge-padding-x: .8em;
+$badge-border-radius: 3px;
+
+$alert-border-radius: 0;
+$alert-padding-y: 1.85rem;
+$alert-padding-x: 1.85rem;
+$alert-border-width: 0;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  lock: 1600px
+) !default;
+
+$form-group-margin-bottom: 1.8rem;
