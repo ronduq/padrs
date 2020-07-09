@@ -22,7 +22,7 @@ module.exports = function(config) {
       data: "_data",
       includes: "_partials",
     },
-    pathPrefix: "/careers/digital/",
+    pathPrefix: "/",
     templateFormats : ["njk", "md", "11ty.js"],
     htmlTemplateEngine : "njk",
     markdownTemplateEngine : "njk",
