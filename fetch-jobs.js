@@ -156,6 +156,3 @@ const slugify = require("slugify");
 
   fs.writeFile('src/site/_data/capabilities.json', JSON.stringify(capabilities, null, 2), (err) => {});
 })();
-
-
-
