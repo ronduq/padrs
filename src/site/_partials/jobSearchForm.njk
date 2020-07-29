@@ -1,18 +1,18 @@
 {% macro jobSearchForm(bindJavaScript='false') %}
-  <form action="/jobs" {% if bindJavaScript == 'true' %}data-enabled{% endif %}>
-    <input type="text" name="q">
-    <select name="location">
+  <form class="job-search-form" action="/jobs" {% if bindJavaScript == 'true' %}data-enabled{% endif %}>
+    <input type="text" name="q" class="form-control" placeholder="What's your passion?">
+    <select name="location" class="custom-select">
       <option value="">Location</option>
-      {%- for location in locationsList -%}
-        <option value="{{ location.city }}">{{ location.city }}, {{ location.country }}</option>
+      {%- for location in jobsLocations -%}
+        <option {% if (location.city | jobsCountByCity) == 0 %}disabled{% endif %} value="{{ location.city }}">{{ location.city }}, {{ location.country }}</option>
       {%- endfor -%}
     </select>
-    <select name="capability">
+    <select name="capability" class="custom-select">
       <option value="">Capability</option>
       {%- for capability in capabilities -%}
         <option>{{ capability.name }}</option>
       {%- endfor -%}
     </select>
-    <button type="submit">Search</button>
+    <button type="submit" class="button">Search</button>
   </form>
 {% endmacro %}

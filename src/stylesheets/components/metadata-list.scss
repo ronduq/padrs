@@ -1,0 +1,33 @@
+.metadata-list {
+  @include plain-list;
+  overflow: hidden;
+
+  li {
+    float: left;
+    margin-right: spacing(l);
+    position: relative;
+
+    &:before {
+      display: block;
+      content: '';
+      background-color: $rose;
+      width: 7px;
+      height: 7px;
+      border-radius: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: (spacing(l) / 2) * -1;
+    }
+
+    &:last-child {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  span {
+    display: block;
+  }
+}

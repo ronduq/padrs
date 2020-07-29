@@ -1,0 +1,52 @@
+/// Map of typography scale used in the project.
+// Ideally this will cover all required styles so that you rarely need to use explicit `font-size` or `line-height` properties.
+// Access these values through the various font mixins. Each font size has an associated line height. A nested set of breakpoints
+// allows you to define how this font size should change at different screen widths. The breakpoint names should match keys in the
+/// `$breakpoints` map.
+/// @type Map
+$font-sizes: (
+  h1: (
+    font-size: 50, line-height: 1.2,
+    breakpoints: (
+      tablet: (font-size: 40, line-height: 1.25)
+    )
+  ),
+  h2: (
+    font-size: 40, line-height: 1.25,
+    breakpoints: (
+      tablet: (font-size: 28, line-height: 1.2)
+    )
+  ),
+  h3: (
+    font-size: 32, line-height: 1.25,
+    breakpoints: (
+      tablet: (font-size: 22, line-height: 1.25)
+    )
+  ),
+  h4: (
+    font-size: 24, line-height: 1.4
+  ),
+  intro: (
+    font-size: 20, line-height: 1.5
+  ),
+  body: (
+    font-size: 16, line-height: 1.75
+  )
+);
+
+/// Map of font families used in the project.
+// Ideally this will cover all required styles so that you rarely need to use explicit `font-family` properties.
+// Access these values through the various font mixins.
+/// @type Map
+$font-stacks: (
+  'Arial':     (font-family: ('Arial', 'sans-serif'), font-weight: 100)
+);
+
+/// Defines tweaks for specific font family and sizes (e.g. a large headline size might need smaller letter-spacing). The key for this map is a combination of the font stack name and a font size name.
+/// @type Map
+$font-tweaks: (
+  'Arial-h1': (letter-spacing: -0.5px),
+  'Arial-h2': (letter-spacing: -0.5px),
+  'Arial-h3': (letter-spacing: -0.5px),
+  'Arial-h4': (letter-spacing: -0.3px)
+);

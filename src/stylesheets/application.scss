@@ -1,9 +1,34 @@
-@import "settings/variables";
-@import "settings/bootstrap-overrides";
-@import "node_modules/bootstrap/scss/bootstrap";
+@import 'vendor/reset';
+
+@import 'settings/breakpoints';
+@import 'settings/colours';
+@import 'settings/spacing';
+@import 'settings/typography';
+@import 'settings/variables';
+
+@import 'utilities/mixins';
+@import 'utilities/typography';
+
+// Bootstrap still has a really good grid, but everything else is too heavy
+@import "node_modules/bootstrap/scss/bootstrap-grid";
+$custom-select-indicator: url("data:image/svg+xml,<svg width='16' height='9' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><path d='M22.472 12.525a.74.74 0 010 1.05L15.705 20.3a1 1 0 01-1.41 0l-6.767-6.725a.74.74 0 010-1.05.75.75 0 011.057 0L15 18.899l6.415-6.374a.75.75 0 011.057 0z' id='a'/></defs><use fill='#{$midnight}' fill-rule='nonzero' xlink:href='#a' transform='translate(-7 -12)'/></svg>");
+$custom-select-bg-size: 16px 8px;
+$custom-select-height: calc(1.5em + 0.75rem + 4px);
 
 @import "layout";
 @import "typography";
+
+@import "components/banner";
+@import "components/benefits-list";
 @import "components/button";
 @import "components/card";
+@import "components/footer";
 @import "components/forms";
+@import "components/hero";
+@import "components/job-search-form";
+@import "components/masthead";
+@import "components/metadata-list";
+@import "components/steps";
+@import "components/tabs";
+
+@import 'utilities/classes';

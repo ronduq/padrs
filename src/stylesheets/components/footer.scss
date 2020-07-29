@@ -1,0 +1,47 @@
+.footer {
+  background: colour(midnight);
+  color: colour(white);
+  margin-top: 85px;
+
+  ul {
+    li {
+      display: inline-block;
+    }
+  }
+
+  > .container {
+    padding: spacing(l) 0;
+  //   position: relative;
+
+  //   &:after {
+  //     $size: 165px;
+  //     content: '';
+  //     display: block;
+  //     background-color: colour(rose);
+  //     border-radius: 50%;
+  //     width: $size;
+  //     height: $size;
+  //     position: absolute;
+  //     top: -50%;
+  //     right: 75px;
+  //     transform: translateY(50%);
+  //   }
+  }
+}
+
+.footer__amen {
+  display: block;
+  margin-bottom: spacing(l);
+}
+
+.footer__links {
+  text-align: right;
+
+  li {
+    margin-left: spacing(s);
+  }
+
+  a {
+    color: colour(white);
+  }
+}

@@ -3,18 +3,47 @@ title: Jobs at PA digital
 layout: default
 ---
 
-<h1>Find roles</h1>
-
 {% import "jobSearchForm.njk" as search with context %}
-{{ search.jobSearchForm('true') }}
 
-<div data-search-no-results>
-  <h2>No results</h2>
+<div class="bg-midnight colour-white pb-l mb-l">
+  <div class="container">
+    <div class="row">
+      <div class="col col-10 offset-1">
+
+        <div class="hero">
+          <span class="hero__intro"></span>
+          <h1 class="hero__title h1">Find roles</h1>
+        </div>
+
+        {{ search.jobSearchForm('true') }}
+
+      </div>
+    </div>
+  </div>
 </div>
 
-<div data-search-results>
-  <h2 data-search-count></h2>
-  {% for job in jobs %}
-    {% include "jobCard.njk" %}
-  {% endfor %}
+<div class="container">
+  <div class="row">
+    <div class="col-11 offset-1">
+      <div data-search-no-results>
+        <h2 class="h3">No results</h2>
+      </div>
+      <div data-search-results>
+        <h2 class="h3" data-search-count></h2>
+        <div class="card-group card-group--list">
+          {% for job in jobs %}
+            <div class="card card--grey" data-search-id="{{ job.id }}">
+              <span class="card__intro" data-search-capability>{{ job.capability }}</span>
+              <h3 class="h4" data-search><a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}">{{ job.title }}</a></h3>
+              <p>{{ job.summary }}</p>
+              <a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}" data-search-location="{{ job.city }}">{{ job.location }}</a>
+              <!--googleoff: all-->
+              <p data-search-fulltext hidden>{{ job.fulltext }}</p>
+              <!--googleon: all-->
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+    </div>
+  </div>
 </div>

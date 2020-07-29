@@ -1,0 +1,62 @@
+.steps {
+
+  ol {
+    @include plain-list;
+  }
+
+  li {
+    position: relative;
+    padding-bottom: spacing(m);
+
+    &:before {
+      content: '';
+      display: inline-block;
+      background-color: colour(rose);
+      width: 5px;
+      height: 100%;
+      position: absolute;
+      left: (spacing(m) + 13) * -1;
+      top: 10px;
+    }
+
+    span {
+      display: block;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        background-color: colour(rose);
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        position: absolute;
+        left: (spacing(m) + 22) * -1;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &:last-child {
+      &:before {
+        display: none;
+      }
+      span:before {
+        width: 45px;
+        height: 45px;
+        left: (spacing(m) + 33) * -1;
+      }
+      span:after {
+        content: '🎉';
+        display: inline-block;
+        position: absolute;
+        top: 3px;
+        left: (spacing(m) + 21) * -1;
+      }
+    }
+  }
+
+  p {
+    color: colour(mid-grey);
+  }
+}

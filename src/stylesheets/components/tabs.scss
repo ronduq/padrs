@@ -1,0 +1,48 @@
+.tabs {
+ @include plain-list;
+ font-weight: 700;
+ position: relative;
+
+  li {
+    margin: 0 spacing(m) 0 0;
+    display: inline-block;
+  }
+
+  a:not(.button) {
+    color: $white;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding: 1.75em 0 1.75em 0;
+
+    &:hover {
+      color: $rose;
+    }
+  }
+
+  li[aria-current] a {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-radius: 3px 3px 0 0;
+      height: 5px;
+      background-color: $rose;
+    }
+  }
+}
+
+.tab__cta {
+  float: right;
+
+  .button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1.5;
+  }
+}

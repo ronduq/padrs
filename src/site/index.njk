@@ -3,25 +3,134 @@ title: PA digital recruitment
 layout: default
 ---
 
-<h1 class="h1">There's never been a better time to join the Digital team at PA</h1>
-
-<h2>{{ jobs.length }} open job positions</h2>
-
 {% import "jobSearchForm.njk" as search with context %}
-{{ search.jobSearchForm('false') }}
 
-<h2>Working at PA digital</h2>
+<div class="bg-midnight colour-white pb-l">
+  <div class="container">
+    <div class="row">
+      <div class="col col-10 offset-1">
 
-<h3>What do we do?</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna. Cras finibus egestas laoreet. Aliquam nec purus arcu. Sed semper ante at commodo suscipit. Integer imperdiet diam ut nunc bibendum, id sodales lectus dignissim. Praesent facilisis tincidunt pellentesque.</p>
+        <div class="hero">
+          <span class="hero__intro">Digital careers at PA</span>
+          <h1 class="hero__title h1">There’s never been a better time to join the Digital team at PA</h1>
+        </div>
 
-<h3>What is it like working here?</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna. Cras finibus egestas laoreet. Aliquam nec purus arcu. Sed semper ante at commodo suscipit. Integer imperdiet diam ut nunc bibendum, id sodales lectus dignissim. Praesent facilisis tincidunt pellentesque.</p>
+        {% if jobs.length > 0 %}
+        <h2 class="h4 colour-rose mb-s">{{ jobs.length }} open job position{% if jobs.length > 1 %}s{% endif %}</h2>
+        {{ search.jobSearchForm('false') }}
+        {% endif %}
 
-<h3>Benefits</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna. Cras finibus egestas laoreet. Aliquam nec purus arcu. Sed semper ante at commodo suscipit. Integer imperdiet diam ut nunc bibendum, id sodales lectus dignissim. Praesent facilisis tincidunt pellentesque.</p>
-<ul>
-  <li>Benefit 1</li>
-  <li>Benefit 2</li>
-  <li>Benefit 3</li>
-</ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-l mb-l">
+  <div class="row">
+    <div class="col col-6 offset-1 mb-l">
+      <h2 class="h2">The best team you'll ever work with, in the best job you'll ever have.</h2>
+      <p class="intro">Our teams are trusted to deliver and given the space to be awesome. We’re an inclusive community for the curious, generous, pragmatic and enthusiastic digital practitioner.</p>
+    </div>
+    <div class="w-100"></div>
+    <div class="col col-4 offset-2">
+      <img src="https://picsum.photos/360/322" alt="" style="width:100%"/>
+    </div>
+    <div class="col col-4">
+      <h2 class="h2">Mix the thinking – and the making gets better.</h2>
+      <p>By blending client-agency teams and mixing disciplines we can deliver faster, iterate smarter and learn constantly. We challenge the status quo and speak up when things aren’t right.</p>
+    </div>
+    <div class="col col-4 offset-2 mt-l">
+      <h2 class="h2">Bringing ingenuity to life with digital.</h2>
+      <p>We design, build, maintain and run digital solutions   at scale – that drive innovation and enrich people’s lives. We’re proud to create a positive human future in a tech-driven world. </p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-midnight colour-white pt-l pb-l">
+  <div class="container">
+    <div class="row">
+      <div class="col col-6 offset-1 mb-l">
+        <h2 class="h2 colour-rose">Benefits</h2>
+        <p class="intro">Our teams are trusted to deliver and given the space to be awesome. We’re an inclusive community for the curious, generous, pragmatic and enthusiastic digital practitioner.</p>
+      </div>
+      <div class="col col-8 offset-2">
+        <div class="benefits-list">
+          <div class="benefits-list__item">
+            <h3 class="h4">Flexible healthcare</h3>
+            <p>Choose a healthcare plan just for you, or add your loved ones. There's also NHS or private dental, annual eye tests and flu vaccines, gym discounts, Cycle to Work, and more.</p>
+          </div>
+          <div class="benefits-list__item">
+            <h3 class="h4">Annual leave</h3>
+            <p>Because there's more to life than just work... You'll get 25 days leave (plus a nice bonus half-day at Christmas). You can also buy up to 5 extra days per year.</p>
+          </div>
+          <div class="benefits-list__item">
+            <h3 class="h4">Learning support</h3>
+            <p>We've got a shiny new online learning academy, packed with training courses. We'll also support you in any external qualifications that take your fancy.</p>
+          </div>
+          <div class="benefits-list__item">
+            <h3 class="h4">Planning for the future</h3>
+            <p>Don't worry, we offer all the sensible stuff, including a pension, life assurance, income protection schemes, and PA shares.</p>
+          </div>
+          <div class="benefits-list__item">
+            <h3 class="h4">Giving back</h3>
+            <p>Take advantage of our great Give as You Earn scheme, or why not volunteer up to 3 days a year for a charity close to your heart?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-l pb-m">
+  <div class="row">
+    <div class="col col-6 offset-1 mb-l">
+      <h2 class="h2">Stimulating, meaningful work</h2>
+      <p class="intro">We're bringing ingenuity to life for all of our clients. We're also having a great time, which helps a lot.</p>
+    </div>
+    <div class="w-100"></div>
+    <div class="col col-8 offset-2">
+      <div class="card-group card-group--two">
+        <div class="card">
+          <img src="https://picsum.photos/360/220" alt="">
+          <span class="card__intro">Todo</span>
+          <h3 class="h3 mb-m">Todo todo todo</h3>
+          <a href="#">London</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/360/220" alt="">
+          <span class="card__intro">Todo</span>
+          <h3 class="h3 mb-m">Todo todo todo</h3>
+          <a href="#">London</a>
+        </div>
+      </div>
+    </div>
+    <div class="col col-10 offset-1">
+      <div class="banner mt-l mb-l">
+        <h2 class="h3">What are you waiting for?</h2>
+        <a href="{{ '/jobs' | url }}" class="button button--outline-midnight">View our open roles</a>
+      </div>
+    </div>
+    <div class="col col-12">
+      <div class="card-group">
+        <div class="card card--grey">
+          <img src="https://picsum.photos/360/220" alt="">
+          <span class="card__intro">Todo</span>
+          <h3 class="h3 mb-m">Todo todo todo</h3>
+          <a href="#">London</a>
+        </div>
+        <div class="card card--grey">
+          <img src="https://picsum.photos/360/220" alt="">
+          <span class="card__intro">Todo</span>
+          <h3 class="h3 mb-m">Todo todo todo</h3>
+          <a href="#">London</a>
+        </div>
+        <div class="card card--grey">
+          <img src="https://picsum.photos/360/220" alt="">
+          <span class="card__intro">Todo</span>
+          <h3 class="h3 mb-m">Todo todo todo</h3>
+          <a href="#">London</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,33 @@
-.btn {
+.button {
+  display: inline-block;
   font-weight: 700;
+  color: colour(midnight);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  background-color: colour(rose);
+  border: 0;
+  padding: 12px spacing(s);
+  border-radius: 3px;
+  line-height: 1;
+
+  &:focus {
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    outline: none;
+  }
 }
 
-.btn.btn-dark {
-  background: $midnight;
-  color: $pink;
+.button--outline-midnight {
+  background: transparent;
+  border: 1px solid colour(midnight);
+  color: colour(midnight);
+}
 
-  &:active,
-  &:focus,
-  &:hover {
-    color: $midnight;
-    background: #E9EFF6;
-    border: 1px solid $midnight;
-  }
+.button--outline-rose {
+  background-color: transparent;
+  border: 1px solid colour(rose);
+  color: colour(rose);
 }

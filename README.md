@@ -16,4 +16,11 @@
 
 ## Deploying to Netlify
 
-There is a post-commit hook which mirrors the repo to Github (temporarily in Nick Dunn's account), which then deploys via Netlify to https://pa-digital-recruitment.netlify.app/. It's magic and brilliant.
+Add our Github mirror remote to your local repo:
+
+    git remote add github git@github.com:pa-digital/pa-digital-recruitment.git
+
+Then add a post-commit hook to push to the repo each time you commit (.git/hooks/post-commit):
+
+    #!/bin/sh
+    git push github -f --mirror

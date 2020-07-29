@@ -1,0 +1,17 @@
+.hero {
+  h1 {
+    width: 60%;
+    max-width: 600px;
+  }
+}
+
+.hero__intro {
+  font-style: italic;
+  display: block;
+  margin-bottom: spacing(s);
+
+  &:empty:before {
+    content: '\a0';
+    display: block;
+  }
+}

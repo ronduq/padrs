@@ -1,64 +1,73 @@
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
+.card-group {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
 
+  &.card-group--two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card-group--list {
+  display: block;
 
   .card {
-    width: calc(25% - 30px);
-    margin: 0 30px 30px 0;
-
-    @include media-breakpoint-down('lg') {
-      width: calc(50% - 30px);
-    }
-
-    @include media-breakpoint-down('md') {
-      width: calc(100%);
-    }
-  }
-
-  // IE11
-  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    a {
-      overflow: hidden;
-    }
+    margin-bottom: spacing(m);
   }
 }
 
 .card {
-  padding: 30px;
-}
+  background-color: colour(midnight);
+  color: #fff;
+  padding: spacing(m);
+  border-radius: 3px;
+  overflow: hidden;
 
-.card-body {
-  padding: 0;
-}
+  img {
+    margin-top: -1 * spacing(m);
+    margin-left: -1 * spacing(m);
+    margin-right: -1 * spacing(m);
+    margin-bottom: spacing(m);
+  }
 
-.card-expandy-toggle {
-  cursor: pointer;
-  position: relative;
-
-  &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: '';
+  a {
     display: block;
-    $expandy-indicator: url("data:image/svg+xml,<svg width='16' height='9' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><path d='M22.472 12.525a.74.74 0 010 1.05L15.705 20.3a1 1 0 01-1.41 0l-6.767-6.725a.74.74 0 010-1.05.75.75 0 011.057 0L15 18.899l6.415-6.374a.75.75 0 011.057 0z' id='a'/></defs><use fill='#{$midnight}' fill-rule='nonzero' xlink:href='#a' transform='translate(-7 -12)'/></svg>");
-    background: escape-svg($expandy-indicator) no-repeat right 0 center / 24px;
-    width: 26px;
-    height: 24px;
-    transition: all 0.3s;
-    transform-origin: 50% 50%;
+    color: colour(rose);
+    text-decoration: none;
+    font-style: italic;
 
-    .card-expandy--open & {
-      transform: rotate(180deg);
+    &:hover {
+      color: #fff;
+    }
+
+    &:after {
+      content: '\02192';
+      display: inline-block;
+      float: right;
     }
   }
 }
 
-.card-expandy-body {
-  display: none;
+.card__intro {
+  display: block;
+  font-style: italic;
+  color: colour(rose);
+  margin-bottom: spacing(s);
 
-  .card-expandy--open & {
-    display: block;
+  .card--grey & {
+    color: colour(midnight);
+  }
+}
+
+.card--grey {
+  background-color: colour(light-grey);
+  color: colour(midnight);
+
+  .card__intro {
+    color: colour(midnight);
+  }
+
+  a {
+    color: colour(midnight);
   }
 }

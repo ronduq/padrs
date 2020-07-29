@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = function(config) {
 
   const jobs = JSON.parse(fs.readFileSync('src/site/_data/jobs.json'));
-  const locations = JSON.parse(fs.readFileSync('src/site/_data/locationsList.json'))
+  const locations = JSON.parse(fs.readFileSync('src/site/_data/jobsLocations.json'))
 
   config.setUseGitIgnore(false);
   config.addLayoutAlias('default', 'base.njk')
@@ -13,6 +13,12 @@ module.exports = function(config) {
   config.addFilter('jobsCountByCity', (city) => {
     const location = locations.find(c => c.city === city)
     return location ? location.jobs : 0;
+  })
+
+  config.addFilter('relatedJobs', (job) => {
+    const jobsInCapability = jobs.filter(j => j.capability === job.capability);
+    const jobsNotCapability = jobs.filter(j => j.capability !== job.capability);
+    return [...jobsInCapability, ...jobsNotCapability].slice(0, 3);
   })
 
   return {

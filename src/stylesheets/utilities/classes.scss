@@ -1,0 +1,28 @@
+@each $name, $colour in $colours {
+  .colour-#{$name} {
+    color: $colour;
+    a:not([class]) {
+      color: $colour;
+    }
+  }
+  .bg-#{$name} {
+    background-color: $colour;
+  }
+}
+
+@each $name, $size in $spacing {
+  .mt-#{$name} { margin-top: spacing($name); }
+  .mr-#{$name} { margin-right: spacing($name); }
+  .mb-#{$name} { margin-bottom: spacing($name); }
+  .ml-#{$name} { margin-left: spacing($name); }
+  .pt-#{$name} { padding-top: spacing($name); }
+  .pr-#{$name} { padding-right: spacing($name); }
+  .pb-#{$name} { padding-bottom: spacing($name); }
+  .pl-#{$name} { padding-left: spacing($name); }
+}
+
+.sticky {
+  position: sticky;
+  top: -1px;
+  z-index: 1;
+}

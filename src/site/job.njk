@@ -24,94 +24,298 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
   }
 </script>
 
-<h1 class="h1">{{ job.title }}</h1>
+<div class="bg-midnight colour-white pb-m">
+  <div class="container">
+    <div class="row">
+      <div class="col col-10 offset-1">
 
-<dl>
-  <dt>Location</dt>
-  <dd>{{ job.location }}</dd>
-  <dt>Contract</dt>
-  <dd>{{ job.length }}, {{ job.contract }}</dd>
-</dl>
+        <div class="hero mb-m">
+          <span class="hero__intro"></span>
+          <h1 class="hero__title h1">{{ job.title }}</h1>
+        </div>
 
-<ul>
-  <li><a href="#role">The role</a></li>
-  <li><a href="#benefits">Benefits</a></li>
-  <li><a href="#process">Recruitment process</a></li>
-  <li><a href="#location">Location</a></li>
-  <li><a href="{{ job.applyUrl }}">Apply</a></li>
-</ul>
+        <ul class="metadata-list mb-m">
+          <li>
+            <span>Location</span> {{ job.location }}
+          </li>
+          <li>
+            <span>Contract</span> {{ job.length }}, {{ job.contract }}
+          </li>
+        </ul>
 
-<h2>The role</h2>
+      </div>
+    </div>
+  </div>
+</div>
 
-{% for f in job.description %}
-  {% if f.key == "become-part-of-the-team" %}
-    {{ f.content | safe }}
-  {% elseif (f.key == "diversity-statement") or (f.key == "inclusion-and-diversity") %}
-  {% elseif f.key == "benefits" %}
-  {% else %}
-    <h2>{{ f.title }}</h2>
-    {{ f.content | safe }}
-  {% endif %}
-{% endfor %}
+<div class="bg-midnight colour-white sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col col-11 offset-1">
 
-<!-- TODO: switch these based on capability -->
-{% switch job.capability %}
-  {% case 'Design' %}
-   <h2>The Design team</h2>
-   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
-  {% case 'Engineering & DevOps' %}
-   <h2>The Engineering team</h2>
-   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
-   {% case 'Delivery' %}
-   <h2>The Delivery team</h2>
-   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
-   {% case 'Transformation' %}
-   <h2>The Transformation team</h2>
-   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
-{% endswitch %}
+        <ul class="tabs">
+          <li aria-current="page"><a href="#role">The role</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#process">Recruitment process</a></li>
+          <li><a href="#location">Location</a></li>
+          <li class="tab__cta"><a href="{{ job.applyUrl }}" class="button">Apply now</a></li>
+        </ul>
 
-<h2>The team</h2>
-<!-- TODO: insert team profile(s) -->
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>Career growth</h2>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+<div class="container pb-l" id="role">
+  <div class="row">
+    <div class="col col-7 offset-1 pt-l">
 
-<h2>Benefits</h2>
-<h3>What we offer</h3>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
-<h3>Benefits</h3>
-<!-- TODO: should these come from the JD or hard coded? -->
-{% for f in job.description %}
-  {% if f.key == "benefits" %}
-    {{ f.content | safe }}
-  {% endif %}
-{% endfor %}
+      <h2 class="h2">The role</h2>
+
+      {% for f in job.description %}
+        {% if f.key == "become-part-of-the-team" %}
+          {{ f.content | safe }}
+        {% elseif (f.key == "diversity-statement") or (f.key == "inclusion-and-diversity") %}
+        {% elseif f.key == "benefits" %}
+        {% else %}
+          <h2 class="h2">{{ f.title }}</h2>
+          {{ f.content | safe }}
+        {% endif %}
+      {% endfor %}
+
+      <h2>Career growth</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+
+    </div>
+    <div class="col col-4 pt-l">
+      <h2 class="h4">The team</h2>
+      <p>We want you to feel at home from the start, so check out a few of the people you might work with one day soon.</p>
+      <!-- TODO: insert team profile(s) -->
+
+      <!-- TODO: switch these based on capability -->
+      {% switch job.capability %}
+      {% case 'Design' %}
+      <h2 class="h4">The Design team</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      {% case 'Engineering & DevOps' %}
+      <h2 class="h4">The Engineering team</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      {% case 'Delivery' %}
+      <h2 class="h4">The Delivery team</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      {% case 'Transformation' %}
+      <h2 class="h4">The Transformation team</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      {% endswitch %}
+    </div>
+  </div>
+</div>
+
+<div class="bg-midnight colour-white pt-l pb-l" id="benefits">
+  <div class="container">
+    <div class="row">
+      <div class="col col-11 offset-1">
+
+        <h2 class="h2 colour-rose mb-0">Benefits</h2>
+        <p class="intro">We know you work best when you feel valued and when life feels balanced. So, our benefits have been designed by the people who actually work here.</p>
+        <!-- TODO: should these come from the JD or hard coded? -->
+        {% for f in job.description %}
+          {% if f.key == "benefits" %}
+            {{ f.content | safe }}
+          {% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-l pb-l" id="process">
+  <div class="row">
+    <div class="col col-11 offset-1">
+
+      <h2 class="h3 mb-0">Recruitment process</h2>
+
+    </div>
+    <div class="col col-6 offset-2 mt-l">
+
+      <!-- TODO: swap this out per capability -->
+      <div class="steps">
+        <ol>
+          <li>
+            <span class="h4">Online application</span>
+            <p>First up, get started by applying online. Your dream job could be waiting for you!</p>
+          </li>
+          <li>
+            <span class="h4">First-round interview</span>
+            <p>We want to understand why you’ve applied and what interests you. We’ll ask you about a few bits from your CV and hope to hear how your experiences have shaped your skills. These interviews typically last around 30 minutes.</p>
+          </li>
+          <li>
+            <span class="h4">Second round interview</span>
+            <p>In the Design team we'll ask you to share a portfolio of your work and talk us through areas of interest.</p>
+          </li>
+          <li>
+            <span class="h4">Final round interview</span>
+            <p>Congrats, you’ve made it to the final stage! You’ll be interviewed by a Partner or Senior Manager from your team – either in person or over the phone – for up to one hour. This is also your chance to ask any burning questions, so make sure you have these ready.</p>
+          </li>
+        </ol>
+      </div>
 
 
-<h2>Recruitment process</h2>
-<!-- TODO: swap this out per capability -->
+    </div>
 
-<h2>Location</h2>
-<!-- TODO: swap this out per location -->
-{% switch job.office %}
-  {% case 'Victoria' %}
-   Victoria!
-  {% case 'Farringdon' %}
-   Farringdon!
-  {% case 'Belfast' %}
-  Belfast!
-{% endswitch %}
+    <!-- TODO: swap this out per capability -->
+    <div class="col col-4">
+      <h3 class="h4">Preparation tips</h3>
+      <p>Remember, we’ll already have looked at your portfolio, so this is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Don’t just repeat what we’ve already read. Consider also sharing some new examples, so we can really get a feel for the breadth and depth of your work. </p>
 
+    </div>
+  </div>
+</div>
 
-<h2>Still have some questions</h2>
-<a href="{{ "/faqs" | url }} ">FAQs</a>
+<div class="bg-midnight colour-white pt-l pb-l" id="location">
+  <div class="container">
+    {% switch job.office %}
+    {% case 'Victoria' %}
+    <div class="row mb-m">
+      <div class="col col-7 offset-1">
+        <h2 class="h3 colour-rose">Location</h2>
+        <p>The base office for this role is Victoria, London. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-4 offset-1">
+        <h3 class="h4">Address</h3>
+        <p>10 Bressenden Place, Westminster, London SW1E 5DN</p>
+        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+      </div>
+      <div class="col-7">
+        <iframe
+          width="100%"
+          height="100%"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJXi-36xEBSY27we803yqd2y9bkIsuY-g
+            &q=PA+Consulting,10+Bressenden+Place,London" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    {% case 'Farringdon' %}
+    <div class="row mb-m">
+      <div class="col col-7 offset-1">
+        <h2 class="h3 colour-rose">Location</h2>
+        <p>The base office for this role is Farringdon, London. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-4 offset-1">
+        <h3 class="h4">Address</h3>
+        <p>50 Farringdon Rd, London EC1M 3HE</p>
+        <h3 class="h4">Transport links</h3>
+        <p>Our office is a very short walk from Farringdon station. Farringdon is on the National Rail as well as Circle, Hammersmith & City, and Metropolitan Underground lines.</p>
+        <p>Farringdon - 5 minute walk<br>London Bridge - 15 minutes by tube<br>Waterloo - 12 minutes by tube</p>
+        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+      </div>
+      <div class="col-7">
+        <iframe
+          width="100%"
+          height="100%"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJXi-36xEBSY27we803yqd2y9bkIsuY-g
+            &q=PA+Consulting,50+Farringdon+Road,London" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    {% case 'Belfast' %}
+    <div class="row mb-m">
+      <div class="col col-7 offset-1">
+        <h2 class="h3 colour-rose">Location</h2>
+        <p>The base office for this role is Belfast. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-4 offset-1">
+        <h3 class="h4">Address</h3>
+        <p>1st Floor, Centre House, 79 Chichester St, Belfast BT1 4JR</p>
+        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+      </div>
+      <div class="col-7">
+        <iframe
+          width="100%"
+          height="100%"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJXi-36xEBSY27we803yqd2y9bkIsuY-g
+            &q=PA+Consulting,79+Chichester+St,Belfast" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    {% case 'Utrecht' %}
+    <div class="row mb-m">
+      <div class="col col-7 offset-1">
+        <h2 class="h3 colour-rose">Location</h2>
+        <p>The base office for this role is Utrecht. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-4 offset-1">
+        <h3 class="h4">Address</h3>
+        <p>Papendorpseweg 97, Gebouw B, 3528 BJ Utrecht, Netherlands</p>
+        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+      </div>
+      <div class="col-7">
+        <iframe
+          width="100%"
+          height="100%"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJXi-36xEBSY27we803yqd2y9bkIsuY-g
+            &q=PA+Consulting,Papendorpseweg+97,Gebouw+B,3528+BJ+Utrecht" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    {% endswitch %}
+    <!-- TODO: US office? other UK? -->
+  </div>
+</div>
 
-{% for f in job.description %}
-  {% if f.key == "diversity-statement" %}
-    <h2>{{ f.title }}</h2>
-    {{ f.content | safe }}
-  {% endif %}
-{% endfor %}
+<div class="container">
+<div class="row">
+  <div class="col col-10 offset-1">
 
-<h2>More roles at PA</h2>
-<!-- what is the logic here? in same capability? any? -->
+    <div class="banner mt-l mb-l">
+      <h2 class="h3">Still have questions?</h2>
+      <a href="{{ '/faqs' | url }}" class="button button--outline-midnight">View our FAQs</a>
+    </div>
+
+  </div>
+  <div class="col col-7 offset-1 mb-xl">
+    {% for f in job.description %}
+      {% if f.key == "diversity-statement" %}
+        <h2 class="h4">{{ f.title }}</h2>
+        {{ f.content | safe }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+{% set relatedJobs = (job | relatedJobs) %}
+{% if relatedJobs.length > 0 %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="heading mb-m">
+          <h2 class="h3">More roles in Digital at PA</h2>
+          <a class="button button--outline-midnight" href="{{ '/jobs' | url }}">View all roles</a>
+        </div>
+        <div class="card-group">
+          {% for j in relatedJobs %}
+            <div class="card">
+              <span class="card__intro">{{ j.capability }}</span>
+              <h3 class="h4 mb-m">{{ j.title }}</h3>
+              <a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/') | url }}">View role</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

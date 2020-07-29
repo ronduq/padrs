@@ -1,0 +1,14 @@
+.benefits-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.benefits-list__item {
+  flex: 0 50%;
+  margin-bottom: spacing(m);
+  padding-right: spacing(s);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

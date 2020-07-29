@@ -1,0 +1,11 @@
+.banner {
+  background: colour(rose);
+  padding: spacing(m);
+  color: colour(midnight);
+  display: flex;
+  justify-content: space-between;
+
+  > * {
+    margin: 0;
+  }
+}

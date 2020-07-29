@@ -1,17 +1,153 @@
 label {
-  font-weight: 700;
+  // Allow labels to use `margin` for spacing.
+  display: inline-block;
+  margin-bottom: 0;
+}
 
-  .text-muted {
-    font-weight: 400;
+// Remove the default `border-radius` that macOS Chrome adds.
+//
+// Details at https://github.com/twbs/bootstrap/issues/24093
+button {
+  // stylelint-disable-next-line property-blacklist
+  border-radius: 0;
+}
+
+// Work around a Firefox/IE bug where the transparent `button` background
+// results in a loss of the default `button` focus styles.
+//
+// Credit: https://github.com/suitcss/base/
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0; // Remove the margin in Firefox and Safari
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible; // Show the overflow in Edge
+}
+
+button,
+select {
+  text-transform: none; // Remove the inheritance of text transform in Firefox
+}
+
+// Set the cursor for non-`<button>` buttons
+//
+// Details at https://github.com/twbs/bootstrap/pull/30562
+[role="button"] {
+  cursor: pointer;
+}
+
+// Remove the inheritance of word-wrap in Safari.
+//
+// Details at https://github.com/twbs/bootstrap/issues/24990
+select {
+  word-wrap: normal;
+}
+
+
+// 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+//    controls in Android 4.
+// 2. Correct the inability to style clickable types in iOS and Safari.
+button,
+[type="button"], // 1
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // 2
+}
+
+// Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  // height: $input-height;
+  padding: spacing(xs) spacing(xs);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.15;
+  color: colour(mid-grey);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid colour(midnight);
+  border-radius: 3px;
+
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 colour(midnight);
+  }
+
+  &::placeholder {
+    color: colour(mid-grey);
+    opacity: 1;
+  }
+
+  &:focus {
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: colour(mid-grey);
+    outline: none;
   }
 }
 
-.sticky-submit {
-  background: #fff;
-  padding: 30px;
-  position: sticky;
-  bottom: 0;
+.custom-select {
+  display: block;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  color: colour(mid-grey);
+  line-height: 1.15;
+  padding: spacing(xs) spacing(xs);
   width: 100%;
-  // border-top: 30px solid $body-bg;
-  box-shadow: 0 -4px 6px rgba($body-bg, 0.99);
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid colour(midnight);
+  border-radius: 3px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: escape-svg(url("data:image/svg+xml,<svg width='16' height='9' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><path d='M22.472 12.525a.74.74 0 010 1.05L15.705 20.3a1 1 0 01-1.41 0l-6.767-6.725a.74.74 0 010-1.05.75.75 0 011.057 0L15 18.899l6.415-6.374a.75.75 0 011.057 0z' id='a'/></defs><use fill='#{$midnight}' fill-rule='nonzero' xlink:href='#a' transform='translate(-7 -12)'/></svg>"));
+  background-size: 16px 8px;
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+}
+
+.custom-select::-ms-expand {
+  display: none;
+}
+
+.custom-select:focus {
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: colour(mid-grey);
+  outline: none;
+}
+
+.custom-select option {
+  font-weight: normal;
 }
