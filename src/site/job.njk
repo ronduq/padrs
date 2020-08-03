@@ -83,29 +83,39 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         {% endif %}
       {% endfor %}
 
-      <h2>Career growth</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
-
     </div>
     <div class="col col-4 pt-l">
       <h2 class="h4">The team</h2>
       <p>We want you to feel at home from the start, so check out a few of the people you might work with one day soon.</p>
       <!-- TODO: insert team profile(s) -->
 
-      <!-- TODO: switch these based on capability -->
       {% switch job.capability %}
       {% case 'Design' %}
       <h2 class="h4">The Design team</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      <p>Our strategy and design practitioners work together to create a vision for measurably improving customer experience, anchored in user needs and supporting key business objectives. This includes:</p>\
+      <ul>
+        <li><strong>Insight & analysis</strong> – We help our clients identify the gap between customer expectation and reality, mapping pains and opportunities through wide ranging research techniques.</li>
+        <li><strong>Vision & strategy</strong> – Our proprietary methodology, Target Customer Experience mapping paints clear pictures of future, better customer experiences and shows how digital can improve service delivery on and offline.</li>
+        <li><strong>Experience design</strong> – Our user-centred design processes are highly visual and collaborative, putting the user front and centre. We work on the full spectrum, from experience strategy, IA and UX, to interface design, content design, design systems, prototyping and user testing.</li>
+      </ul>
       {% case 'Engineering & DevOps' %}
       <h2 class="h4">The Engineering team</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      <p>Digital engineers at PA are a community of practitioners excited by the possibilities of great technology, and motivated by delivering solutions that add value, achieve outcomes and delight. We work within multi-disciplinary teams formed of digital strategists, designers, researchers and delivery managers. </p>
+      <p>From mission-critical platform engineering to global website builds, from enterprise API delivery to secure mobile applications, we have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with deep expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation. </p>
       {% case 'Delivery' %}
       <h2 class="h4">The Delivery team</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      <p>We help our clients map and quickly close the gap between their current and target state technology stack, governance processes, development and delivery approaches, digital skills and training as well as operational workflows and processes. Our areas of expertise include:</p>
+      <ul>
+        <li>Senior coaching and roundtable events</li>
+        <li>Advising on digital team structures</li>
+        <li>Training staff on new ways of working</li>
+        <li>Creating digital toolkits</li>
+        <li>Encouraging adoption of a more agile mindset</li>
+      </ul>
       {% case 'Transformation' %}
       <h2 class="h4">The Transformation team</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nulla rerum eos error perspiciatis porro ad voluptates, eveniet voluptate et nemo laudantium consectetur.</p>
+      <p>We help clients understand the value digital can bring to the core of their business and transform ideas for change into action.</p>
+      <p>We help our clients identify, test, size and justify future sources of value – and explain this value ambition to win support. This entails applying the culture, business models, technologies and ways of working of the internet era to help them respond to people’s raised expectations. At the core, we help translate ideas for change into action: Articulating the roadmap and mobilising the enterprise to move towards the digital ambition – for the future customer experience, business model, operating framework, platforms, products, propositions, and culture.</p>
       {% endswitch %}
     </div>
   </div>
