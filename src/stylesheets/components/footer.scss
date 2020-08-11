@@ -27,6 +27,11 @@
   //     transform: translateY(50%);
   //   }
   }
+
+  .decoration {
+    right: 200px;
+    top: -150px;
+  }
 }
 
 .footer__amen {
@@ -44,4 +49,10 @@
   a {
     color: colour(white);
   }
+}
+
+.footer__twitter {
+  margin-left: 25px;
+  transform: translateY(10px);
+  display: inline-block;
 }

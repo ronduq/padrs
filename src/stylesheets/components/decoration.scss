@@ -1,0 +1,33 @@
+.decoration {
+  background-color: $rose;
+  position: absolute
+}
+.decoration--circle {
+  border-radius: 50%;
+}
+.decoration--circle__lg {
+  height: 220px;
+  width: 220px;
+}
+.decoration--circle__xlg {
+  height: 262px;
+  width: 262px;
+}
+
+.decoration--circle__sm {
+  height: 165px;
+  width: 165px;
+}
+.decoration--rectangle {
+  width: 360px;
+  height: 400px;
+}
+
+.container--team {
+  .decoration {
+    top: -65px;
+    z-index: -1;
+    left: 115px;
+    height: 100%;
+  }
+}

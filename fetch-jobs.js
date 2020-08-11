@@ -26,7 +26,8 @@ const slugify = require("slugify");
   })
 
   const data = await response.json();
-  const jobs = data.jobs;
+  let jobs = data.jobs;
+  if (!jobs) jobs = [];
   console.log(`${jobs.length} jobs returned`, jobs);
 
   const capabilities = [

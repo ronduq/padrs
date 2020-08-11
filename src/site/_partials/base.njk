@@ -7,7 +7,7 @@
     <title>{{ title }}</title>
   </head>
   <body>
-
+  {% include "../assets/svgsprite.svg"  %}
     <div class="masthead pb-l">
       <div class="container">
         <div class="row">
@@ -20,9 +20,11 @@
             </a>
           </div>
 
+          <div class="decoration decoration--circle decoration--circle__lg"></div>
+
           <div class="masthead__lockup col-3">
             {% if page.url !== '/' %}
-              <span>Digital careers at PA</span>
+              <span>Digital careers at PAssss</span>
             {% endif %}
           </div>
 
@@ -43,6 +45,9 @@
                 </li>
                 <li>
                   <a href="https://www.paconsulting.com">PA Home</a>
+                  <svg viewBox="0 0 100 100" class="icon icon--white icon--small">
+                    <use xlink:href="#external"></use>
+                  </svg>
                 </li>
               </ul>
             </nav>
@@ -55,6 +60,11 @@
 
     <div class="footer">
       <div class="container">
+        <div class-"row">
+          <div class="col col-12">
+            <div class="decoration decoration--circle decoration--circle__sm"></div>
+          </div>
+        </div>
         <div class="row">
           <div class="col col-6">
             <span class="footer__amen h4">Pictures trump words. They help people to understand, and align.</span>
@@ -64,7 +74,11 @@
           <div class="col col-5">
             <div class="footer__contact">
               <a href="mailto:TODO@TODO.com" class="button button--outline-rose">Get in touch</a>
-              <a href="TODO">Twitter</a>
+              <a href="TODO" class="footer__twitter">
+                <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium">
+                  <use xlink:href="#twitter"></use>
+                </svg>
+              </a>
             </div>
           </div>
           <div class="col col-7 footer__links">

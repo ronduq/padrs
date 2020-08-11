@@ -6,6 +6,12 @@
   &.card-group--two {
     grid-template-columns: 1fr 1fr;
   }
+
+  .decoration {
+    z-index: -1;
+    right: -90px;
+    top: -131px;
+  }
 }
 
 .card-group--list {
@@ -32,7 +38,7 @@
 
   a {
     display: block;
-    color: colour(rose);
+    color: white;
     text-decoration: none;
     font-style: italic;
 
@@ -40,18 +46,22 @@
       color: #fff;
     }
 
-    &:after {
-      content: '\02192';
-      display: inline-block;
+    .icon {
       float: right;
     }
+
+    // &:after {
+    //   content: '\02192';
+    //   display: inline-block;
+    //   float: right;
+    // }
   }
 }
 
 .card__intro {
   display: block;
   font-style: italic;
-  color: colour(rose);
+  color: white;
   margin-bottom: spacing(s);
 
   .card--grey & {
@@ -69,5 +79,9 @@
 
   a {
     color: colour(midnight);
+  }
+
+  .icon {
+    float: right;
   }
 }
