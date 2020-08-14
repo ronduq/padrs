@@ -9,6 +9,49 @@
   <body>
   {% include "../assets/svgsprite.svg"  %}
     <div class="masthead pb-l">
+      <div class="col-12 mobile-menu-container">
+            <nav class="masthead__nav--mobile" role="navigation">
+              <div class="menuToggle">
+                <!--
+                A fake / hidden checkbox is used as click reciever,
+                so you can use the :checked selector on it.
+                -->
+                <input type="checkbox" />
+                
+                <!--
+                Some spans to act as a hamburger.
+                
+                They are acting like a real hamburger,
+                not that McDonalds stuff.
+                -->
+                <span></span>
+                <span></span>
+                <span></span>
+                
+                <!--
+                Too bad the menu has to be inside of the button
+                but hey, it's pure CSS magic.
+                -->
+                <ul class="menu">
+                  <li {% if '/jobs' in page.url %} aria-current="page" {% endif %}>
+                    <a href="{{ "/jobs" | url }}">Find roles</a>
+                  </li>
+                  <li {% if '/about' in page.url %} aria-current="page" {% endif %}>
+                    <a href="{{ "/about" | url }}">About us</a>
+                  </li>
+                  <li {% if '/locations' in page.url %} aria-current="page" {% endif %}>
+                    <a href="{{ "/locations" | url }}">Locations</a>
+                  </li>
+                  <li {% if '/faqs' in page.url %} aria-current="page" {% endif %}>
+                    <a href="{{ "/faqs" | url }}">FAQs</a>
+                  </li>
+                  <li>
+                    <a href="https://www.paconsulting.com">PA Home</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
       <div class="container">
         <div class="row">
 
@@ -22,13 +65,13 @@
 
           <div class="decoration decoration--circle decoration--circle__lg"></div>
 
-          <div class="masthead__lockup col-3">
+          <div class="masthead__lockup col-lg-3 col-1">
             {% if page.url !== '/' %}
               <span>Digital careers at PAssss</span>
             {% endif %}
           </div>
-
-          <div class="col-8">
+          
+          <div class="col-lg-8 col-10">
             <nav class="masthead__nav">
               <ul>
                 <li {% if '/jobs' in page.url %} aria-current="page" {% endif %}>
@@ -51,6 +94,7 @@
                 </li>
               </ul>
             </nav>
+            
           </div>
         </div>
       </div>
@@ -66,12 +110,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="col col-6">
+          <div class="col col-lg-6 col-md-8 col-12">
             <span class="footer__amen h4">Pictures trump words. They help people to understand, and align.</span>
           </div>
         </div>
         <div class="row">
-          <div class="col col-5">
+          <div class="col col-md-5 col-12">
             <div class="footer__contact">
               <a href="mailto:TODO@TODO.com" class="button button--outline-rose">Get in touch</a>
               <a href="TODO" class="footer__twitter">
@@ -81,7 +125,7 @@
               </a>
             </div>
           </div>
-          <div class="col col-7 footer__links">
+          <div class="col col-md-7 col-12 footer__links">
             <ul class="small mb-s">
               <li><a href="TODO">Legal</a></li>
               <li><a href="TODO">Corporate responsibility</a></li>

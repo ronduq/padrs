@@ -28,9 +28,8 @@
   //   }
   }
 
-  .decoration {
-    right: 200px;
-    top: -150px;
+  @include respond-to("mobile"){
+    padding: 10px;
   }
 }
 
@@ -41,6 +40,16 @@
 
 .footer__links {
   text-align: right;
+
+  @include respond-to('mobile'){
+    text-align: left;
+    margin-top: 25px;
+
+    ul {
+      margin-left: 0;
+      transform: translateX(-15px);
+    }
+  }
 
   li {
     margin-left: spacing(s);

@@ -2,15 +2,15 @@
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 1fr 1fr 1fr;
+  @include respond-to("mobile"){
+    grid-template-columns: 1fr;
+  }
 
   &.card-group--two {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .decoration {
-    z-index: -1;
-    right: -90px;
-    top: -131px;
+    @include respond-to("mobile"){
+      grid-template-columns: 1fr;
+    }
   }
 }
 

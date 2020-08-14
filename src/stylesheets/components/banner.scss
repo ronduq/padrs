@@ -8,4 +8,12 @@
   > * {
     margin: 0;
   }
+
+  @include respond-to("mobile") {
+    padding: 20px 8px;
+
+    .button {
+      transform: translateY(5px);
+    }
+  }
 }

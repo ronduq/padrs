@@ -1,6 +1,10 @@
 .benefits-list {
   display: flex;
   flex-wrap: wrap;
+  @include respond-to("mobile") {
+    display: block;
+    width: 1600px;
+  }
 }
 
 .benefits-list__item {
@@ -11,14 +15,24 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+  @include respond-to("mobile") {
+    display: inline-block;
+    width: 250px;
+    margin-right: 20px; 
+    vertical-align: top;
+  }
 }
 
 .container--benefits {
-  .decoration {
-    position: absolute;
-    top: -145px;
-  }
   .icon {
     margin-bottom: 10px;
+  }
+}
+
+.benefits-list-container {
+  @include respond-to("mobile") {
+    overflow: auto;
+    max-width: 100vw;
   }
 }

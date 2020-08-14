@@ -8,19 +8,38 @@
 .decoration--circle__lg {
   height: 220px;
   width: 220px;
+
+  @include respond-to('tablet') {
+    height: 133px;
+    width: 133px;
+  }
 }
 .decoration--circle__xlg {
   height: 262px;
   width: 262px;
+
+  @include respond-to('tablet') {
+    height: 157px;
+    width: 157px;
+  }
 }
 
 .decoration--circle__sm {
   height: 165px;
   width: 165px;
+
+  @include respond-to('tablet') {
+    height: 99px;
+    width: 99px;
+  }
 }
 .decoration--rectangle {
   width: 360px;
   height: 400px;
+
+  @include respond-to("mobile"){
+    width:60%;
+  }
 }
 
 .container--team {
@@ -29,5 +48,56 @@
     z-index: -1;
     left: 115px;
     height: 100%;
+    @include respond-to('tablet') {
+     right:10px;
+     left: auto;
+    }
+  }
+}
+
+.container--benefits {
+  .decoration {
+    position: absolute;
+    top: -145px;
+    @include respond-to('tablet'){
+      top: -325px;
+      right: 10%;
+    }
+    @include respond-to('mobile'){
+      top: -380px;
+    }
+  }
+}
+
+.footer {
+  .decoration {
+    right: 200px;
+    top: -150px;
+    @include respond-to('tablet'){
+      right: 10%;
+      top: -110px;
+    }
+  }
+}
+
+.masthead {
+  .decoration {
+    position: absolute;
+    top: -125px;
+    left: 110px;
+    @include respond-to('mobile'){
+      top: -75px;
+    }
+  }
+}
+
+.card-group {
+  .decoration {
+    z-index: -1;
+    right: -90px;
+    top: -131px;
+    @include respond-to('mobile'){
+      top: -75px;
+    }
   }
 }
