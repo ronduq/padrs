@@ -40,7 +40,7 @@
     display: block;
     color: white;
     text-decoration: none;
-    font-style: italic;
+    // font-style: italic;
 
     &:hover {
       color: #fff;
@@ -84,4 +84,8 @@
   .icon {
     float: right;
   }
+}
+
+.card__label {
+  font-style: italic;
 }

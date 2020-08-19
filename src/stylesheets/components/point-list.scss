@@ -1,5 +1,6 @@
 .point-list {
   list-style-type: none;
+  margin-left: 65px;
 }
 
 .point-list__item {
@@ -30,5 +31,12 @@
     background: $rose;
     display: inline-block;
     border-radius: 50%;
+  }
+
+  &:last-child {
+    &:before {
+      content: '';
+      width: 0;
+    }
   }
 }

@@ -58,6 +58,7 @@
   }
 
   li[aria-current] a {
+    color: $rose;
     &:after {
       content: '';
       display: block;
