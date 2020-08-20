@@ -99,33 +99,19 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       {% switch job.capability %}
       {% case 'Design' %}
       <h2 class="h4">The Design team</h2>
-      <p>Our strategy and design practitioners work together to create a vision for measurably improving customer experience, anchored in user needs and supporting key business objectives. This includes:</p>\
-      <ul>
-        <li><strong>Insight & analysis</strong> – We help our clients identify the gap between customer expectation and reality, mapping pains and opportunities through wide ranging research techniques.</li>
-        <li><strong>Vision & strategy</strong> – Our proprietary methodology, Target Customer Experience mapping paints clear pictures of future, better customer experiences and shows how digital can improve service delivery on and offline.</li>
-        <li><strong>Experience design</strong> – Our user-centred design processes are highly visual and collaborative, putting the user front and centre. We work on the full spectrum, from experience strategy, IA and UX, to interface design, content design, design systems, prototyping and user testing.</li>
-      </ul>
+      <p>Our design and strategy teams work together to create a vision for measurably improving customer experience, anchored in user needs and supporting key business objectives. </p>
       <a href="{{ '/about/teams/design' | url }}" class="button button--outline-midnight">More about design</a>
       {% case 'Engineering & DevOps' %}
       <h2 class="h4">The Engineering team</h2>
-      <p>Digital engineers at PA are a community of practitioners excited by the possibilities of great technology, and motivated by delivering solutions that add value, achieve outcomes and delight. We work within multi-disciplinary teams formed of digital strategists, designers, researchers and delivery managers. </p>
-      <p>From mission-critical platform engineering to global website builds, from enterprise API delivery to secure mobile applications, we have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with deep expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation. </p>
+      <p>We have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation.</p>
       <a href="{{ '/about/teams/engineering-and-devops' | url }}" class="button button--outline-midnight">More about engineering &amp; devops</a>
       {% case 'Delivery' %}
       <h2 class="h4">The Delivery team</h2>
-      <p>We help our clients map and quickly close the gap between their current and target state technology stack, governance processes, development and delivery approaches, digital skills and training as well as operational workflows and processes. Our areas of expertise include:</p>
-      <ul>
-        <li>Senior coaching and roundtable events</li>
-        <li>Advising on digital team structures</li>
-        <li>Training staff on new ways of working</li>
-        <li>Creating digital toolkits</li>
-        <li>Encouraging adoption of a more agile mindset</li>
-      </ul>
+      <p>Text goes here</p>
       <a href="{{ '/about/teams/delivery' | url }}" class="button button--outline-midnight">More about delivery</a>
       {% case 'Transformation' %}
       <h2 class="h4">The Transformation team</h2>
       <p>We help clients understand the value digital can bring to the core of their business and transform ideas for change into action.</p>
-      <p>We help our clients identify, test, size and justify future sources of value – and explain this value ambition to win support. This entails applying the culture, business models, technologies and ways of working of the internet era to help them respond to people’s raised expectations. At the core, we help translate ideas for change into action: Articulating the roadmap and mobilising the enterprise to move towards the digital ambition – for the future customer experience, business model, operating framework, platforms, products, propositions, and culture.</p>
       <a href="{{ '/about/teams/transformation' | url }}" class="button button--outline-midnight">More about transformation</a>
       {% endswitch %}
       
@@ -144,7 +130,6 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
     <div class="col col-10 col-lg-6 offset-2 mt-l">
 
-      <!-- TODO: swap this out per capability -->
       <div class="steps">
         <ol>
           <li>
@@ -156,25 +141,51 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
             <p>We want to understand why you’ve applied and what interests you. We’ll ask you about a few bits from your CV and hope to hear how your experiences have shaped your skills. These interviews typically last around 30 minutes.</p>
           </li>
           <li>
+          {% switch job.capability %}
+          {% case 'Design' %}
+            <span class="h4">Portfolio review</span>
+            <p>We’ll ask you to present a portfolio of your work that best describes your skills and areas of interest. We’ll be assessing a number of things: your experience across the full design process, evidence of different research and design approaches, your ways of working, the quality of your storytelling and how you collaborate in a discussion group.</p>
+          {% case 'Engineering & DevOps' %}
             <span class="h4">Second round interview</span>
-            <p>In the Design team we'll ask you to share a portfolio of your work and talk us through areas of interest.</p>
+            <p>The next stage will be more specialised. You’ll meet other engineers and future peers to assess your core skills and technical expertise. For developer roles, we will have set you a brief coding challenge for completion prior to this, ready for discussion at interview. </p>
+          {% case 'Delivery' %}
+            <span class="h4">Second round interview</span>
+            <p>Text goes here</p>
+          {% case 'Transformation' %}
+            <span class="h4">Second round interview</span>
+            <p>The next stage will be more specialised. Two members of the Transformation Capability will ask you to talk through some of your work in detail, the type of problems you have solved, the role you played and ask specific questions to evaluate your fit to the role.</p>
+          {% endswitch %}
           </li>
-          <li>
-            <span class="h4">Final round interview</span>
-            <p>Congrats, you’ve made it to the final stage! You’ll be interviewed by a Partner or Senior Manager from your team – either in person or over the phone – for up to one hour. This is also your chance to ask any burning questions, so make sure you have these ready.</p>
-          </li>
+          {% if job.capability != 'Design' %}
+            <li>
+              <span class="h4">Final round interview</span>
+              {% switch job.capability %}
+                {% case 'Transformation' %}
+                  <p>Congrats, you’ve made it to the final stage! You’ll be tasked with presenting some of your work to a small panel from the team including a Partner or Senior Manager– either in person or over the phone – for 30 minutes, followed by a 30-minute discussion. This is your chance to demonstrate your presentation and storytelling skills and to ask any burning questions, so make sure you have these ready. </p>
+                {% default %}
+                  <p>Congrats, you’ve made it to the final stage! You’ll be interviewed by a Partner or Senior Manager from your team – either in person or over the phone – for up to one hour. This is also your chance to ask any burning questions, so make sure you have these ready.</p>
+              {% endswitch %}
+            </li>
+          {% endif %}
         </ol>
       </div>
 
 
     </div>
 
-    <!-- TODO: swap this out per capability -->
     <div class="col col-12 col-lg-4 job--process">
       <div class="decoration decoration--circle decoration--circle__xlg"></div>
       <h3 class="h4">Preparation tips</h3>
-      <p>Remember, we’ll already have looked at your portfolio, so this is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Don’t just repeat what we’ve already read. Consider also sharing some new examples, so we can really get a feel for the breadth and depth of your work. </p>
-
+      {% switch job.capability %}
+          {% case 'Design' %}
+            <p>Remember, we’ll already have looked at your cv and portfolio and we like getting right under the hood of your work, so the portfolio review is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Try not to just repeat what we’ve already seen or read. Consider sharing some new examples, or show us your behind the scenes workings, so we can really get a feel for the breadth and depth of your work.</p>
+          {% case 'Engineering & DevOps' %}
+            <p>Remember, we’ll already have looked at your CV, so this is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Expect to be asked for examples around commercial awareness, working in teams, empathy, communication and what motivates you, as well as digging into your technical specialism.</p>
+          {% case 'Delivery' %}
+            <p>Text goes here</p>
+          {% case 'Transformation' %}
+            <p>Members of our capability have diverse backgrounds, which we consider a strength. Through the interview process we’ll be looking for strong evidence of digital expertise applied to experience strategy and/or digital business strategy. In the final stage, the type of work you choose to present is up to you. We’re looking for high levels of clarity in how you describe your methodology, the insight you uncovered and a sharp articulation of a strategic rationale. </p>
+          {% endswitch %}
     </div>
   </div>
 </div>

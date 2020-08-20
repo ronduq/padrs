@@ -11,6 +11,7 @@ layout: default
 
         <div class="hero">
           <h1 class="hero__title h1">Why work with us?</h1>
+          <a href="{{ '/about' | url }}" class="colour-rose italic hero__back">&larr; Back to About us</a>
         </div>
 
       </div>
@@ -56,7 +57,7 @@ layout: default
 <div class="container mt-l mb-l">
   <div class="row">
     <div class="col offset-lg-1 mb-l col-12 ">
-      <h2 class="h3">Going through the ranks</h2>
+      <h2 class="h3 mb-0">Going through the ranks</h2>
     </div>
   </div>  
   <div class="row">
@@ -93,68 +94,17 @@ layout: default
       <h3 class="h4">Moving on up </h4>
       <p>We know it can be important to understand how you progress at a company – whether it’s a priority or something you want to take your time over. </p>
       <p>Depending on your role, it’s fairly common at PA to have both an internal PA rank (like ‘Principal Consultant’), as well as a practitioner job title (such as ‘Senior Designer’). We’ve explained what these ranks mean below. Over time your performance and growing skillset will enable you to move up to the next rank (and possibly change your job title, too). You can find out how this affects you specifically at interview.</p>
-      <div class="decoration decoration--circle decoration--circle__sm decoration--up"></div>
     </div>
   </div>
 </div>    
 
-<div class="bg-midnight colour-white pt-l pb-l">
-  <div class="container container--benefits">
-    <div class="row">
-      <div class="col col-lg-6 offset-lg-1 col-12 mb-l">
-        <h2 class="h2 colour-rose">Benefits</h2>
-        <p class="intro">Our teams are trusted to deliver and given the space to be awesome. We’re an inclusive community for the curious, generous, pragmatic and enthusiastic digital practitioner.</p>
-      </div>
-      <div class="col col-lg-1 col-12">
-        <div class="decoration decoration--circle decoration--circle__sm"></div>
-      </div>
-      <div class="col col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 benefits-list-container">
-        <div class="benefits-list">
-          <div class="benefits-list__item">
-            <svg viewBox="0 0 100 100" class="icon icon--rose icon--large">
-              <use xlink:href="#tooth"></use>
-            </svg>
-            <h3 class="h4">Flexible healthcare</h3>
-            <p>Choose a healthcare plan just for you, or add your loved ones. There's also NHS or private dental, annual eye tests and flu vaccines, gym discounts, Cycle to Work, and more.</p>
-          </div>
-          <div class="benefits-list__item">
-            <svg viewBox="0 0 100 100" class="icon icon--rose icon--large">
-              <use xlink:href="#mountain"></use>
-            </svg>
-            <h3 class="h4">Annual leave</h3>
-            <p>Because there's more to life than just work... You'll get 25 days leave (plus a nice bonus half-day at Christmas). You can also buy up to 5 extra days per year.</p>
-          </div>
-          <div class="benefits-list__item">
-             <svg viewBox="0 0 100 100" class="icon icon--rose icon--large">
-              <use xlink:href="#globe"></use>
-            </svg>
-            <h3 class="h4">Learning support</h3>
-            <p>We've got a shiny new online learning academy, packed with training courses. We'll also support you in any external qualifications that take your fancy.</p>
-          </div>
-          <div class="benefits-list__item">
-            <svg viewBox="0 0 100 100" class="icon icon--rose icon--large">
-              <use xlink:href="#hand"></use>
-            </svg>
-            <h3 class="h4">Planning for the future</h3>
-            <p>Don't worry, we offer all the sensible stuff, including a pension, life assurance, income protection schemes, and PA shares.</p>
-          </div>
-          <div class="benefits-list__item">
-            <svg viewBox="0 0 100 100" class="icon icon--rose icon--large">
-              <use xlink:href="#apple"></use>
-            </svg>
-            <h3 class="h4">Giving back</h3>
-            <p>Take advantage of our great Give as You Earn scheme, or why not volunteer up to 3 days a year for a charity close to your heart?</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% set benefitsHeader = 'Getting the balance right' %}
+{% include "benefits.njk" %}
 
-<div class="container mt-l pb-m">
+<div class="container mt-l">
   <div class="row">
     <div class="col col-md-10 col-12 offset-md-1">
-      <div class="banner mt-l mb-l">
+      <div class="banner">
         <h2 class="h3">What are you waiting for?</h2>
         <a href="{{ '/jobs' | url }}" class="button button--outline-midnight">View our open roles</a>
       </div>

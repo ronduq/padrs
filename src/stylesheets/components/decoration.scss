@@ -59,12 +59,13 @@
   .decoration {
     position: absolute;
     top: -145px;
-    @include respond-to('tablet'){
-      top: -325px;
-      right: 10%;
+    right: -250px;
+    @include respond-to('large'){
+      right: 0;
     }
-    @include respond-to('mobile'){
-      top: -380px;
+    @include respond-to('tablet'){
+      top: -95px;
+      right: 10%;
     }
   }
 }
