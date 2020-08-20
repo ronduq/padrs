@@ -105,3 +105,17 @@
   top: -45px;
   z-index: -1;
 }
+
+.job--process {
+  .decoration {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 131px;
+    @include respond-to('mobile'){
+      left: initial;
+      right: 30px;
+      top: 0px;
+    }
+  }
+}

@@ -6,6 +6,16 @@
   li {
     margin: 0 spacing(m) 0 0;
     display: inline-block;
+
+    @include respond-to("mobile"){
+      display: none;
+
+      &.tab__cta {
+        display: block;
+        margin-bottom: spacing(m);
+      }
+    }
+
   }
 
   a:not(.button) {
@@ -35,14 +45,17 @@
   }
 }
 
-.tab__cta {
-  float: right;
+@include respond-to("tablet", min-width){
+  
+  .tab__cta {
+    float: right;
 
-  .button {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    line-height: 1.5;
+    .button {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      line-height: 1.5;
+    }
   }
 }

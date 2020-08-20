@@ -27,7 +27,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 <div class="bg-midnight colour-white pb-m">
   <div class="container">
     <div class="row">
-      <div class="col col-10 offset-1">
+      <div class="col col-12 col-lg-10 offset-lg-1">
 
         <div class="hero mb-m">
           <span class="hero__intro"></span>
@@ -36,10 +36,10 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
         <ul class="metadata-list mb-m">
           <li>
-            <span>Location</span> {{ job.location }}
+            {{ job.office }}, {{ job.city }}
           </li>
           <li>
-            <span>Contract</span> {{ job.length }}, {{ job.contract }}
+            {{ job.length }}, {{ job.contract }}
           </li>
         </ul>
 
@@ -51,7 +51,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 <div class="bg-midnight colour-white sticky">
   <div class="container">
     <div class="row">
-      <div class="col col-11 offset-1">
+      <div class="col col-12 col-lg-11 offset-lg-1">
 
         <ul class="tabs">
           <li aria-current="page"><a href="#role">The role</a></li>
@@ -68,7 +68,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
 <div class="container pb-l" id="role">
   <div class="row">
-    <div class="col col-7 offset-1 pt-l">
+    <div class="col col-12 col-lg-7 offset-lg-1 pt-l"> 
 
       <h2 class="h2">The role</h2>
 
@@ -84,10 +84,17 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       {% endfor %}
 
     </div>
-    <div class="col col-4 pt-l">
+    <div class="col col-12 col-lg-4 pt-l">
       <h2 class="h4">The team</h2>
       <p>We want you to feel at home from the start, so check out a few of the people you might work with one day soon.</p>
       <!-- TODO: insert team profile(s) -->
+
+      <div class="team-card mb-m mt-m">
+        <img src="https://picsum.photos/394/394" alt="">
+        <span class="team-card__job">Head of design</span>
+        <h3 class="h4">Bess Mills</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna.</p>
+      </div>
 
       {% switch job.capability %}
       {% case 'Design' %}
@@ -98,10 +105,12 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         <li><strong>Vision & strategy</strong> – Our proprietary methodology, Target Customer Experience mapping paints clear pictures of future, better customer experiences and shows how digital can improve service delivery on and offline.</li>
         <li><strong>Experience design</strong> – Our user-centred design processes are highly visual and collaborative, putting the user front and centre. We work on the full spectrum, from experience strategy, IA and UX, to interface design, content design, design systems, prototyping and user testing.</li>
       </ul>
+      <a href="{{ '/about/teams/design' | url }}" class="button button--outline-midnight">More about design</a>
       {% case 'Engineering & DevOps' %}
       <h2 class="h4">The Engineering team</h2>
       <p>Digital engineers at PA are a community of practitioners excited by the possibilities of great technology, and motivated by delivering solutions that add value, achieve outcomes and delight. We work within multi-disciplinary teams formed of digital strategists, designers, researchers and delivery managers. </p>
       <p>From mission-critical platform engineering to global website builds, from enterprise API delivery to secure mobile applications, we have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with deep expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation. </p>
+      <a href="{{ '/about/teams/engineering-and-devops' | url }}" class="button button--outline-midnight">More about engineering &amp; devops</a>
       {% case 'Delivery' %}
       <h2 class="h4">The Delivery team</h2>
       <p>We help our clients map and quickly close the gap between their current and target state technology stack, governance processes, development and delivery approaches, digital skills and training as well as operational workflows and processes. Our areas of expertise include:</p>
@@ -112,33 +121,19 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         <li>Creating digital toolkits</li>
         <li>Encouraging adoption of a more agile mindset</li>
       </ul>
+      <a href="{{ '/about/teams/delivery' | url }}" class="button button--outline-midnight">More about delivery</a>
       {% case 'Transformation' %}
       <h2 class="h4">The Transformation team</h2>
       <p>We help clients understand the value digital can bring to the core of their business and transform ideas for change into action.</p>
       <p>We help our clients identify, test, size and justify future sources of value – and explain this value ambition to win support. This entails applying the culture, business models, technologies and ways of working of the internet era to help them respond to people’s raised expectations. At the core, we help translate ideas for change into action: Articulating the roadmap and mobilising the enterprise to move towards the digital ambition – for the future customer experience, business model, operating framework, platforms, products, propositions, and culture.</p>
+      <a href="{{ '/about/teams/transformation' | url }}" class="button button--outline-midnight">More about transformation</a>
       {% endswitch %}
+      
     </div>
   </div>
 </div>
 
-<div class="bg-midnight colour-white pt-l pb-l" id="benefits">
-  <div class="container">
-    <div class="row">
-      <div class="col col-11 offset-1">
-
-        <h2 class="h2 colour-rose mb-0">Benefits</h2>
-        <p class="intro">We know you work best when you feel valued and when life feels balanced. So, our benefits have been designed by the people who actually work here.</p>
-        <!-- TODO: should these come from the JD or hard coded? -->
-        {% for f in job.description %}
-          {% if f.key == "benefits" %}
-            {{ f.content | safe }}
-          {% endif %}
-        {% endfor %}
-
-      </div>
-    </div>
-  </div>
-</div>
+{% include "benefits.njk" %}
 
 <div class="container pt-l pb-l" id="process">
   <div class="row">
@@ -147,7 +142,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       <h2 class="h3 mb-0">Recruitment process</h2>
 
     </div>
-    <div class="col col-6 offset-2 mt-l">
+    <div class="col col-10 col-lg-6 offset-2 mt-l">
 
       <!-- TODO: swap this out per capability -->
       <div class="steps">
@@ -175,7 +170,8 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
 
     <!-- TODO: swap this out per capability -->
-    <div class="col col-4">
+    <div class="col col-12 col-lg-4 job--process">
+      <div class="decoration decoration--circle decoration--circle__xlg"></div>
       <h3 class="h4">Preparation tips</h3>
       <p>Remember, we’ll already have looked at your portfolio, so this is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Don’t just repeat what we’ve already read. Consider also sharing some new examples, so we can really get a feel for the breadth and depth of your work. </p>
 
@@ -188,18 +184,21 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     {% switch job.office %}
     {% case 'Victoria' %}
     <div class="row mb-m">
-      <div class="col col-7 offset-1">
+      <div class="col col-12 col-lg-7 offset-lg-1">
         <h2 class="h3 colour-rose">Location</h2>
         <p>The base office for this role is Victoria, London. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
     <div class="row">
-      <div class="col col-4 offset-1">
+      <div class="col col-12 col-lg-4 offset-lg-1">
+        <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
+          <use xlink:href="#calendar"></use>
+        </svg>
         <h3 class="h4">Address</h3>
         <p>10 Bressenden Place, Westminster, London SW1E 5DN</p>
-        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+        <p class="mt-m"><a class="button button--outline-rose" href="{{ '/locations' | url }}">Our offices</a></p>
       </div>
-      <div class="col-7">
+      <div class="col col-12 col-lg-7 mt-l">
         <iframe
           width="100%"
           height="100%"
@@ -211,21 +210,27 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
     {% case 'Farringdon' %}
     <div class="row mb-m">
-      <div class="col col-7 offset-1">
+      <div class="col col-12 col-lg-7 offset-lg-1">
         <h2 class="h3 colour-rose">Location</h2>
         <p>The base office for this role is Farringdon, London. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
     <div class="row">
-      <div class="col col-4 offset-1">
+      <div class="col col-12 col-lg-4 offset-lg-1">
+        <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
+          <use xlink:href="#calendar"></use>
+        </svg>
         <h3 class="h4">Address</h3>
         <p>50 Farringdon Rd, London EC1M 3HE</p>
+        <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
+          <use xlink:href="#calendar"></use>
+        </svg>
         <h3 class="h4">Transport links</h3>
         <p>Our office is a very short walk from Farringdon station. Farringdon is on the National Rail as well as Circle, Hammersmith & City, and Metropolitan Underground lines.</p>
         <p>Farringdon - 5 minute walk<br>London Bridge - 15 minutes by tube<br>Waterloo - 12 minutes by tube</p>
-        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+        <p class="mt-m"><a class="button button--outline-rose" href="{{ '/locations' | url }}">Our offices</a></p>
       </div>
-      <div class="col-7">
+      <div class="col col-lg-7 d-none d-lg-block">
         <iframe
           width="100%"
           height="100%"
@@ -237,18 +242,21 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
     {% case 'Belfast' %}
     <div class="row mb-m">
-      <div class="col col-7 offset-1">
+      <div class="col col-12 col-lg-7 offset-lg-1">
         <h2 class="h3 colour-rose">Location</h2>
         <p>The base office for this role is Belfast. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
     <div class="row">
-      <div class="col col-4 offset-1">
+      <div class="col col-12 col-lg-4 offset-lg-1">
+         <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
+          <use xlink:href="#calendar"></use>
+        </svg>
         <h3 class="h4">Address</h3>
         <p>1st Floor, Centre House, 79 Chichester St, Belfast BT1 4JR</p>
-        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+        <p class="mt-m"><a class="button button--outline-rose" href="{{ '/locations' | url }}">Our offices</a></p>
       </div>
-      <div class="col-7">
+      <div class="col col-12 col-lg-7 mt-l">
         <iframe
           width="100%"
           height="100%"
@@ -260,18 +268,21 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
     {% case 'Utrecht' %}
     <div class="row mb-m">
-      <div class="col col-7 offset-1">
+      <div class="col col-12 col-lg-7 offset-lg-1">
         <h2 class="h3 colour-rose">Location</h2>
         <p>The base office for this role is Utrecht. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
     <div class="row">
-      <div class="col col-4 offset-1">
+      <div class="col col-12 col-lg-4 offset-lg-1">
+       <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
+          <use xlink:href="#calendar"></use>
+        </svg>
         <h3 class="h4">Address</h3>
         <p>Papendorpseweg 97, Gebouw B, 3528 BJ Utrecht, Netherlands</p>
-        <p class="mt-m"><a class="button" href="{{ '/locations' | url }}">Our offices</a></p>
+        <p class="mt-m"><a class="button button--outline-rose" href="{{ '/locations' | url }}">Our offices</a></p>
       </div>
-      <div class="col-7">
+      <div class="col col-12 col-lg-7 mt-l">
         <iframe
           width="100%"
           height="100%"
@@ -288,15 +299,14 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
 <div class="container">
 <div class="row">
-  <div class="col col-10 offset-1">
-
+  <div class="col col-md-10 col-12 offset-md-1">
     <div class="banner mt-l mb-l">
       <h2 class="h3">Still have questions?</h2>
       <a href="{{ '/faqs' | url }}" class="button button--outline-midnight">View our FAQs</a>
     </div>
-
   </div>
-  <div class="col col-7 offset-1 mb-xl">
+  
+  <div class="col col-12 offset-md-1 col-md-7 mb-xl">
     {% for f in job.description %}
       {% if f.key == "diversity-statement" %}
         <h2 class="h4">{{ f.title }}</h2>
@@ -311,17 +321,22 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 {% if relatedJobs.length > 0 %}
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 mb-m">
         <div class="heading mb-m">
-          <h2 class="h3">More roles in Digital at PA</h2>
+          <h2 class="h3">More roles at PA Digital</h2>
           <a class="button button--outline-midnight" href="{{ '/jobs' | url }}">View all roles</a>
         </div>
         <div class="card-group">
           {% for j in relatedJobs %}
-            <div class="card">
+            <div class="card card__hover-link">
               <span class="card__intro">{{ j.capability }}</span>
-              <h3 class="h4 mb-m">{{ j.title }}</h3>
-              <a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/') | url }}">View role</a>
+              <h3 class="h4 mb-m"><a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/') | url }}">{{ j.title }}</a></h3>
+              <span class="card__location">
+                {{ j.office }}, {{ j.city }}
+                <svg viewBox="0 0 100 100" class="icon icon--rose icon--small">
+                  <use xlink:href="#chevronRight"></use>
+                </svg>
+              </span>
             </div>
           {% endfor %}
         </div>

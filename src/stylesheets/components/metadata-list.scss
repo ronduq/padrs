@@ -18,12 +18,20 @@
       top: 50%;
       transform: translateY(-50%);
       right: (spacing(l) / 2) * -1;
+
+      @include respond-to("mobile"){
+        content: none;
+      }
     }
 
     &:last-child {
       &:before {
         display: none;
       }
+    }
+
+    @include respond-to("mobile"){
+      float: none;
     }
   }
 
