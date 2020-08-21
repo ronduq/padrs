@@ -63,7 +63,9 @@
             </a>
           </div>
 
-          <div class="decoration decoration--circle decoration--circle__lg"></div>
+          {% if page.url === '/' %}
+            <div class="decoration decoration--circle decoration--circle__lg"></div>
+          {% endif %}
 
           <div class="masthead__lockup col-lg-3 col-12">
             {% if page.url !== '/' %}
@@ -105,7 +107,7 @@
     <div class="footer">
       <div class="container">
         <div class-"row">
-          <div class="col col-12">
+          <div class="col offset-lg-8 col-lg-2 col-12">
             <div class="decoration decoration--circle decoration--circle__sm"></div>
           </div>
         </div>

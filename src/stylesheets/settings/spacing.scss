@@ -1,4 +1,7 @@
 $spacing: (
+  none: (
+    space: 0
+  ),
   xxs: (
     space: 5px
   ),
@@ -16,5 +19,29 @@ $spacing: (
   ),
   xl: (
     space: 75px
+  )
+);
+
+$mspacing: (
+  none: (
+    space: 0
+  ),
+  xxs: (
+    space: 5px
+  ),
+  xs: (
+    space: 5px
+  ),
+  s: (
+    space: 10px
+  ),
+  m: (
+    space: 20px
+  ),
+  l: (
+    space: 40px
+  ),
+  xl: (
+    space: 50px
   )
 );

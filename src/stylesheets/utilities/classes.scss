@@ -21,6 +21,19 @@
   .pl-#{$name} { padding-left: spacing($name); }
 }
 
+@include respond-to('mobile') {
+  @each $name, $size in $mspacing {
+    .mt-#{$name} { margin-top: mspacing($name); }
+    .mr-#{$name} { margin-right: mspacing($name); }
+    .mb-#{$name} { margin-bottom: mspacing($name); }
+    .ml-#{$name} { margin-left: mspacing($name); }
+    .pt-#{$name} { padding-top: mspacing($name); }
+    .pr-#{$name} { padding-right: mspacing($name); }
+    .pb-#{$name} { padding-bottom: mspacing($name); }
+    .pl-#{$name} { padding-left: mspacing($name); }
+  }
+}
+
 .sticky {
   position: sticky;
   top: -1px;

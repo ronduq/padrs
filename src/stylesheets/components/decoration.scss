@@ -43,22 +43,27 @@
 }
 
 .container--team {
-  .decoration {
+  .decoration--rectangle {
     top: -65px;
     z-index: -1;
-    left: 115px;
+    right: 115px;
     height: 100%;
     @include respond-to('tablet') {
-     right:10px;
-     left: auto;
+     left:10px;
+     right: auto;
     }
+  }
+
+  .decoration--circle {
+    right: 200px;
+    bottom: -200px;
   }
 }
 
 .container--benefits {
   .decoration {
     position: absolute;
-    top: -145px;
+    top: -370px;
     @include respond-to('tablet'){
       top: -325px;
       right: 10%;
@@ -71,7 +76,6 @@
 
 .footer {
   .decoration {
-    right: 200px;
     top: -150px;
     @include respond-to('tablet'){
       right: 10%;
