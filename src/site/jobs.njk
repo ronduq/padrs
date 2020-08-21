@@ -24,35 +24,36 @@ layout: default
 
 <div class="container">
   <div class="row">
-    <div class="col-11 offset-1">
-      <div data-search-no-results>
-        <h2 class="h3">No results</h2>
+    <div class="col-12 offset-lg-1 col-lg-11">
+      <div class="jobs-decorations">
+        <div class="decoration decoration--rectangle"></div>
       </div>
-      <div data-search-results>
-        <h2 class="h3" data-search-count></h2>
-        <div class="card-group card-group--list">
-          {% for job in jobs %}
-            <div class="card card--grey" data-search-id="{{ job.id }}">
-              <span class="card__intro" data-search-capability>{{ job.capability }}</span>
-              <h3 class="h4" data-search><a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}">{{ job.title }}</a></h3>
-              <p>{{ job.summary }}</p>
-              <a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}" data-search-location="{{ job.city }}">{{ job.location }}</a>
-              <!--googleoff: all-->
-              <p data-search-fulltext hidden>{{ job.fulltext }}</p>
-              <!--googleon: all-->
-            </div>
-          {% endfor %}
-          <div class="card " >
-              <span class="card__intro" data-search-capability>Design</span>
-              <h3 class="h4" data-search><a href="#">Lead Designer</a></h3>
-              <p>lorem  ipsum dolor amet sdkfjh skjhdf skjhf kkjhaosdjapidjpqiwjd dfksjb skjvsdkjfbskjdbv kb kbdk skdbks dbs ksbdfk jb ksbdfksjbfs kdfbs ckb kjbfkjsbkfjsbf kdss</p>
-              <a href="#" class="card__label" data-search-location="London">London</a>
-              <!--googleoff: all-->
-              <p data-search-fulltext hidden>Lorem sjos sjkf kjnflksnsjfdn skdjfn skjfb skjbdsk gsdkbdk jsbfjdbfnks jbfksdb sdkfbsk b skfbds</p>
-              <!--googleon: all-->
-            </div>
+      <div class="row">
+        <div data-search-no-results class="col col-12 col-lg-9">
+          <h2 class="h3">No results</h2>
         </div>
-    </div>
+        <div data-search-results class="col col-12 col-lg-9 ">
+          <h2 class="h3" data-search-count></h2>
+          <div class="card-group card-group--list">
+            {% for job in jobs %}
+              <div class="card card__hover-link" data-search-id="{{ job.id }}">
+                <span class="card__intro" data-search-capability>{{ job.capability }}</span>
+                <h3 class="h4" data-search><a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}">{{ job.title }}</a></h3>
+                <p>{{ job.summary }}</p>
+                <span class="card__location" data-search-location="{{ job.city }}">
+                  {{ job.office }}, {{ job.city }}
+                  <svg viewBox="0 0 100 100" class="icon icon--rose icon--small">
+                    <use xlink:href="#chevronRight"></use>
+                  </svg>
+                </span>
+                <!--googleoff: all-->
+                <p data-search-fulltext hidden>{{ job.fulltext }}</p>
+                <!--googleon: all-->
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

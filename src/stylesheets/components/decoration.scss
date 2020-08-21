@@ -120,3 +120,11 @@
     }
   }
 }
+
+.jobs-decorations {
+  .decoration--rectangle {
+    right: 0;
+    height: 50vh;
+    z-index: -1;
+  }
+}
