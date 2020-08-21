@@ -11,14 +11,14 @@
 }
 
 @each $name, $size in $spacing {
-  .mt-#{$name} { margin-top: spacing($name); }
-  .mr-#{$name} { margin-right: spacing($name); }
-  .mb-#{$name} { margin-bottom: spacing($name); }
-  .ml-#{$name} { margin-left: spacing($name); }
-  .pt-#{$name} { padding-top: spacing($name); }
-  .pr-#{$name} { padding-right: spacing($name); }
-  .pb-#{$name} { padding-bottom: spacing($name); }
-  .pl-#{$name} { padding-left: spacing($name); }
+  .mt-#{$name} { @include spacing('margin-top', $name); }
+  .mr-#{$name} { @include spacing('margin-right', $name); }
+  .mb-#{$name} { @include spacing('margin-bottom', $name); }
+  .ml-#{$name} { @include spacing('margin-left', $name); }
+  .pt-#{$name} { @include spacing('padding-top', $name); }
+  .pr-#{$name} { @include spacing('padding-right', $name); }
+  .pb-#{$name} { @include spacing('padding-bottom', $name); }
+  .pl-#{$name} { @include spacing('padding-left', $name); }
 }
 
 @include respond-to('mobile') {

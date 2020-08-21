@@ -3,22 +3,40 @@ $spacing: (
     space: 0
   ),
   xxs: (
-    space: 5px
+    space: 5px,
+    breakpoints: (
+      tablet: (space: 5px)
+    )
   ),
   xs: (
-    space: 10px
+    space: 10px,
+    breakpoints: (
+      tablet: (space: 10px)
+    )
   ),
   s: (
-    space: 15px
+    space: 15px,
+    breakpoints: (
+      tablet: (space: 10px)
+    )
   ),
   m: (
-    space: 30px
+    space: 30px,
+    breakpoints: (
+      tablet: (space: 15px)
+    )
   ),
   l: (
-    space: 60px
+    space: 60px,
+    breakpoints: (
+      tablet: (space: 30px)
+    )
   ),
   xl: (
-    space: 75px
+    space: 75px,
+    breakpoints: (
+      tablet: (space: 40px)
+    )
   )
 );
 

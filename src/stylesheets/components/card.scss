@@ -58,6 +58,22 @@
   }
 }
 
+.card__hover-link {
+  position: relative;
+
+  a::before {
+    content: '';
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+
 .card__intro {
   display: block;
   font-style: italic;
@@ -88,4 +104,14 @@
 
 .card__label {
   font-style: italic;
+}
+
+.card__location {
+  display: block;
+  font-style: italic;
+  color: white;
+
+  .icon{
+    float: right;
+  }
 }

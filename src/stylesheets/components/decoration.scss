@@ -42,12 +42,12 @@
   }
 }
 
-.container--team {
+.container--editorial {
   .decoration--rectangle {
-    top: -65px;
+    top: 0;
     z-index: -1;
     right: 115px;
-    height: 100%;
+    height: calc(100% - 60px);
     @include respond-to('tablet') {
      left:10px;
      right: auto;
@@ -64,12 +64,14 @@
   .decoration {
     position: absolute;
     top: -370px;
+    // top: -145px;
+    // right: -250px;
+    // @include respond-to('large'){
+    //   right: 0;
+    // }
     @include respond-to('tablet'){
-      top: -325px;
+      top: -95px;
       right: 10%;
-    }
-    @include respond-to('mobile'){
-      top: -380px;
     }
   }
 }
@@ -108,4 +110,26 @@
 .decoration--up {
   top: -45px;
   z-index: -1;
+}
+
+.job--process {
+  .decoration {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 131px;
+    @include respond-to('mobile'){
+      left: initial;
+      right: 30px;
+      top: 0px;
+    }
+  }
+}
+
+.jobs-decorations {
+  .decoration--rectangle {
+    right: 0;
+    height: 50vh;
+    z-index: -1;
+  }
 }

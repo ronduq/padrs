@@ -16,3 +16,9 @@ html {
 .row {
   position: relative;
 }
+
+@include respond-to("tablet"){
+  body {
+    overflow-x: hidden;
+  }
+}
