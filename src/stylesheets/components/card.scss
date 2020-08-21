@@ -34,6 +34,10 @@
     margin-left: -1 * spacing(m);
     margin-right: -1 * spacing(m);
     margin-bottom: spacing(m);
+
+    $spacing: spacing(m) * 2;
+    width: calc(100% + #{$spacing});
+    object-fit: cover;
   }
 
   a {
@@ -95,6 +99,10 @@
 
   a {
     color: colour(midnight);
+
+    &:hover {
+      color: colour(midnight);;
+    }
   }
 
   .icon {
