@@ -121,10 +121,18 @@
   }
 }
 
+.faqs-decorations,
 .jobs-decorations {
   .decoration--rectangle {
     right: 0;
     height: 50vh;
     z-index: -1;
+
+    .decoration--circle {
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: -255px; //165px height + 90px margin
+    }
   }
 }
