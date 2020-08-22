@@ -19,13 +19,20 @@ layout: default
   </div>
 </div>
 
-<div class="container mt-l mb-s container--team">
+<div class="container mt-l container--editorial">
   <div class="row">
-    <div class="col col-lg-6 offset-lg-1 mb-l col-12 ">
+    <div class="col col-lg-6 offset-lg-1 mt-m col-12 ">
       <h2 class="h2">What we’re offering</h2>
+    </div>
+  </div>  
+</div>
+<div class="description-card__container container mb-xl container--editorial">
+  <div class="row">
+    <div class="col col-lg-6 offset-lg-1 mb-l col-12 align-self-start ">
       <p class="intro">When you join PA, we ask for your ideas, expertise and commitment. In return we’ll give you stimulating work that improves people’s lives, opportunities to learn from brilliant people and a supportive culture where you can thrive. </p>
     </div>
-    <div class="w-100"></div>
+  </div>
+  <div class="row">  
     <div class="col col-lg-4 col-md-6 col-12 offset-lg-2">
       <div class="description-card">
         <img class="description-card__img" src="https://picsum.photos/360/322" alt=""/>
@@ -35,6 +42,7 @@ layout: default
         </div>
       </div>
     </div>
+    
     <div class="col col-lg-4 col-md-6 col-12">
       <div class="description-card description-card--reverse">
         <div class="description-card__text">
@@ -43,61 +51,22 @@ layout: default
         </div>
         <img class="description-card__img" src="https://picsum.photos/360/322" alt="" />
       </div>
+    </div>
+  </div>
+
+   <div class="col col-lg-4 col-md-6 col-12 offset-lg-2">
       <div class="description-card">
+        <img class="description-card__img" src="https://picsum.photos/360/322" alt=""/>
         <div class="description-card__text">
           <h2 class="h3">Our mission</h2>
           <p>We design, build, maintain and run digital solutions – at scale – that drive innovation, and enrich people’s lives. Our skills and talent enable PA’s purpose of creating a positive human future in a technology-driven world.</p>
         </div>
       </div>
-      <div class="decoration decoration--rectangle"></div>
-      <div class="decoration decoration--circle decoration--circle__sm"></div>
     </div>
-  </div>
-</div>
 
-<div class="container mt-m mb-l">
-  <div class="row">
-    <div class="col offset-lg-1 mb-l col-12 ">
-      <h2 class="h3 mb-0">Going through the ranks</h2>
-    </div>
-  </div>  
-  <div class="row">
-    <div class="col col-lg-7 offset-lg-1 mb-l col-12 ">
-      
-      <ul class="point-list">
-        <li class="point-list__item">
-          <h3 class="h4">Analyst</h3>
-          <p>You’ll provide hands-on support to colleagues across a range of internal and client-facing projects. You’ll also receive the training and exposure needed to develop your craft, manage clients and get the most out of everything PA has to offer.<p>
-        </li>
-        <li class="point-list__item">
-          <h3 class="h4">Consultant analyst</h3>
-          <p>You’ll provide practical support to your team and clients – usually through a mixture of research, analysis and delivery. You’ll build on your training and expand your PA network through internal initiatives.<p>
-        </li>
-        <li class="point-list__item">
-          <h3 class="h4">Consultant</h3>
-          <p>You’ll be an integral part of project teams, delivering work independently and collaborating with colleagues and clients across a range of disciplines. You’ll continue to build on your training and get stuck into internal projects.<p>
-        </li>
-        <li class="point-list__item">
-          <h3 class="h4">Principle consultant</h3>
-          <p>You’ll be working with some of our key clients, enjoying a mixture of working independently and leading project teams. You’ll contribute to business development by nurturing day-to-day client relationships. <p>
-        </li>
-        <li class="point-list__item">
-          <h3 class="h4">Managing consultant</h3>
-          <p>You’ll manage our most complex projects, nurture teams and be responsible for initiating and leading business development opportunities. <p>
-        </li>
-        <li class="point-list__item">
-          <h3 class="h4">Partner</h3>
-          <p>You’ll help set the overall strategic direction of the firm, taking on new management of large-scale new business and leading large accounts. <p>
-        </li>
-      </ul>
-    </div>
-    <div class="col col-lg-4 mb-l col-12 ">
-      <h3 class="h4">Moving on up </h4>
-      <p>We know it can be important to understand how you progress at a company – whether it’s a priority or something you want to take your time over. </p>
-      <p>Depending on your role, it’s fairly common at PA to have both an internal PA rank (like ‘Principal Consultant’), as well as a practitioner job title (such as ‘Senior Designer’). We’ve explained what these ranks mean below. Over time your performance and growing skillset will enable you to move up to the next rank (and possibly change your job title, too). You can find out how this affects you specifically at interview.</p>
-    </div>
-  </div>
-</div>    
+  <div class="decoration decoration--rectangle"></div>
+  {# <div class="decoration decoration--circle decoration--circle__sm"></div> #}
+</div>
 
 {% set benefitsHeader = 'Getting the balance right' %}
 {% include "benefits.njk" %}
@@ -107,7 +76,7 @@ layout: default
     <div class="col col-md-10 col-12 offset-md-1">
       <div class="banner">
         <h2 class="h3">What are you waiting for?</h2>
-        <a href="{{ '/jobs' | url }}" class="button button--outline-midnight">View our open roles</a>
+        <a href="{{ '/jobs' | url }}" class="button button--outline-midnight">See open roles</a>
       </div>
     </div>
   </div>

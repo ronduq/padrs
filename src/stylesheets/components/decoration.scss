@@ -46,7 +46,6 @@
   .decoration--rectangle {
     top: 0;
     z-index: -1;
-    right: 115px;
     height: calc(100% - 60px);
     @include respond-to('tablet') {
      left:10px;
@@ -55,7 +54,6 @@
   }
 
   .decoration--circle {
-    right: 200px;
     bottom: -200px;
   }
 }
@@ -63,7 +61,7 @@
 .container--benefits {
   .decoration {
     position: absolute;
-    top: -370px;
+    top: -345px;
     // top: -145px;
     // right: -250px;
     // @include respond-to('large'){
@@ -126,10 +124,16 @@
   }
 }
 
+.faqs-decorations,
 .jobs-decorations {
   .decoration--rectangle {
     right: 0;
     height: 50vh;
     z-index: -1;
+  }
+
+  .decoration--circle {
+    top: calc(50vh + 90px);
+    right: 95px;
   }
 }

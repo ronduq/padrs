@@ -87,7 +87,7 @@ button::-moz-focus-inner,
   color: colour(mid-grey);
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid colour(midnight);
+  border: 1px solid colour(white);
   border-radius: 3px;
 
   &::-ms-expand {
@@ -125,7 +125,7 @@ button::-moz-focus-inner,
   max-width: 100%;
   box-sizing: border-box;
   margin: 0;
-  border: 1px solid colour(midnight);
+  border: 1px solid colour(white);
   border-radius: 3px;
   -moz-appearance: none;
   -webkit-appearance: none;

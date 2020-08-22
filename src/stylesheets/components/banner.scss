@@ -9,11 +9,16 @@
     margin: 0;
   }
 
+  .button {
+    align-self: center;
+  }
+
   @include respond-to("mobile") {
     padding: 20px 8px;
-
-    .button {
-      transform: translateY(5px);
-    }
   }
+}
+
+.banner--midnight {
+  background: colour(midnight);
+  color: colour(white);
 }

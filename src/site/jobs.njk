@@ -24,15 +24,16 @@ layout: default
 
 <div class="container">
   <div class="row">
-    <div class="col-12 offset-lg-1 col-lg-11">
-      <div class="jobs-decorations">
+    <div class="col col-12">
+      {# <div class="jobs-decorations">
         <div class="decoration decoration--rectangle"></div>
-      </div>
+        <div class="decoration decoration--circle decoration--circle__sm"></div>
+      </div> #}
       <div class="row">
-        <div data-search-no-results class="col col-12 col-lg-9">
+        <div data-search-no-results class="col col-12 col-lg-9 offset-lg-1">
           <h2 class="h3">No results</h2>
         </div>
-        <div data-search-results class="col col-12 col-lg-9 ">
+        <div data-search-results class="col col-12 col-lg-9 offset-lg-1">
           <h2 class="h3" data-search-count></h2>
           <div class="card-group card-group--list">
             {% for job in jobs %}

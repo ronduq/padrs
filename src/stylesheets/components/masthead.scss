@@ -76,7 +76,6 @@
   display: none;
   @include respond-to("tablet"){
     display: block;
-    // transform: translateY(-80px);
     position: absolute;
     top: -5px;
   }
@@ -97,9 +96,8 @@
 .menuToggle a
 {
   text-decoration: none;
-  color: $midnight;
+  color: white;
   font-weight: bold;
-  
   transition: color 0.3s ease;
 }
 
@@ -161,11 +159,11 @@
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: $midnight;
+  background: white;
 }
 
 /*
- * But let's hide the middle one.
+ * Hide the middle one.
  */
 .menuToggle input:checked ~ span:nth-last-child(3)
 {
@@ -173,35 +171,40 @@
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
 .menuToggle input:checked ~ span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
+.menuToggle input:checked ~ .menu {
+  box-shadow: -169px 770px 0px 10000px rgba(41, 56, 70, .9), -5px 5px 15px rgba(0,0,0,.8);
+}
+
 .menu
 {
   position: absolute;
-  width: 300px;
+  width: 102vw;
+  height: 100vh;
   margin: -100px 0 0 -50px;
   padding: 90px 50px 30px;
-  box-shadow: -5px 5px 15px rgba(0,0,0,.4);
-  
-  background: $rose;
+  box-shadow: -169px 770px 0px 10000px rgba(41, 56, 70, 0), -5px 5px 15px rgba(0,0,0, 1);
+  background: $midnight;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.menu__overlay {
+  width: 102vw;
+  height:10000vh;
+  display: block;
+  background: $midnight;
+  width: 102vw;
+  position: absolute;
+  top: 0;
+  transform: translateX(-87vw);
 }
 
 .menu li
@@ -218,5 +221,5 @@
  */
 .menuToggle input:checked ~ ul
 {
-  transform: translateX(-200px);
+  transform: translateX(calc(98px - 80%));
 }
