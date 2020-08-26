@@ -99,6 +99,7 @@
 
   a {
     color: colour(midnight);
+    width: 75%;
 
     &:hover {
       color: colour(midnight);;
@@ -106,7 +107,9 @@
   }
 
   .icon {
-    float: right;
+    position: absolute;
+    right: 20px;
+    bottom: 41px;
   }
 }
 

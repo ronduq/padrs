@@ -10,12 +10,10 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col col-10 offset-1">
-
         <div class="hero">
           <span class="hero__intro"></span>
           <h1 class="hero__title h1">PA Digital Locations</h1>
         </div>
-
       </div>
     </div>
   </div>
@@ -23,33 +21,88 @@ layout: default
 
 <div class="container">
   <div class="row">
-    <div class="col-11 offset-1">
-
+    <div class="col-11 offset-1 mb-m ">
       <h2 class="h3">Wherever I lay my hat...</h2>
-      <p>The nature of digital working – especially now – is that we should be able to deliver fantastic work from anywhere. And we do. That said, we also love collaborating face-to-face (and lunch-to-lunch) with our colleagues and clients, too. As such, we have three PA Digital office ‘hubs’, with client onsite working and remote working alongside that. Read on to find out a bit more. </p>
+      <p class="col-6 no-gutters">The nature of digital working – especially now – is that we should be able to deliver fantastic work from anywhere. And we do. That said, we also love collaborating face-to-face (and lunch-to-lunch) with our colleagues and clients, too. As such, we have three PA Digital office ‘hubs’, with client onsite working and remote working alongside that. Read on to find out a bit more. </p>
+    </div>
+  </div>
+  <div class="col-10 offset-lg-2 mb-m horizontal-card">
+    <div class="row">
+      <div class="col-4">
+        <h3 class="h4">Belfast</h3>
+      </div>  
+    </div>
+    <div class="row">  
+      <div class="col-4">
+        <p class="horizontal-card__text">Based in the city centre, we enjoy a modern, fresh office space built around a large shared space – perfect for coffee catchups, office stand-ups, breakouts and everything in between!  A fun, vibrant and friendly place to work, it’s home to around 100 digital engineers working on a variety of exciting and challenging projects across multiple technologies and clients.</p>
+        {% if belfastJobs > 0 %}
+          <a href="/jobs?city=Belfast">View {{ belfastJobs }} open role{% if belfastJobs > 1 %}s{% endif %}</a>
+        {% endif %}
+      </div>  
+      <div class="col-4">
+        <img class="description-card__img" src="https://picsum.photos/360/322" alt="" />
+      </div>  
+    </div>
+  </div>  
 
-      <h2 class="h3">Our digital hub offices</h2>
+  <div class="col-10 offset-lg-2 mb-m horizontal-card">
+    <div class="row">
+      <div class="col-4 offset-lg-4">
+        <h3 class="h4">Boston</h3>
+      </div>
+    </div>
+    <div class="row">  
+      <div class="col-4">
+        <img class="description-card__img" src="https://picsum.photos/360/322" alt="" />
+      </div>  
+      <div class="col-4">
+        <p class="horizontal-card__text">Located on historic South Street, our office in downtown Boston is just one of our offices in the US, and is the innovation hub for many of our Northeast US clients. Teams of designers, engineers and branding specialists work in a comfortable loft office with lots of makers spaces and areas perfect for collaboration.</p>
+        {% if bostonJobs > 0 %}
+          <a href="/jobs?city=Boston">View {{ bostonJobs }} open role{% if bostonJobs > 1 %}s{% endif %}</a>
+        {% endif %}
+      </div>  
+    </div>
+  </div>  
 
-      <h3 class="h4">Belfast</h3>
-      <p>Based in the city centre, we enjoy a modern, fresh office space built around a large shared space – perfect for coffee catchups, office stand-ups, breakouts and everything in between!  A fun, vibrant and friendly place to work, it’s home to around 100 digital engineers working on a variety of exciting and challenging projects across multiple technologies and clients.</p>
-      {% if belfastJobs > 0 %}
-        <a href="/jobs?city=Belfast">View {{ belfastJobs }} open role{% if belfastJobs > 1 %}s{% endif %}</a>
-      {% endif %}
+  <div class="col-10 offset-lg-2 mb-m horizontal-card">
+    <div class="row">
+      <div class="col-4">
+        <h3 class="h4">Farringdon</h3>
+      </div>  
+    </div>
+    <div class="row">  
+      <div class="col-4">
+        <p class="horizontal-card__text">Possibly the PA office with the most post-it notes, Farringdon is home to around 150 of our digital designers, engineers, strategists and anyone who likes to be near a well-stocked biscuit tin. There are lots of sofas, a good few war rooms and plenty of windows, encouraging collaborative, positive vibes. We’re a short hop from our friends in the Victoria office and some of the best food and drink in London.</p>
+        {% if londonJobs > 0 %}
+          <a href="/jobs?city=London">View {{ londonJobs }} open role{% if londonJobs > 1 %}s{% endif %}</a>
+        {% endif %}
+      </div>  
+      <div class="col-4">
+        <img class="description-card__img" src="https://picsum.photos/360/322" alt="" />
+      </div>  
+    </div>
+  </div>  
+  
+  <div class="col-10 offset-lg-2 mb-m horizontal-card">
+    <div class="row">
+      <div class="col-4 offset-lg-4">
+        <h3 class="h4">Victoria</h3>
+      </div>
+    </div>
+    <div class="row">  
+      <div class="col-4">
+        <img class="description-card__img" src="https://picsum.photos/360/322" alt="" />
+      </div>  
+      <div class="col-4">
+        <p class="horizontal-card__text">We’re very proud of our beautiful headquarters, right in the heart of the Victoria regeneration project. There’s lots of communal space – whether you want to get your head down quietly or spread out with your team. Just be careful you don’t lose 30 minutes gazing out the window at the incredible view. Being home to around 500 technologists, data analysts, researchers, consultants and more, it’s a great place to meet colleagues working on all sorts of fascinating projects. </p>
+        {% if bostonJobs > 0 %}
+          <a href="/jobs?city=Boston">View {{ bostonJobs }} open role{% if bostonJobs > 1 %}s{% endif %}</a>
+        {% endif %}
+      </div>  
+    </div>
+  </div>  
 
-      <h3 class="h4">Boston</h3>
-      <p>Located on historic South Street, our office in downtown Boston is just one of our offices in the US, and is the innovation hub for many of our Northeast US clients. Teams of designers, engineers and branding specialists work in a comfortable loft office with lots of makers spaces and areas perfect for collaboration.</p>
-
-      <h3 class="h4">Farringdon, London</h3>
-      <p>Possibly the PA office with the most post-it notes, Farringdon is home to around [150?] of our digital designers, engineers, strategists and anyone who likes to be near a well-stocked biscuit tin. There’s lots of sofas, a good few war rooms and plenty of windows, encouraging collaborative, positive vibes. We’re a short hop from our friends in the Victoria office and some of the best food and drink in London. </p>
-      {% if londonJobs > 0 %}
-        <a href="/jobs?city=London">View {{ londonJobs }} open role{% if londonJobs > 1 %}s{% endif %}</a>
-      {% endif %}
-
-      <h3 class="h4">Victoria, London</h3>
-      <p>We’re very proud of our beautiful headquarters, right in the heart of the Victoria regeneration project. There’s lots of communal space – whether you want to get your head down quietly or spread out with your team – just be careful you don’t lose 30 minutes gazing out the window at the incredible view. Being home to around [500?] technologists, data analysts, researchers, consultants and more, it’s a great place to meet colleagues working on all sorts of fascinating projects. </p>
-      {% if londonJobs > 0 %}
-        <a href="/jobs?city=London">View {{ londonJobs }} open role{% if londonJobs > 1 %}s{% endif %}</a>
-      {% endif %}
+  <div class="col-8 offset-lg-1 mb-m horizontal-card">
 
       <h2 class="h3">Working client-side</h2>
       <p>Depending on the project you’re working on, you may also get the chance to work in different locations. Usually this will be onsite at your client’s office, and sometimes this will be in one of our other PA offices – such as Cambridge, Bristol, New York or Oslo.</p>
