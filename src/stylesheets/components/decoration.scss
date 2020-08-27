@@ -40,6 +40,7 @@
 
   @include respond-to("mobile"){
     width:60%;
+    height: 482px;
   }
 }
 
@@ -49,8 +50,11 @@
     z-index: -1;
     height: calc(100% - 260px);
     @include respond-to('tablet') {
+      height: 482px;
       right: 10px;
       left: auto;
+      bottom: spacing(l);
+      top: auto;
     }
   }
   .decoration--long-rectangle{
@@ -66,6 +70,12 @@
   .decoration--circle {
     bottom: 25px;
     z-index: -1;
+
+    @include respond-to('tablet') {
+      bottom: -80px;
+      z-index: -1;
+      right: 20%;
+    }
   }
 }
 
@@ -79,7 +89,7 @@
     //   right: 0;
     // }
     @include respond-to('tablet'){
-      top: -310px;
+      top: -335px;
       right: 19%;
     }
   }

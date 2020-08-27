@@ -1,6 +1,10 @@
 .point-list {
   list-style-type: none;
   margin-left: 65px;
+
+  @include respond-to('mobile'){
+    margin-left: 35px;
+  }
 }
 
 .point-list__item {
