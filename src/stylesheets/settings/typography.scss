@@ -20,11 +20,14 @@ $font-sizes: (
   h3: (
     font-size: 32, line-height: 1.25,
     breakpoints: (
-      tablet: (font-size: 22, line-height: 1.25)
+      tablet: (font-size: 22, line-height: 1.15)
     )
   ),
   h4: (
-    font-size: 20, line-height: 1.4
+    font-size: 24, line-height: 1.4,
+    breakpoints: (
+      tablet: (font-size: 20, line-height: 1.1)
+    )
   ),
   intro: (
     font-size: 20, line-height: 1.5
