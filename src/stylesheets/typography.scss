@@ -42,6 +42,15 @@ body {
 
 .intro {
   @include font('Arial', intro, $responsive: true);
+  color: $midgrey;
+}
+
+.intro--white {
+  color: white;
+}
+
+.grey {
+  color: $midgrey;
 }
 
 p,

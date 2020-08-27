@@ -54,7 +54,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       <div class="col col-12 col-lg-11 offset-lg-1">
 
         <ul class="tabs">
-          <li aria-current="page"><a href="#role">The role</a></li>
+          <li ><a href="#role">The role</a></li>
           <li><a href="#benefits">Benefits</a></li>
           <li><a href="#process">Recruitment process</a></li>
           <li><a href="#location">Location</a></li>
@@ -78,7 +78,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         {% elseif (f.key == "diversity-statement") or (f.key == "inclusion-and-diversity") %}
         {% elseif f.key == "benefits" %}
         {% else %}
-          <h2 class="h2">{{ f.title }}</h2>
+          <h2 class="h3">{{ f.title }}</h2>
           {{ f.content | safe }}
         {% endif %}
       {% endfor %}
@@ -174,7 +174,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
 
     <div class="col col-12 col-lg-4 job--process">
-      <div class="decoration decoration--circle decoration--circle__xlg"></div>
+      {# <div class="decoration decoration--circle decoration--circle__xlg"></div> #}
       <h3 class="h4">Preparation tips</h3>
       {% switch job.capability %}
           {% case 'Design' %}
@@ -190,8 +190,11 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
   </div>
 </div>
 
-<div class="bg-midnight colour-white pt-l pb-l" id="location">
+<div class="bg-midnight colour-white location pt-l pb-l" id="location">
   <div class="container">
+  <div class="col offset-lg-8 col-lg-2 col-12">
+        <div class="decoration decoration--circle decoration--circle__sm"></div>
+      </div>
     {% switch job.office %}
     {% case 'Victoria' %}
     <div class="row mb-m">

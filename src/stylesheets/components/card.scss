@@ -19,6 +19,9 @@
 
   .card {
     margin-bottom: spacing(m);
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -44,7 +47,6 @@
     display: block;
     color: white;
     text-decoration: none;
-    // font-style: italic;
 
     &:hover {
       color: #fff;
@@ -54,11 +56,6 @@
       float: right;
     }
 
-    // &:after {
-    //   content: '\02192';
-    //   display: inline-block;
-    //   float: right;
-    // }
   }
 }
 
@@ -92,6 +89,8 @@
 .card--grey {
   background-color: colour(light-grey);
   color: colour(midnight);
+  position: relative;
+  padding: 25px 30px;
 
   .card__intro {
     color: colour(midnight);
@@ -108,8 +107,8 @@
 
   .icon {
     position: absolute;
-    right: 20px;
-    bottom: 41px;
+    right: 30px;
+    bottom: 35px;
   }
 }
 

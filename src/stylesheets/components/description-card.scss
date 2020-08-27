@@ -2,12 +2,7 @@
   display: flex;
   flex-direction: column; 
   @include respond-to('mobile') {
-    margin-bottom: 50px;
-  }
-}
-.description-card--reverse {
-  @include respond-to('mobile') {
-    flex-direction: column-reverse; 
+    margin-bottom: 20px;
   }
 }
 
@@ -16,20 +11,23 @@
   margin-bottom: 30px;
   @include respond-to('mobile') {
     margin-bottom: 20px;
+    margin-left: 20%;
     width: 80%;
 
     .description-card--reverse &{
-      margin-left: 20%;
+      margin-left: 0;
     }
   }
 }
 
 .description-card__text {
   margin-bottom: 30px;
+  p {
+    color: $midgrey;
+  }
 }
 
 .description-card__container{
-  // display: flex;
   position: relative;
 }
 

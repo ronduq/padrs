@@ -7,8 +7,15 @@
     <title>{{ title }}</title>
   </head>
   <body>
+  
   {% include "../assets/svgsprite.svg"  %}
-    <div class="masthead pb-l">
+    
+    {% if page.url === '/' %}
+      <div class="masthead pb-l">
+    {% endif %}
+    {% if page.url !== '/' %}
+      <div class="masthead pb-m">
+    {% endif %}
       <div class="col-12 mobile-menu-container">
             <nav class="masthead__nav--mobile" role="navigation">
               <div class="menuToggle">
@@ -53,7 +60,7 @@
             <div class="decoration decoration--circle decoration--circle__lg"></div>
           {% endif %}
 
-          <div class="masthead__lockup col-lg-3 col-12">
+          <div class="masthead__lockup col-lg-3 col-7">
             {% if page.url !== '/' %}
               <span>Digital careers at PA</span>
             {% endif %}
@@ -92,8 +99,8 @@
 
     <div class="footer">
       <div class="container">
-        <div class-"row">
-          <div class="col offset-lg-8 col-lg-2 col-12">
+        <div class="row">
+          <div class="col offset-lg-8 col-lg-2 col-12 mt-s">
             <div class="decoration decoration--circle decoration--circle__sm"></div>
           </div>
         </div>
@@ -124,11 +131,46 @@
           </div>
         </div>
       </div>
+      
     </div>
 
 
     <script type="text/javascript" src="{{ "/assets/javascripts/application.js" | url }}"></script>
     <script type="text/javascript" src="{{ "/assets/javascripts/collapse.js" | url }}"></script>
-
+  <!--
+                                             ▄▄▙▙▙▖▖        
+                   ▖▄▗▙▜▞▙▜▞▙▜▞▙▖▄▗        ▄█▟▙▙▙▙█▜▙       
+               ▄▄▜▚▜▞▌▙▚▌▙▚▌▙▚▌▙▜▐▚▜▚▄▖▖  ▞▙█▟▟▙▛▙▛█▟▙      
+            ▖▙▜▄▚▙▜▚▙▜▐▚▜▐▚▜▞▌▛▟▐▚▜▚▜▐▞▟▖ █▜▟▙█▟▜▛█▙█▟▘     
+          ▄▚▜▐▞▞▌▙▚▌▙▜▞▙▜▚▜▞▞▙▜▐▚▜▚▜▚▙▜▐▞▝▟▛▙▙▙▛▛█▟▟▟▟▘     
+        ▄▜▞▜▚▙▜▞▙▚▙▜▐▞▟▐▞▙▙▜▟▐▚▜▚▜▞▙▌▙▀▌▙ ▜▜█▟▙█▛▙▛▙▛▛      
+       ▙▚▙▜▚▙▚▌▛▞▌▙▜▚▜▞▌▛▄▚▌▙▜▞▙▜▚▜▐▞▞▛▟▞▌ ▀▟▟▙▙█▜▛▛▛    ▖  
+     ▗▛▞▌▙▚▌▙▚▜▞▙▜▞▞▙▚▙▜▞▙▚▜▐▞▟▞▞▙▜▞▞▛▟▞▞▛▙▄ ▀▐▙▛▛▀▘   ▚▘▖▚ 
+    ▐▚▜▞▛▞▌▛▞▛▟▞▞▌▛▟▞▌▙▚▜▐▜▞▙▜▐▞▛▟▝▞▛▟▞▞▙▚▌▌▛▄▗▗▗     ▝▖▚▝▖▘
+   ▗▜▞▌▙▜▞             ▝▘▜▐▞▟▞▙▚▘    ▌▛▟▞▙▜▞▙▚▛▞▙▜      ▘▝  
+  ▗▜▚▙▜▞▟▞                 ▀▞▟▐▚     ▝▟▐▞▟▐▞▞▙▜▟▝ ▖▌▙▚▖     
+  ▞▙▚▌▙▜▐▞                  ▀▞▙▜      ▝▌▛▞▙▀▙▚▌▌ ▙▜▐▞▟▐▚    
+ ▝▙▚▙▜▐▞▙▜      ▞▙▜▞▟▞▖      ▜▐▞▛      ▀▞▙▚▛▞▙▜ ▐▐▐▚▚▚▜▐    
+ ▜▞▌▙▀▌▛▞▟      ▟▐▞▞▌▙▜▖     ▞▙▜▞▌      ▛▞▙▜▞▟▐▄ ▚▌▙▜▞▌▌    
+ ▙▚▜▞▛▞▙▜▞      ▞▌▛▙▜▞▟      ▐▞▟▐▞▖     ▝▙▚▌▛▞▙▚▚ ▘▘▌▘▘     
+▐▞▛▌▙▜▟▞▌▛      ▞▙▜▐▞▟▝      ▙▜▐▚▜▞      ▐▚▜▞▛▞▟▚▜▞▄▄       
+▗▜▐▟▞▙▞▟▞▛                  ▞▟▞▙▜▚▜▚     ▝▞▌▙▜▞▌▛▌▙▚▌▘      
+▝▙▜▄▚▌▙▚▌▛                ▗▞▟▐▝▞▝▚▘▌▘     ▝▟▞▌▙▜▞▙▚▙▜       
+▝▞▙▞▌▛▞▌▛▟              ▄▐▞▞               ▐▞▟▞▌▙▚▜▐▞▖      
+ ▛▞▞▙▜▞▙▜▞      ▄▄▄▄▚▜▞▙▚▙▜                 ▞▌▙▜▞▜▞▙▀       
+ ▜▞▛▟▐▞▞▌▛      ▞▞▞▞▟▚▜▐▚▚▘     ▄▗▖▄▗▖▖     ▝▟▞▌▛▌▛▞▛       
+ ▗▜▞▞▙▜▚▜▞      ▞▛▞▛▞▙▜▞▙▌     ▗▚▙▜▞▌▛▞▖     ▘▙▜▞▟▚▜        
+  ▚▜▟▐▞▙▌▛      ▚▜▞▙▜▐▞▟▝      ▙▌▙▚▌▛▞▛▄      ▙▚▜▞▙▘        
+   ▙▚▙▜▄▜▟      ▜▞▟▞▙▙▜▞▘     ▟▐▞▞▙▜▞▛▞▙▚      ▛▌▙▚         
+    ▙▚▌▙▚▚▜▀▙▜▚▜▚▜▐▞▄▚▌▛▛▜▚▛▙▜▐▚▜▜▐▞▟▞▛▞▟▞▙▜▞▙▜▞▟▞          
+     ▙▜▐▚▛▞▛▟▐▜▞▙▜▚▜▞▌▛▟▞▙▌▙▚▜▞▙▚▙▚▜▐▞▞▛▞▟▐▞▟▐▚▜▝           
+      ▜▞▌▛▞▙▚▜▞▟▐▞▙▚▙▜▟▐▞▟▐▞▙▌▛▞▌▙▜▚▙▜▚▜▟▞▌▛▞▙▜▞            
+       ▚▜▞▛▞▛▟▞▞▙▚▌▙▚▌▙▚▜▞▌▛▞▞▙▜▟▞▙▚▌▙▜▚▚▚▜▞▛▞▝             
+        ▝▐▞▙▜▐▞▛▞▌▛▞▙▜▐▜▞▞▙▜▞▛▟▐▄▚▌▙▜▞▌▛▞▛▌▙▀               
+          ▝▐▞▌▙▜▞▙▜▚▌▙▜▞▞▛▟▐▟▞▞▙▚▙▜▞▌▙▜▞▛▟▝                 
+             ▀▐▞▟▐▞▌▛▞▌▛▞▙▚▙▚▜▟▐▚▚▌▙▜▞▌▌▘                   
+                ▘▚▜▞▙▜▞▙▜▞▌▙▜▞▞▙▜▚▜▐▘▘                      
+                     ▘▀▝▘▘▀▝▝▝▘▘▘▘                          
+-->
   </body>
 </html>

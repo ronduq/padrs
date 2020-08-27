@@ -1,6 +1,7 @@
 .point-list {
   list-style-type: none;
   margin-left: 65px;
+  margin-top: spacing('m');
 
   @include respond-to('mobile'){
     margin-left: 35px;
@@ -11,7 +12,7 @@
   
     position: relative;
     margin: 0;
-    padding-bottom: 1em;
+    padding-bottom: spacing('m');
     padding-left: 20px;
  
   

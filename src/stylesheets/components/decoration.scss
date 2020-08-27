@@ -65,10 +65,13 @@
   .decoration--long-rectangle{
     top: 0;
     z-index: -1;
-    height: calc(100% - 60px);
+    height: calc(100% - 70px);
     @include respond-to('tablet') {
       right: 10px;
       left: auto;
+      height: 412px;
+      top: auto;
+      bottom: spacing('l');
     }
   }
 
@@ -97,9 +100,15 @@
     //   right: 0;
     // }
     @include respond-to('tablet'){
-      top: -335px;
-      right: 19%;
+      top: -305px;
+      right: 18%;
     }
+  }
+}
+
+.location {
+  .decoration {
+    top: -145px;
   }
 }
 
@@ -108,14 +117,14 @@
     top: -150px;
     @include respond-to('tablet'){
       right: 10%;
-      top: -110px;
+      top: -130px;
     }
   }
 }
 
 .masthead {
   .decoration {
-    top: -125px;
+    top: -115px;
     left: 110px;
     @include respond-to('mobile'){
       top: -75px;
@@ -153,16 +162,21 @@
   }
 }
 
-.faqs-decorations,
+.fixed-decorations,
 .jobs-decorations {
   .decoration--rectangle {
     right: 0;
-    height: 50vh;
+    height: 610px;
     z-index: -1;
   }
 
   .decoration--circle {
-    top: calc(50vh + 90px);
+    top: 700px;
     right: 95px;
+  }
+}
+.fixed-decorations {
+  @include respond-to('mobile'){
+    display: none;
   }
 }

@@ -1,11 +1,17 @@
+.horizontal-card {
+  @include respond-to('mobile') {
+    padding-bottom: 20px;
+  }
+}
 .horizontal-card__text {
-  @include font-size(14)
+  color: $midgrey;
 }
 .horizontal-card__img {
   width: 100%;
   margin-bottom: 30px;
   @include respond-to('mobile') {
     margin-bottom: 20px;
-    width: 100%;
+    width: 80%;
+    margin-left: 20%;
   }
 }
