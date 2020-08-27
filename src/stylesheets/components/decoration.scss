@@ -2,6 +2,7 @@
   background-color: $rose;
   position: absolute
 }
+
 .decoration--circle {
   border-radius: 50%;
 }
@@ -56,6 +57,10 @@
       bottom: spacing(l);
       top: auto;
     }
+
+    &.decoration--offset-70{
+      height: calc(100% - 330px);
+    }
   }
   .decoration--long-rectangle{
     top: 0;
@@ -75,6 +80,9 @@
       bottom: -80px;
       z-index: -1;
       right: 20%;
+    }
+    &.decoration--offset-70{
+      bottom: 95px;
     }
   }
 }
