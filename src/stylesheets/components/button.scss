@@ -19,6 +19,13 @@
     box-shadow: 0 0 0 3px -moz-mac-focusring;
     outline: none;
   }
+
+  &:hover {
+    background: $midnight;
+    border: 1px solid colour(rose);
+    color: colour(rose);
+  }
+
 }
 
 .button--outline-midnight {
