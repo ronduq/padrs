@@ -31,6 +31,7 @@
   padding: spacing(m);
   border-radius: 3px;
   overflow: hidden;
+  text-decoration: none;
 
   img {
     margin-top: -1 * spacing(m);
@@ -43,22 +44,42 @@
     object-fit: cover;
   }
 
-  a {
+  .card__label {
     display: block;
     color: white;
     text-decoration: none;
 
-    &:hover {
-      color: #fff;
-    }
-
     .icon {
       float: right;
     }
+  }
 
+  &:hover {
+    color: $rose;
+
+    h3,
+    .card__label,
+    .card__intro {
+      color: $rose;
+    }
+
+    .icon {
+      transform: translateX(10px);
+    }
   }
 }
+.card__link {
+  color: white;
+  transition: all .2s ease-in-out;
 
+  h3,
+  .card__label,
+  .card__intro,
+  .icon {
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+}
 .card__hover-link {
   position: relative;
 
