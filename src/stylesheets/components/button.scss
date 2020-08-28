@@ -25,10 +25,24 @@
   background: transparent;
   border: 1px solid colour(midnight);
   color: colour(midnight);
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    background: $midnight;
+    border: 1px solid colour(rose);
+    color: colour(rose);
+  }
+
 }
 
 .button--outline-rose {
   background-color: transparent;
   border: 1px solid colour(rose);
   color: colour(rose);
+
+  &:hover {
+    background: $rose;
+    border: 1px solid colour(midnight);
+    color: colour(midnight);
+  }
 }

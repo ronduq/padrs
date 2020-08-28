@@ -55,16 +55,19 @@
   }
 
   &:hover {
+    background-color: colour(midnight);
     color: $rose;
 
     h3,
     .card__label,
-    .card__intro {
+    .card__intro,
+    .card__location {
       color: $rose;
     }
 
     .icon {
       transform: translateX(10px);
+      fill: $rose;
     }
   }
 }
@@ -75,7 +78,8 @@
   h3,
   .card__label,
   .card__intro,
-  .icon {
+  .icon,
+  .card__location {
     text-decoration: none;
     transition: all .2s ease-in-out;
   }
@@ -130,6 +134,7 @@
     position: absolute;
     right: 30px;
     bottom: 35px;
+    transition: all .2s ease-in-out;
   }
 }
 

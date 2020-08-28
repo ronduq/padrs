@@ -39,9 +39,9 @@ layout: default
           <h2 class="h3" data-search-count></h2>
           <div class="card-group card-group--list">
             {% for job in jobs %}
-              <div class="card card__hover-link" data-search-id="{{ job.id }}">
+              <a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}" class="card card__hover-link" data-search-id="{{ job.id }}">
                 <span class="card__intro" data-search-capability>{{ job.capability }}</span>
-                <h3 class="h4" data-search><a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}">{{ job.title }}</a></h3>
+                <h3 class="h4" data-search>{{ job.title }}</h3>
                 <p>{{ job.summary }}</p>
                 <span class="card__location" data-search-location="{{ job.city }}">
                   {{ job.office }}, {{ job.city }}
@@ -52,7 +52,7 @@ layout: default
                 <!--googleoff: all-->
                 <p data-search-fulltext hidden>{{ job.fulltext }}</p>
                 <!--googleon: all-->
-              </div>
+              </a>
             {% endfor %}
           </div>
         </div>

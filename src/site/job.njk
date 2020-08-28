@@ -85,9 +85,6 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
     </div>
     <div class="col col-12 col-lg-4 pt-l">
-      <h2 class="h4">The team</h2>
-      <p>We want you to feel at home from the start, so check out a few of the people you might work with one day soon.</p>
-      <!-- TODO: insert team profile(s) -->
 
       <div class="team-card mb-m mt-m">
         <img src="https://picsum.photos/394/394" alt="">
@@ -342,16 +339,16 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         </div>
         <div class="card-group">
           {% for j in relatedJobs %}
-            <div class="card card__hover-link">
+            <a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/') | url }}" class="card card__hover-link">
               <span class="card__intro">{{ j.capability }}</span>
-              <h3 class="h4 mb-m"><a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/') | url }}">{{ j.title }}</a></h3>
+              <h3 class="h4 mb-m">{{ j.title }}</h3>
               <span class="card__location">
                 {{ j.office }}, {{ j.city }}
                 <svg viewBox="0 0 100 100" class="icon icon--rose icon--small">
                   <use xlink:href="#chevronRight"></use>
                 </svg>
               </span>
-            </div>
+            </a>
           {% endfor %}
         </div>
       </div>
