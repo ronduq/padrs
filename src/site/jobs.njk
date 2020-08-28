@@ -42,7 +42,7 @@ layout: default
               <a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}" class="card card__hover-link" data-search-id="{{ job.id }}">
                 <span class="card__intro" data-search-capability>{{ job.capability }}</span>
                 <h3 class="h4" data-search>{{ job.title }}</h3>
-                <p>{{ job.summary }}</p>
+                <p class="card__summary">{{ job.summary }}</p>
                 <span class="card__location" data-search-location="{{ job.city }}">
                   {{ job.office }}, {{ job.city }}
                   <svg viewBox="0 0 100 100" class="icon icon--rose icon--small">

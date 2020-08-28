@@ -33,6 +33,14 @@
   overflow: hidden;
   text-decoration: none;
 
+  .card__intro,
+  .card__location {
+    transition: all .2s ease-in-out;
+  }
+  .card__summary {
+    color: white;
+  }
+
   img {
     margin-top: -1 * spacing(m);
     margin-left: -1 * spacing(m);
@@ -62,16 +70,23 @@
     background-color: colour(midnight);
     color: $rose;
 
-    h3,
-    .card__label,
+    // h3,
+    // .card__label,
     .card__intro,
     .card__location {
       color: $rose;
     }
 
+    .card__summary {
+      color: white;
+    }
+
     .icon {
       transform: translateX(10px);
       fill: $rose;
+    }
+    .icon--external {
+      transform: none;
     }
   }
 }
@@ -153,5 +168,6 @@
 
   .icon{
     float: right;
+    transition: all .2s ease-in-out;
   }
 }
