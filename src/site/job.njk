@@ -67,11 +67,18 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 </div>
 
 <div class="container pb-l" id="role">
-  <div class="row">
+ <div class="row">
     <div class="col col-12 col-lg-7 offset-lg-1 pt-l"> 
 
       <h2 class="h2">The role</h2>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col col-12 col-lg-7 offset-lg-1"> 
 
+      {# <h2 class="h2">The role</h2> #}
+
+      <div class="grey">
       {% for f in job.description %}
         {% if f.key == "become-part-of-the-team" %}
           {{ f.content | safe }}
@@ -82,35 +89,36 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
           {{ f.content | safe }}
         {% endif %}
       {% endfor %}
+      </div>
 
     </div>
-    <div class="col col-12 col-lg-4 pt-l">
-
-      <div class="team-card mb-m mt-m">
-        <img src="https://picsum.photos/394/394" alt="">
-        <span class="team-card__job">Head of design</span>
-        <h3 class="h4">Bess Mills</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna.</p>
-      </div>
+    <div class="col col-12 col-lg-4">
 
       {% switch job.capability %}
       {% case 'Design' %}
       <h2 class="h4">The Design team</h2>
-      <p>Our design and strategy teams work together to create a vision for measurably improving customer experience, anchored in user needs and supporting key business objectives. </p>
+      <p class="grey">Our design and strategy teams work together to create a vision for measurably improving customer experience, anchored in user needs and supporting key business objectives. </p>
       <a href="{{ '/about/teams/design' | url }}" class="button button--outline-midnight">More about design</a>
       {% case 'Engineering & DevOps' %}
       <h2 class="h4">The Engineering team</h2>
-      <p>We have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation.</p>
+      <p class="grey">We have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation.</p>
       <a href="{{ '/about/teams/engineering-and-devops' | url }}" class="button button--outline-midnight">More about engineering &amp; devops</a>
       {% case 'Delivery' %}
       <h2 class="h4">The Delivery team</h2>
-      <p>Text goes here</p>
+      <p class="grey">Text goes here</p>
       <a href="{{ '/about/teams/delivery' | url }}" class="button button--outline-midnight">More about delivery</a>
       {% case 'Transformation' %}
       <h2 class="h4">The Transformation team</h2>
-      <p>We help clients understand the value digital can bring to the core of their business and transform ideas for change into action.</p>
+      <p class="grey">We help clients understand the value digital can bring to the core of their business and transform ideas for change into action.</p>
       <a href="{{ '/about/teams/transformation' | url }}" class="button button--outline-midnight">More about transformation</a>
       {% endswitch %}
+
+      <div class="team-card mb-m mt-l">
+        <img src="https://picsum.photos/394/394" alt="">
+        <span class="team-card__job">Head of design</span>
+        <h3 class="h4">Bess Mills</h3>
+        <p class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna.</p>
+      </div>
       
     </div>
   </div>
@@ -131,26 +139,26 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         <ol>
           <li>
             <span class="h4">Online application</span>
-            <p>First up, get started by applying online. Your dream job could be waiting for you!</p>
+            <p class="grey">First up, get started by applying online. Your dream job could be waiting for you!</p>
           </li>
           <li>
             <span class="h4">First-round interview</span>
-            <p>We want to understand why you’ve applied and what interests you. We’ll ask you about a few bits from your CV and hope to hear how your experiences have shaped your skills. These interviews typically last around 30 minutes.</p>
+            <p class="grey">We want to understand why you’ve applied and what interests you. We’ll ask you about a few bits from your CV and hope to hear how your experiences have shaped your skills. These interviews typically last around 30 minutes.</p>
           </li>
           <li>
           {% switch job.capability %}
           {% case 'Design' %}
             <span class="h4">Portfolio review</span>
-            <p>We’ll ask you to present a portfolio of your work that best describes your skills and areas of interest. We’ll be assessing a number of things: your experience across the full design process, evidence of different research and design approaches, your ways of working, the quality of your storytelling and how you collaborate in a discussion group.</p>
+            <p class="grey">We’ll ask you to present a portfolio of your work that best describes your skills and areas of interest. We’ll be assessing a number of things: your experience across the full design process, evidence of different research and design approaches, your ways of working, the quality of your storytelling and how you collaborate in a discussion group.</p>
           {% case 'Engineering & DevOps' %}
             <span class="h4">Second round interview</span>
-            <p>The next stage will be more specialised. You’ll meet other engineers and future peers to assess your core skills and technical expertise. For developer roles, we will have set you a brief coding challenge for completion prior to this, ready for discussion at interview. </p>
+            <p class="grey">The next stage will be more specialised. You’ll meet other engineers and future peers to assess your core skills and technical expertise. For developer roles, we will have set you a brief coding challenge for completion prior to this, ready for discussion at interview. </p>
           {% case 'Delivery' %}
             <span class="h4">Second round interview</span>
-            <p>Text goes here</p>
+            <p class="grey">Text goes here</p>
           {% case 'Transformation' %}
             <span class="h4">Second round interview</span>
-            <p>The next stage will be more specialised. Two members of the Transformation Capability will ask you to talk through some of your work in detail, the type of problems you have solved, the role you played and ask specific questions to evaluate your fit to the role.</p>
+            <p class="grey">The next stage will be more specialised. Two members of the Transformation Capability will ask you to talk through some of your work in detail, the type of problems you have solved, the role you played and ask specific questions to evaluate your fit to the role.</p>
           {% endswitch %}
           </li>
           {% if job.capability != 'Design' %}
@@ -158,9 +166,9 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
               <span class="h4">Final round interview</span>
               {% switch job.capability %}
                 {% case 'Transformation' %}
-                  <p>Congrats, you’ve made it to the final stage! You’ll be tasked with presenting some of your work to a small panel from the team including a Partner or Senior Manager– either in person or over the phone – for 30 minutes, followed by a 30-minute discussion. This is your chance to demonstrate your presentation and storytelling skills and to ask any burning questions, so make sure you have these ready. </p>
+                  <p class="grey">Congrats, you’ve made it to the final stage! You’ll be tasked with presenting some of your work to a small panel from the team including a Partner or Senior Manager– either in person or over the phone – for 30 minutes, followed by a 30-minute discussion. This is your chance to demonstrate your presentation and storytelling skills and to ask any burning questions, so make sure you have these ready. </p>
                 {% default %}
-                  <p>Congrats, you’ve made it to the final stage! You’ll be interviewed by a Partner or Senior Manager from your team – either in person or over the phone – for up to one hour. This is also your chance to ask any burning questions, so make sure you have these ready.</p>
+                  <p class="grey">Congrats, you’ve made it to the final stage! You’ll be interviewed by a Partner or Senior Manager from your team – either in person or over the phone – for up to one hour. This is also your chance to ask any burning questions, so make sure you have these ready.</p>
               {% endswitch %}
             </li>
           {% endif %}
@@ -170,18 +178,18 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
     </div>
 
-    <div class="col col-12 col-lg-4 job--process">
+    <div class="col col-12 col-lg-4 job--process pt-l">
       {# <div class="decoration decoration--circle decoration--circle__xlg"></div> #}
       <h3 class="h4">Preparation tips</h3>
       {% switch job.capability %}
           {% case 'Design' %}
-            <p>Remember, we’ll already have looked at your cv and portfolio and we like getting right under the hood of your work, so the portfolio review is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Try not to just repeat what we’ve already seen or read. Consider sharing some new examples, or show us your behind the scenes workings, so we can really get a feel for the breadth and depth of your work.</p>
+            <p class="grey">Remember, we’ll already have looked at your cv and portfolio and we like getting right under the hood of your work, so the portfolio review is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Try not to just repeat what we’ve already seen or read. Consider sharing some new examples, or show us your behind the scenes workings, so we can really get a feel for the breadth and depth of your work.</p>
           {% case 'Engineering & DevOps' %}
-            <p>Remember, we’ll already have looked at your CV, so this is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Expect to be asked for examples around commercial awareness, working in teams, empathy, communication and what motivates you, as well as digging into your technical specialism.</p>
+            <p class="grey">Remember, we’ll already have looked at your CV, so this is your chance to tell us a bit more about the context and challenges you faced, and any successes or failures. Expect to be asked for examples around commercial awareness, working in teams, empathy, communication and what motivates you, as well as digging into your technical specialism.</p>
           {% case 'Delivery' %}
-            <p>Text goes here</p>
+            <p class="grey">Text goes here</p>
           {% case 'Transformation' %}
-            <p>Members of our capability have diverse backgrounds, which we consider a strength. Through the interview process we’ll be looking for strong evidence of digital expertise applied to experience strategy and/or digital business strategy. In the final stage, the type of work you choose to present is up to you. We’re looking for high levels of clarity in how you describe your methodology, the insight you uncovered and a sharp articulation of a strategic rationale. </p>
+            <p class="grey">Members of our capability have diverse backgrounds, which we consider a strength. Through the interview process we’ll be looking for strong evidence of digital expertise applied to experience strategy and/or digital business strategy. In the final stage, the type of work you choose to present is up to you. We’re looking for high levels of clarity in how you describe your methodology, the insight you uncovered and a sharp articulation of a strategic rationale. </p>
           {% endswitch %}
     </div>
   </div>
@@ -335,7 +343,9 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       <div class="col-12 mb-l">
         <div class="heading mb-m">
           <h2 class="h3">More roles at PA Digital</h2>
+          {% if jobs.length > 3 %}
           <a class="button button--outline-midnight" href="{{ '/jobs' | url }}">View all roles</a>
+          {% endif %}
         </div>
         <div class="card-group">
           {% for j in relatedJobs %}

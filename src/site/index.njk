@@ -15,9 +15,12 @@ layout: default
           <h1 class="hero__title h1">There’s never been a better time to join the Digital team at PA</h1>
         </div>
 
-        {% if jobs.length > 0 %}
-        <h2 class="h4 colour-rose mb-s">{{ jobs.length }} open job position{% if jobs.length > 1 %}s{% endif %}</h2>
-        {{ search.jobSearchForm('false') }}
+        {% if jobs.length > 3 %}
+          <h2 class="h4 colour-rose mb-s">{{ jobs.length }} open role{% if jobs.length > 1 %}s{% endif %}</h2>
+          {{ search.jobSearchForm('false') }}
+        {% endif %}
+        {% if jobs.length < 4 %}
+          <a href="{{ "/jobs" | url }}"><button class="button">View our open roles</button></a>
         {% endif %}
 
       </div>

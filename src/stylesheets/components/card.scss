@@ -34,8 +34,9 @@
   text-decoration: none;
 
   .card__intro,
-  .card__location {
-    transition: all .2s ease-in-out;
+  .card__location,
+  .h3 {
+    transition: all .1s ease-in-out;
   }
   .card__summary {
     color: white;

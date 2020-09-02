@@ -10,12 +10,14 @@
 
 .point-list__item {
   
-    position: relative;
-    margin: 0;
-    padding-bottom: spacing('m');
-    padding-left: 20px;
+  position: relative;
+  margin: 0;
+  padding-bottom: spacing('m');
+  padding-left: 20px;
  
-  
+ .h4 {
+   transform: translateY(-5px);
+ }
   &:before {
     content: '';
     background-color: $rose;
