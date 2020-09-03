@@ -1,14 +1,4 @@
-.hero {
-  h1 {
-    width: 70%;
-    max-width: 700px;
 
-    @include respond-to('tablet') {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-}
 
 .hero__intro {
   font-style: italic;
@@ -25,4 +15,8 @@
   font-style: italic;
   display: block;
   text-decoration: none;
+
+  &:hover {
+    color: white;
+  }
 }
