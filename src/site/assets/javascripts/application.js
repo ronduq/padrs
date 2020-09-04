@@ -4162,7 +4162,7 @@ var Search = /*#__PURE__*/function () {
           } // update the count of jobs
 
 
-      document.querySelector('[data-search-count]').innerText = "".concat(filteredJobs.length, " role").concat(filteredJobs.length === 1 ? '' : 's', " found");
+      document.querySelector('[data-search-count]').innerText = "Showing ".concat(filteredJobs.length, " role").concat(filteredJobs.length === 1 ? '' : 's');
     }
   }]);
 

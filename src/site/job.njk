@@ -51,7 +51,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 <div class="bg-midnight colour-white sticky">
   <div class="container">
     <div class="row">
-      <div class="col col-12 col-lg-11">
+      <div class="col col-12">
 
         <ul class="tabs">
           <li ><a href="#role">The role</a></li>
@@ -74,7 +74,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     </div>
   </div>    
   <div class="row">
-    <div class="col col-12 col-lg-8"> 
+    <div class="col col-12 col-lg-7"> 
 
       {# <h2 class="h2">The role</h2> #}
 
@@ -92,7 +92,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       </div>
 
     </div>
-    <div class="col col-12 col-lg-4">
+    <div class="col col-12 offset-lg-1 col-lg-4">
 
       {% switch job.capability %}
       {% case 'Design' %}
@@ -133,7 +133,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       <h2 class="h3 mb-0">Recruitment process</h2>
 
     </div>
-    <div class="col col-10 col-lg-6 offset-2 mt-l">
+    <div class="col col-10 col-lg-6 offset-1 mt-l">
 
       <div class="steps">
         <ol>
@@ -178,7 +178,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
     </div>
 
-    <div class="col col-12 col-lg-4 job--process pt-l">
+    <div class="col col-12 col-lg-4 offset-1 job--process pt-l">
       {# <div class="decoration decoration--circle decoration--circle__xlg"></div> #}
       <h3 class="h4">Preparation tips</h3>
       {% switch job.capability %}
@@ -197,7 +197,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
 <div class="bg-midnight colour-white location pt-l pb-l" id="location">
   <div class="container">
-  <div class="col offset-lg-8 col-lg-2 col-12">
+  <div class="col offset-lg-9 col-lg-2 col-12">
         <div class="decoration decoration--circle decoration--circle__sm"></div>
       </div>
     {% switch job.office %}
@@ -211,7 +211,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     <div class="row">
       <div class="col col-12 col-lg-4 offset-lg-1">
         <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
-          <use xlink:href="#location"></use>
+          <use xlink:href="#location-icon"></use>
         </svg>
         <h3 class="h4">Address</h3>
         <p>10 Bressenden Place, Westminster, London SW1E 5DN</p>
@@ -237,7 +237,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     <div class="row">
       <div class="col col-12 col-lg-4 offset-lg-1">
         <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
-          <use xlink:href="#location"></use>
+          <use xlink:href="#location-icon"></use>
         </svg>
         <h3 class="h4">Address</h3>
         <p>50 Farringdon Rd, London EC1M 3HE</p>
@@ -269,7 +269,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     <div class="row">
       <div class="col col-12 col-lg-4 offset-lg-1">
          <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
-          <use xlink:href="#location"></use>
+          <use xlink:href="#location-icon"></use>
         </svg>
         <h3 class="h4">Address</h3>
         <p>1st Floor, Centre House, 79 Chichester St, Belfast BT1 4JR</p>
@@ -295,7 +295,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     <div class="row">
       <div class="col col-12 col-lg-4 offset-lg-1">
        <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
-          <use xlink:href="#location"></use>
+          <use xlink:href="#location-icon"></use>
         </svg>
         <h3 class="h4">Address</h3>
         <p>Papendorpseweg 97, Gebouw B, 3528 BJ Utrecht, Netherlands</p>
@@ -329,7 +329,9 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     {% for f in job.description %}
       {% if f.key == "diversity-statement" %}
         <h2 class="h4">{{ f.title }}</h2>
+        <div class="grey">
         {{ f.content | safe }}
+        </div>
       {% endif %}
     {% endfor %}
   </div>

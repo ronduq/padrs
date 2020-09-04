@@ -24,8 +24,15 @@
 }
 
 .masthead__lockup {
-  margin-top: 45px;
-  font-style: italic;
+  margin-top: 34px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    color: $rose;
+  }
 
   @include respond-to("tablet") {
     margin-top: 32px;
@@ -56,9 +63,15 @@
     padding: 1.7em .3em .6em .3em;
     position: relative;
     font-weight: 700;
+    svg {
+      transition: all .2s ease-in-out;
+    }
 
     &:hover {
       color: $rose;
+      svg {
+        fill: $rose;
+      }
     }
   }
 

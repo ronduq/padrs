@@ -126,7 +126,7 @@ class Search {
     }
 
     // update the count of jobs
-    document.querySelector('[data-search-count]').innerText = `${filteredJobs.length} role${filteredJobs.length === 1 ? '' : 's'} found`
+    document.querySelector('[data-search-count]').innerText = `Showing ${filteredJobs.length} role${filteredJobs.length === 1 ? '' : 's'}`
   }
 }
 

@@ -10,6 +10,11 @@
   }
 }
 
+.colour-white a:not([class]) {
+  &:hover {
+    color: $rose;
+  }
+}
 @each $name, $size in $spacing {
   .mt-#{$name} { @include spacing('margin-top', $name); }
   .mr-#{$name} { @include spacing('margin-right', $name); }
