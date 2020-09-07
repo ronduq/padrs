@@ -100,7 +100,7 @@
     //   right: 0;
     // }
     @include respond-to('tablet'){
-      top: -305px;
+      top: -275px;
       right: 18%;
     }
   }
@@ -128,6 +128,7 @@
     left: 240px;
     @include respond-to('mobile'){
       top: -75px;
+      left: 35%;
     }
   }
 }
