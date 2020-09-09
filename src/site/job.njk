@@ -289,7 +289,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
     <div class="row mb-m">
       <div class="col col-12 col-lg-8">
         <h2 class="h3 colour-rose">Location</h2>
-        <p>The base office for this role is {% job.location %}. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
+        <p>The base office for this role is {{ job.location }}. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
     {# <div class="row">

@@ -1,0 +1,20 @@
+.download-list {
+  margin-left: 0;
+}
+.download-list__item {
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    color: $midgrey;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .icon {
+    transform: translateY(9px);
+    fill: $midnight;
+  }
+}
