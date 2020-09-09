@@ -285,14 +285,14 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         </iframe>
       </div>
     </div>
-    {% case 'Utrecht' %}
+    {% default %}
     <div class="row mb-m">
       <div class="col col-12 col-lg-8">
         <h2 class="h3 colour-rose">Location</h2>
-        <p>The base office for this role is Utrecht. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
+        <p>The base office for this role is {% job.location %}. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
-    <div class="row">
+    {# <div class="row">
       <div class="col col-12 col-lg-4 offset-lg-1">
        <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
           <use xlink:href="#location-icon"></use>
@@ -310,7 +310,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
             &q=PA+Consulting,Papendorpseweg+97,Gebouw+B,3528+BJ+Utrecht" allowfullscreen>
         </iframe>
       </div>
-    </div>
+    </div> #}
     {% endswitch %}
     <!-- TODO: US office? other UK? -->
   </div>
