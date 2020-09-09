@@ -40,7 +40,8 @@ body {
   align-items: center;
 }
 
-.intro {
+.intro,
+.job-content p:first-of-type {
   @include font('Arial', intro, $responsive: true);
   color: $midgrey;
 }

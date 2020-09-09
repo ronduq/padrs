@@ -1,5 +1,4 @@
 .job-search-form {
-  input,
   select {
     float: left;
     width: 25%;
@@ -15,4 +14,24 @@
   button {
     float: left;
   }
+
+  .icon {
+    fill: $midnight;
+  }
+}
+.custom-input__container {
+  position: relative;
+  float: left;
+  width: 38%;
+  margin-right: 15px;
+}
+
+.custom-input {
+  width: 100%;
+}
+
+.custom-input__icon {
+  position: absolute;
+  right: 0;
+  top: 5px;
 }

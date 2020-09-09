@@ -1,6 +1,14 @@
 {% macro jobSearchForm(bindJavaScript='false') %}
   <form class="job-search-form" action="/jobs" {% if bindJavaScript == 'true' %}data-enabled{% endif %}>
-    <input type="text" name="q" class="form-control" placeholder="What's your passion?">
+    <span class="custom-input__container">
+      <i class="custom-input__icon">
+        <svg viewBox="0 0 30 30" class="icon icon--medium">
+          <use xlink:href="#search"></use>
+        </svg>
+      </i>
+      <input type="text" name="q" class="form-control custom-input" placeholder="What's your passion?">
+    </span>  
+    
     <select name="location" class="custom-select">
       <option value="">Location</option>
       {%- for location in jobsLocations -%}
@@ -8,7 +16,7 @@
       {%- endfor -%}
     </select>
     <select name="capability" class="custom-select">
-      <option value="">Capability</option>
+      <option value="">Discipline</option>
       {%- for capability in capabilities -%}
         <option>{{ capability.name }}</option>
       {%- endfor -%}

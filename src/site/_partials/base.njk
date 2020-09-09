@@ -57,14 +57,16 @@
           </div>
 
           {% if page.url === '/' %}
+           <div class="masthead__lockup col-lg-3 col-7">
+              </div>
             <div class="decoration decoration--circle decoration--circle__lg"></div>
           {% endif %}
 
-          <a href="/" class="masthead__lockup col-lg-3 col-7">
-            {% if page.url !== '/' %}
+          {% if page.url !== '/' %}
+            <a href="/" class="masthead__lockup col-lg-3 col-7">
               <span>Digital careers at PA</span>
-            {% endif %}
-          </a>
+            </a>
+          {% endif %}
           
           <div class="col-lg-8 col-10">
             <nav class="masthead__nav">

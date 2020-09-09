@@ -78,7 +78,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
       {# <h2 class="h2">The role</h2> #}
 
-      <div class="grey">
+      <div class="grey job-content">
       {% for f in job.description %}
         {% if f.key == "become-part-of-the-team" %}
           {{ f.content | safe }}
