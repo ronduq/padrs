@@ -24,6 +24,11 @@
   float: left;
   width: 38%;
   margin-right: 15px;
+  @include respond-to("mobile") {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .custom-input {

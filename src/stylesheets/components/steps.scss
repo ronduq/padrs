@@ -17,6 +17,10 @@
       position: absolute;
       left: (spacing(m) + 13) * -1;
       top: 10px;
+
+      @include respond-to('mobile') {
+        left: (spacing(s) + 13) * -1;
+      }
     }
 
     span {
@@ -34,6 +38,9 @@
         left: (spacing(m) + 22) * -1;
         top: 50%;
         transform: translateY(-50%);
+        @include respond-to('mobile') {
+          left: (spacing(s) + 22) * -1;
+        }
       }
     }
 
@@ -45,6 +52,11 @@
         width: 45px;
         height: 45px;
         left: (spacing(m) + 33) * -1;
+        @include respond-to('mobile') {
+          width: 35px;
+          height: 35px;
+          left: (spacing(s) + 28) * -1;
+        }
       }
       span:after {
         content: '🎉';
@@ -52,6 +64,9 @@
         position: absolute;
         top: 3px;
         left: (spacing(m) + 21) * -1;
+        @include respond-to('mobile') {
+          left: (spacing(s) + 21) * -1;
+        }
       }
     }
   }

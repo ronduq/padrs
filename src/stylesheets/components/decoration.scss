@@ -58,6 +58,12 @@
       top: auto;
     }
 
+    @include respond-to('mobile') {
+      bottom: 120px;
+
+    }
+
+
     &.decoration--offset-70{
       height: calc(100% - 330px);
     }
@@ -84,6 +90,9 @@
       z-index: -1;
       right: 20%;
     }
+    @include respond-to('mobile') {
+      bottom: -20px;
+    }
     &.decoration--offset-70{
       bottom: 95px;
     }
@@ -109,6 +118,10 @@
 .location {
   .decoration {
     top: -145px;
+    @include respond-to('tablet'){
+      top: -75px;
+      right: 18%;
+    }
   }
 }
 
