@@ -18,7 +18,7 @@
     <select name="capability" class="custom-select">
       <option value="">Discipline</option>
       {%- for capability in capabilities -%}
-        <option>{{ capability.name }}</option>
+        <option {% if (jobsCountByCapabilityName) == 0 %}disabled{% endif %} >{{ capability.name }}</option>
       {%- endfor -%}
     </select>
     <button type="submit" class="button">Search</button>

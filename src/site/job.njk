@@ -113,12 +113,18 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       <a href="{{ '/about/teams/transformation' | url }}" class="button button--outline-midnight">More about transformation</a>
       {% endswitch %}
 
+      {% switch job.capability %}
+      {% case 'Design' %}
       <div class="team-card mb-m mt-l">
         <img src="https://picsum.photos/394/394" alt="">
-        <span class="team-card__job">Head of design</span>
-        <h3 class="h4">Bess Mills</h3>
-        <p class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec est sed ante bibendum malesuada. Nunc a pulvinar lectus, laoreet fringilla magna.</p>
+        <span class="team-card__job">Senior Designer</span>
+        <h3 class="h4">Ben McKeown</h3>
+        <p class="grey">The breadth of meaningful, positive impact work you can get involved with within PA is staggering. It’s inspiring working with smart, passionate people in a culture that genuinely understand the value and impact of good design.</p>
       </div>
+      {% endswitch %}
+
+
+      
       
     </div>
   </div>
@@ -166,7 +172,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
               <span class="h4">Final round interview</span>
               {% switch job.capability %}
                 {% case 'Transformation' %}
-                  <p class="grey">Congrats, you’ve made it to the final stage! You’ll be tasked with presenting some of your work to a small panel from the team including a Partner or Senior Manager– either in person or over the phone – for 30 minutes, followed by a 30-minute discussion. This is your chance to demonstrate your presentation and storytelling skills and to ask any burning questions, so make sure you have these ready. </p>
+                  <p class="grey">Congrats, you’ve made it to the final stage! You’ll be tasked with presenting some of your work to a small panel from the team including a Partner or Senior Manager – either in person or over the phone – for 30 minutes, followed by a 30-minute discussion. This is your chance to demonstrate your presentation and storytelling skills and to ask any burning questions, so make sure you have these ready. </p>
                 {% default %}
                   <p class="grey">Congrats, you’ve made it to the final stage! You’ll be interviewed by a Partner or Senior Manager from your team – either in person or over the phone – for up to one hour. This is also your chance to ask any burning questions, so make sure you have these ready.</p>
               {% endswitch %}
