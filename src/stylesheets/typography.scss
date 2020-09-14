@@ -43,6 +43,10 @@ body {
 .intro {
   @include font('Arial', intro, $responsive: true);
   color: $midgrey;
+
+  a {
+    color: $midgrey;
+  }
 }
 
 .intro--white {

@@ -11,7 +11,7 @@
   text-align: left;
 
   @include respond-to('mobile'){
-    padding: 18px 42px 18px 30px;
+    padding: 18px 42px 18px 15px;
   }
 
   &:hover {
@@ -29,8 +29,8 @@
     @include respond-to('mobile'){
       transform: translateX(20px);
       top: 18px;
-    position: absolute;
-    right: 38px;
+      position: absolute;
+      right: 38px;
     }
   }
 
