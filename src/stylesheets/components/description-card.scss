@@ -33,4 +33,7 @@
 
 .description-card--offset-70 {
   transform: translateY(-70px);
+  @include respond-to('mobile') {
+    transform: translateY(-25px);
+  }
 }

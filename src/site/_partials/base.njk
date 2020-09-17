@@ -19,25 +19,27 @@
       <div class="col-12 mobile-menu-container">
             <nav class="masthead__nav--mobile" role="navigation">
               <div class="menuToggle">
-                <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
+                <input type="checkbox" class="mobile-menu__button"/>
+                <div class="mobile-menu__icon">
+                  <span class="mobile-menu__line"></span>
+                  <span class="mobile-menu__line"></span>
+                  <span class="mobile-menu__line"></span>
+                </div>
                 <ul class="menu">
                   <li {% if '/jobs' in page.url %} aria-current="page" {% endif %}>
-                    <a href="{{ "/jobs" | url }}">Find roles</a>
+                    <a tabindex='-1' class="mobile-menu__link mobile-menu__first-link" href="{{ "/jobs" | url }}">Find roles</a>
                   </li>
                   <li {% if '/about' in page.url %} aria-current="page" {% endif %}>
-                    <a href="{{ "/about" | url }}">About us</a>
+                    <a  tabindex='-1' class="mobile-menu__link"href="{{ "/about" | url }}">About us</a>
                   </li>
                   <li {% if '/locations' in page.url %} aria-current="page" {% endif %}>
-                    <a href="{{ "/locations" | url }}">Locations</a>
+                    <a tabindex='-1' class="mobile-menu__link" href="{{ "/locations" | url }}">Locations</a>
                   </li>
                   <li {% if '/faqs' in page.url %} aria-current="page" {% endif %}>
-                    <a href="{{ "/faqs" | url }}">FAQs</a>
+                    <a tabindex='-1' class="mobile-menu__link" href="{{ "/faqs" | url }}">FAQs</a>
                   </li>
                   <li>
-                    <a href="https://www.paconsulting.com" target="_blank">PA home</a>
+                    <a tabindex='-1' class="mobile-menu__link mobile-menu__last-link" href="https://www.paconsulting.com" target="_blank">PA home</a>
                   </li>
                   {# <div class="menu__overlay"></div> #}
                 </ul>

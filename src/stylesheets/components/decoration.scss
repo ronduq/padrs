@@ -95,6 +95,9 @@
     }
     &.decoration--offset-70{
       bottom: 95px;
+      @include respond-to('mobile') {
+        bottom: 0;
+      }
     }
   }
 }

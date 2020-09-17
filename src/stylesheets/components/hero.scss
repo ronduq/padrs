@@ -22,3 +22,10 @@
     color: white;
   }
 }
+
+.hero__title {
+  @include respond-to('mobile'){
+    br{content:' ';}
+    br:after{content:' ';}  
+  }
+}

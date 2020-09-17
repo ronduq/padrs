@@ -92,7 +92,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       </div>
 
     </div>
-    <div class="col col-12 offset-lg-1 col-lg-4">
+    <div class="col col-12 offset-lg-1 col-lg-4 mb-l ">
 
       {% switch job.capability %}
       {% case 'Design' %}
@@ -115,12 +115,33 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
       {% switch job.capability %}
       {% case 'Design' %}
-      <div class="team-card mb-m mt-l">
-        <img src="https://picsum.photos/394/394" alt="">
-        <span class="team-card__job">Senior Designer</span>
-        <h3 class="h4">Ben McKeown</h3>
-        <p class="grey">The breadth of meaningful, positive impact work you can get involved with within PA is staggering. It’s inspiring working with smart, passionate people in a culture that genuinely understand the value and impact of good design.</p>
-      </div>
+        <div class="team-card mb-m mt-l">
+          <img src="/assets/images/Team/Ben McKeown.jpeg" alt="" role="presentation"/>
+          <span class="team-card__job">Senior Designer</span>
+          <h3 class="h4">Ben McKeown</h3>
+          <p class="grey">The breadth of meaningful, positive impact work you can get involved with within PA is staggering. It’s inspiring working with smart, passionate people in a culture that genuinely understand the value and impact of good design.</p>
+        </div>
+      {% case 'Engineering & DevOps' %}
+        <div class="team-card mb-m mt-l">
+          <img src="/assets/images/Team/Claire Bates.png" alt="" role="presentation"/>
+          <span class="team-card__job">Front-End Developer</span>
+          <h3 class="h4">Claire Bates</h3>
+          <p class="grey">The thing I love most about working here is the people. I really enjoy working with people who make an effort to share knowledge, take mental health at work seriously, and care about addressing anything that isn’t working well</p>
+        </div>
+      {% case 'Delivery' %}
+        <div class="team-card mb-m mt-l">
+          <img src="/assets/images/Team/Lauren Davies.png" alt="" role="presentation"/>
+          <span class="team-card__job">Principal Consultant – Digital Services</span>
+          <h3 class="h4">Lauren Davies</h3>
+          <p class="grey">No matter how busy we might be, in the Delivery team we always spare the time to come together to socialise, share knowledge, mentor, and ultimately develop our practice. With such varied backgrounds, different members sharing how they wouldovercome challenges is invaluable, and somethingI’ve not really experienced elsewhere.</p>
+        </div>
+      {% case 'Transformation' %}
+        <div class="team-card mb-m mt-l">
+          <img src="/assets/images/Team/Chike Eduputa photo.jpg" alt="" role="presentation"/>
+          <span class="team-card__job">Principal Consultant – Data Digital Strategy</span>
+          <h3 class="h4">Chike Eduputa</h3>
+          <p class="grey">I love working with smart people with diverse personalities and experiences, who can apply critical thinking and logic to create ingenious solutions to pressing client needs. At the heart of PA lies her people, with unique talents, deep expertise and a mindset that no challenge is too great.</p>
+        </div>
       {% endswitch %}
 
 
@@ -184,7 +205,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
     </div>
 
-    <div class="col col-12 col-lg-4 offset-1 job--process pt-l">
+    <div class="col col-12 col-lg-4 offset-lg-1 job--process pt-l">
       {# <div class="decoration decoration--circle decoration--circle__xlg"></div> #}
       <h3 class="h4">Preparation tips</h3>
       {% switch job.capability %}
@@ -307,27 +328,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         <p>The base office for this role is {{ job.location }}. However, you may sometimes be required to work onsite at client offices, too. You can find out more about our offices and remote working approach on our <a href="{{ '/locations' | url }}">Locations</a> page.</p>
       </div>
     </div>
-    {# <div class="row">
-      <div class="col col-12 col-lg-4 offset-lg-1">
-       <svg viewBox="0 0 100 100" class="icon icon--rose icon--medium mb-xxs">
-          <use xlink:href="#location-icon"></use>
-        </svg>
-        <h3 class="h4">Address</h3>
-        <p>Papendorpseweg 97, Gebouw B, 3528 BJ Utrecht, Netherlands</p>
-        <p class="mt-m"><a class="button button--outline-rose" href="{{ '/locations' | url }}">Our offices</a></p>
-      </div>
-      <div class="col col-12 col-lg-7 mt-l">
-        <iframe
-          width="100%"
-          height="100%"
-          frameborder="0" style="border:0"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJXi-36xEBSY27we803yqd2y9bkIsuY-g
-            &q=PA+Consulting,Papendorpseweg+97,Gebouw+B,3528+BJ+Utrecht" allowfullscreen>
-        </iframe>
-      </div>
-    </div> #}
     {% endswitch %}
-    <!-- TODO: US office? other UK? -->
   </div>
 </div>
 
