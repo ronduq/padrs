@@ -3990,7 +3990,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var form = document.querySelector('form[action="/jobs"][data-enabled]');
 if (form) new _search["default"](form);
-new _mobileMenu["default"]();
+new _mobileMenu["default"](); // Console Message
+
+var styles = ['color: white', 'background: #D13339', 'padding: 20px', 'border-radius: 4px'].join(';');
+var message = 'Welcome to the PA Digital Recruiting website!';
+console.log('%c%s', styles, message);
 
 },{"./components/mobileMenu":7,"./components/search":8}],7:[function(require,module,exports){
 "use strict";
