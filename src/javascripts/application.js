@@ -8,26 +8,26 @@ const firstFocusableEl = document.querySelector('.mobile-menu__first-link'),
       lastFocusableEl = document.querySelector('.mobile-menu__last-link'),
       mobileButton = document.querySelector('.mobile-menu__button'),
       mobileLinks = document.querySelectorAll('.mobile-menu__link'),
-      KEYCODE_TAB = 9;
+      KEYCODE_TAB = 9,
+      menuButton = document.querySelector('.mobile-menu__button')
+let ariaExpanded = menuButton.getAttribute('aria-expanded');
 
 document.addEventListener('keydown', function(e) {
-    var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-    console.log('gen key',mobileButton.checked)
+    let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
 
-    if (!isTabPressed || !mobileButton.checked) { 
+    if (!isTabPressed || !ariaExpanded) { 
         return; 
     }
-    console.log(mobileButton.checked)
-    if (isTabPressed && !mobileButton.checked) { 
-      for (var i=0; i < mobileLinks.length; i++) {
+    console.log(ariaExpanded)
+    if (isTabPressed && !ariaExpanded) { 
+      for (let i=0; i < mobileLinks.length; i++) {
         mobileLinks[i].tabIndex = -1;
       }
-      console.log('mobile butotn not checked')
       return; 
     }
 
-    if (mobileButton.checked) {
-      for (var i=0; i < mobileLinks.length; i++) {
+    if (ariaExpanded) {
+      for (let i=0; i < mobileLinks.length; i++) {
         mobileLinks[i].tabIndex = 0;
       }
     }
@@ -45,3 +45,8 @@ document.addEventListener('keydown', function(e) {
     }
 
 });
+
+menuButton.addEventListener('click',() => {
+  ariaExpanded = !ariaExpanded;
+  menuButton.setAttribute("aria-expanded", ariaExpanded);
+})

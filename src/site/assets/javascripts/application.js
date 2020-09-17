@@ -3992,29 +3992,29 @@ var firstFocusableEl = document.querySelector('.mobile-menu__first-link'),
     lastFocusableEl = document.querySelector('.mobile-menu__last-link'),
     mobileButton = document.querySelector('.mobile-menu__button'),
     mobileLinks = document.querySelectorAll('.mobile-menu__link'),
-    KEYCODE_TAB = 9;
+    KEYCODE_TAB = 9,
+    menuButton = document.querySelector('.mobile-menu__button');
+var ariaExpanded = menuButton.getAttribute('aria-expanded');
 document.addEventListener('keydown', function (e) {
   var isTabPressed = e.key === 'Tab' || e.keyCode === KEYCODE_TAB;
-  console.log('gen key', mobileButton.checked);
 
-  if (!isTabPressed || !mobileButton.checked) {
+  if (!isTabPressed || !ariaExpanded) {
     return;
   }
 
-  console.log(mobileButton.checked);
+  console.log(ariaExpanded);
 
-  if (isTabPressed && !mobileButton.checked) {
+  if (isTabPressed && !ariaExpanded) {
     for (var i = 0; i < mobileLinks.length; i++) {
       mobileLinks[i].tabIndex = -1;
     }
 
-    console.log('mobile butotn not checked');
     return;
   }
 
-  if (mobileButton.checked) {
-    for (var i = 0; i < mobileLinks.length; i++) {
-      mobileLinks[i].tabIndex = 0;
+  if (ariaExpanded) {
+    for (var _i = 0; _i < mobileLinks.length; _i++) {
+      mobileLinks[_i].tabIndex = 0;
     }
   }
 
@@ -4033,6 +4033,10 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
       }
     }
+});
+menuButton.addEventListener('click', function () {
+  ariaExpanded = !ariaExpanded;
+  menuButton.setAttribute("aria-expanded", ariaExpanded);
 });
 
 },{"./components/search":7}],7:[function(require,module,exports){

@@ -123,30 +123,11 @@
   transition: color 0.3s ease;
 }
 
-.mobile-menu__button
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  right: -5px;
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
+.mobile-menu__button {
+  appearance: none;
+  background: none;
+  border: none;
 }
-
-/*
- * Just a quick hamburger
- */
-
- .mobile-menu__button:focus + .mobile-menu__icon {
-  border: 2px solid white;
- }
 .mobile-menu__line
 {
   display: block;
@@ -181,7 +162,7 @@
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-.mobile-menu__button:checked ~ .mobile-menu__icon .mobile-menu__line
+.mobile-menu__button[aria-expanded="true"] ~ .mobile-menu__button .mobile-menu__line
 {
   opacity: 1;
   transform: rotate(45deg) translate(-10px,-15px);
@@ -192,19 +173,19 @@
 /*
  * Hide the middle one.
  */
-.mobile-menu__button:checked ~ .mobile-menu__icon .mobile-menu__line:nth-last-child(3)
+.mobile-menu__button[aria-expanded="true"] ~ .mobile-menu__button .mobile-menu__line:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-.mobile-menu__button:checked ~ .mobile-menu__icon .mobile-menu__line:nth-last-child(2)
+.mobile-menu__button[aria-expanded="true"] ~ .mobile-menu__button .mobile-menu__line:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(2px, 3px);
   width: 21px;
 }
 
-.mobile-menu__button:checked ~ .menu {
+.mobile-menu__button[aria-expanded="true"] ~ .menu {
   box-shadow: -169px 770px 0px 10000px rgba(41, 56, 70, .9), -5px 5px 15px rgba(0,0,0,.8);
 }
 
@@ -247,7 +228,7 @@
 /*
  * And let's slide it in from the left
  */
-.mobile-menu__button:checked ~ ul
+.mobile-menu__button[aria-expanded="true"] ~ ul
 {
   transform: translateX(calc(98px - 80%));
 }

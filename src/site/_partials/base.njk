@@ -19,15 +19,14 @@
       <div class="col-12 mobile-menu-container">
             <nav class="masthead__nav--mobile" role="navigation">
               <div class="menuToggle">
-                <input type="checkbox" class="mobile-menu__button"/>
-                <div class="mobile-menu__icon">
+                <button class="mobile-menu__button  mobile-menu__first-link" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Navigation">
                   <span class="mobile-menu__line"></span>
                   <span class="mobile-menu__line"></span>
                   <span class="mobile-menu__line"></span>
-                </div>
+                </button>
                 <ul class="menu">
                   <li {% if '/jobs' in page.url %} aria-current="page" {% endif %}>
-                    <a tabindex='-1' class="mobile-menu__link mobile-menu__first-link" href="{{ "/jobs" | url }}">Find roles</a>
+                    <a tabindex='-1' class="mobile-menu__link" href="{{ "/jobs" | url }}">Find roles</a>
                   </li>
                   <li {% if '/about' in page.url %} aria-current="page" {% endif %}>
                     <a  tabindex='-1' class="mobile-menu__link"href="{{ "/about" | url }}">About us</a>
