@@ -5,13 +5,21 @@
   border-radius: 13px;
   padding: 10px;
   margin-bottom: 20px;
+  position: relative;
   &:nth-child(2n+1) {
     margin-right: 25px;
   }
 
-  svg {
-    max-height: 100%;
-    max-width: 100%;
+  svg,
+  .logo__image {
+    max-height: 70%;
+    max-width: 85%;
+    display: block;
+    margin: 0 auto;
+    @include vertical-middle;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: absolute;
   }
 }
 

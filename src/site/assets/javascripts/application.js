@@ -3993,7 +3993,7 @@ if (form) new _search["default"](form);
 new _mobileMenu["default"](); // Console Message
 
 var styles = ['color: white', 'background: #D13339', 'padding: 20px', 'border-radius: 4px'].join(';');
-var message = 'Welcome to the PA Digital Recruiting website!';
+var message = 'Welcome to digital careers at PA! If you\'re sniffing around these parts you\'re probably an Engineer. Check out our open roles at https://paconsulting.com/careers/digital';
 console.log('%c%s', styles, message);
 
 },{"./components/mobileMenu":7,"./components/search":8}],7:[function(require,module,exports){
@@ -4011,7 +4011,6 @@ var MobileMenu = function MobileMenu() {
 
   var firstFocusableEl = document.querySelector('.mobile-menu__first-link'),
       lastFocusableEl = document.querySelector('.mobile-menu__last-link'),
-      mobileButton = document.querySelector('.mobile-menu__button'),
       mobileLinks = document.querySelectorAll('.mobile-menu__link'),
       KEYCODE_TAB = 9,
       menuButton = document.querySelector('.mobile-menu__button');
@@ -4019,11 +4018,7 @@ var MobileMenu = function MobileMenu() {
   document.addEventListener('keydown', function (e) {
     var isTabPressed = e.key === 'Tab' || e.keyCode === KEYCODE_TAB;
 
-    if (!isTabPressed || !ariaExpanded) {
-      return;
-    }
-
-    if (isTabPressed && ariaExpanded === false) {
+    if (!isTabPressed || !ariaExpanded || isTabPressed && ariaExpanded === false) {
       return;
     }
 
