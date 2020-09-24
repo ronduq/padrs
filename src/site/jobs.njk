@@ -43,7 +43,13 @@ layout: default
           <div class="card-group card-group--list">
             {% for job in jobs %}
               <a href="{{ ['/jobs', ([(job.title | slug), job.id] | join('-'))] | join('/') | url }}" class="card card__hover-link" data-search-id="{{ job.id }}">
-                <span class="card__intro" data-search-capability>{{ job.capability }}</span>
+                <span class="card__intro" data-search-capability>
+                  {% if (job.capability == 'Other') and (('Java' in job.title) or ('java' in job.title)  or ('developer' in job.title) or ('Developer' in job.title)) %}
+                    Engineering &amp; DevOps
+                  {% else %}
+                    {{ job.capability }}
+                  {% endif %}
+                </span>
                 <h3 class="h4" data-search>{{ job.title }}</h3>
                 <p class="card__summary">{{ job.summary }}</p>
                 <span class="card__location" data-search-location="{{ job.city }}">
