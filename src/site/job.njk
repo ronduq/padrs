@@ -5,7 +5,7 @@ pagination:
     data: jobs
     size: 1
     alias: job
-permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
+permalink: "/jobs/p-{{ job.title | slug }}-{{ job.id }}/"
 ---
 
 <script type="application/ld+json">
@@ -93,21 +93,16 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 
     </div>
     <div class="col col-12 offset-lg-1 col-lg-4 mb-l ">
-      {% if (job.capability == 'Engineering & DevOps') or ('Java' in job.title) or ('java' in job.title)  or ('developer' in job.title) or ('Developer' in job.title) %}
-        <h2 class="h4">The Engineering team</h2>
-        <p class="grey">We have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation.</p>
-        <a href="{{ '/about/teams/engineering-and-devops' | url }}" class="button button--outline-midnight">More about Engineering &amp; Devops</a>
-      {% endif %}
 
       {% switch job.capability %}
       {% case 'Design' %}
       <h2 class="h4">The Design team</h2>
       <p class="grey">Our design and strategy teams work together to create a vision for measurably improving customer experience, anchored in user needs and supporting key business objectives. </p>
       <a href="{{ '/about/teams/design' | url }}" class="button button--outline-midnight">More about Design</a>
-      {# {% case 'Engineering & DevOps' %}
+      {% case 'Engineering & DevOps' %}
       <h2 class="h4">The Engineering team</h2>
       <p class="grey">We have deep full stack development expertise across multiple technologies. This is backed by experts in Architecture, Quality Assurance and DevOps – as well as colleagues with expertise in Cloud, Artificial Intelligence, Internet of Things and Technology Innovation.</p>
-      <a href="{{ '/about/teams/engineering-and-devops' | url }}" class="button button--outline-midnight">More about Engineering &amp; Devops</a> #}
+      <a href="{{ '/about/teams/engineering-and-devops' | url }}" class="button button--outline-midnight">More about Engineering &amp; Devops</a>
       {% case 'Delivery' %}
       <h2 class="h4">The Delivery team</h2>
       <p class="grey">Text goes here</p>
@@ -118,14 +113,6 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
       <a href="{{ '/about/teams/transformation' | url }}" class="button button--outline-midnight">More about Transformation</a>
       {% endswitch %}
 
-      {% if (job.capability == 'Engineering & DevOps') or ('Java' in job.title) or ('java' in job.title)  or ('developer' in job.title) or ('Developer' in job.title) %}
-        <div class="team-card mb-m mt-l">
-          <img src="/assets/images/Team/Claire-Bates.png" alt="Claire Bates" role="presentation"/>
-          <span class="team-card__job">Front-End Developer</span>
-          <h3 class="h4">Claire Bates"</h3>
-          <p class="grey">"The thing I love most about working here is the people. I really enjoy working with people who make an effort to share knowledge, take mental health at work seriously, and care about addressing anything that isn’t working well."</p>
-        </div>
-      {% endif %}
 
       {% switch job.capability %}
       {% case 'Design' %}
@@ -135,13 +122,13 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
           <h3 class="h4">Ben McKeown"</h3>
           <p class="grey">"The breadth of meaningful, positive impact work you can get involved with within PA is staggering. It’s inspiring working with smart, passionate people in a culture that genuinely understand the value and impact of good design."</p>
         </div>
-      {# {% case 'Engineering & DevOps' %}
+      {% case 'Engineering & DevOps' %}
         <div class="team-card mb-m mt-l">
           <img src="/assets/images/Team/Claire Bates.png" alt="" role="presentation"/>
           <span class="team-card__job">Front-End Developer</span>
           <h3 class="h4">Claire Bates"</h3>
           <p class="grey">"The thing I love most about working here is the people. I really enjoy working with people who make an effort to share knowledge, take mental health at work seriously, and care about addressing anything that isn’t working well."</p>
-        </div> #}
+        </div>
       {% case 'Delivery' %}
         <div class="team-card mb-m mt-l">
           <img src="/assets/images/Team/Lauren-Davies.png" alt="Lauren Davies" role="presentation"/>
@@ -369,7 +356,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
 </div>
 
 {% set relatedJobs = (job | relatedJobs) %}
-{% if relatedJobs.length > 0 %}
+{% if relatedJobs.length > 1 %}
   <div class="container">
     <div class="row">
       <div class="col-12 mb-l">
@@ -381,7 +368,8 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
         </div>
         <div class="card-group">
           {% for j in relatedJobs %}
-            <a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/') | url }}" class="card card__hover-link">
+            {% if j.id != job.id %}
+            <a href="{{ ['/jobs', ([(j.title | slug), j.id] | join('-'))] | join('/p-') | url }}" class="card card__hover-link">
               <span class="card__intro">{{ j.capability }}</span>
               <h3 class="h4 mb-m">{{ j.title }}</h3>
               <span class="card__location">
@@ -391,6 +379,7 @@ permalink: "/jobs/{{ job.title | slug }}-{{ job.id }}/"
                 </svg>
               </span>
             </a>
+            {% endif %}
           {% endfor %}
         </div>
       </div>

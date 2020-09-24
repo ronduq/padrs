@@ -41,7 +41,7 @@ const slugify = require("slugify");
     },
     {
       name: 'Engineering & DevOps',
-      keywords: ['Engineer', 'QA', 'Architect', 'Technical', 'Cloud', 'Data Scientist']
+      keywords: ['Engineer', 'QA', 'Architect', 'Technical', 'Cloud', 'Data Scientist', 'Java', 'Developer', 'developer', 'engineer']
     },
     {
       name: 'Transformation',
