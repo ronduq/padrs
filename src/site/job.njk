@@ -1,11 +1,14 @@
 ---
-title: Job page - Digital careers at PA
 layout: default
 pagination:
     data: jobs
     size: 1
-    alias: job
+    alias: job 
 permalink: "/jobs/p-{{ job.title | slug }}-{{ job.id }}/"
+renderData:
+  title: some {{ job.title | slug }}
+title: {{ job.title if job.title else title }}
+
 ---
 
 <script type="application/ld+json">
