@@ -38,7 +38,7 @@ eleventyComputed:
 
         <ul class="metadata-list mb-m">
           <li>
-            {{ job.office }}, {{ job.city }}
+            {% if job.city == 'London' %} {{ job.office }}, {% endif %} {{ job.city }}
           </li>
           <li>
             {{ job.length }}, {{ job.contract }}
