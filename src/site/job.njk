@@ -5,9 +5,8 @@ pagination:
     size: 1
     alias: job 
 permalink: "/jobs/p-{{ job.title | slug }}-{{ job.id }}/"
-renderData:
-  title: some {{ job.title | slug }}
-title: {{ job.title if job.title else title }}
+eleventyComputed:
+  title: "{{ job.title }} in {{ job.city }} — Digital careers at PA"
 
 ---
 
