@@ -9,6 +9,8 @@ module.exports = function(config) {
   config.setUseGitIgnore(false);
   config.addLayoutAlias('default', 'base.njk')
   config.addPassthroughCopy("src/site/robots.txt")
+  config.addPassthroughCopy("src/site/favicon.ico")
+  config.addPassthroughCopy("src/site/_headers")
   config.addPassthroughCopy("src/site/04dceb9dec37d6a440662c1bf916d271.txt")
   config.addPassthroughCopy("src/site/assets")
 
