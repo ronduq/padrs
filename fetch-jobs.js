@@ -5,7 +5,7 @@ const slugify = require("slugify");
 
 (async() => {
 
-  const response = await fetch(`https://emea5-foc.lumessetalentlink.com/fo/rest/jobs?firstResult=0&maxResults=12&sortBy=52&sortOrder=desc`, {
+  const response = await fetch(`https://emea5000-foc.lumessetalentlink.com/fo/rest/jobs?firstResult=0&maxResults=12&sortBy=52&sortOrder=desc`, {
     method: 'post',
     body: JSON.stringify({
       "searchCriteria": {
@@ -23,7 +23,10 @@ const slugify = require("slugify");
       'sec-fetch-dest': 'empty',
       'password': 'guest'
     }
-  })
+  }).catch((error) => {
+    // Your error is here!
+    console.log(error)
+  });
 
   const data = await response.json();
   let jobs = data.jobs;
