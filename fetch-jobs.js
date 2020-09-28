@@ -2,30 +2,39 @@ const fetch = require('node-fetch');
 const fs = require("fs");
 const _ = require("lodash");
 const slugify = require("slugify");
+const core = require('@actions/core');
 
 (async() => {
 
-  const response = await fetch(`https://emea5-foc.lumessetalentlink.com/fo/rest/jobs?firstResult=0&maxResults=12&sortBy=52&sortOrder=desc`, {
-    method: 'post',
-    body: JSON.stringify({
-      "searchCriteria": {
-        "criteria": [
-          {"key":"LOV28","values":["11606"]},
-          {"key":"Resultsperpage","values":["999"]}
-        ]
-      }
-    }),
-    headers: {
-      'authority': 'emea5-foc.lumessetalentlink.com',
-      'lumesse-language': 'UK',
-      'content-type': 'application/json',
-      'username': 'QIMFK026203F3VBQBLO6GLOQP:guest:FO',
-      'sec-fetch-dest': 'empty',
-      'password': 'guest'
-    }
-  })
+  let data;
 
-  const data = await response.json();
+  try {
+    const response = await fetch(`https://emea5-foc.lumessetalentlink.com/fo/rest/jobs?firstResult=0&maxResults=12&sortBy=52&sortOrder=desc`, {
+      method: 'post',
+      body: JSON.stringify({
+        "searchCriteria": {
+          "criteria": [
+            {"key":"LOV28","values":["11606"]},
+            {"key":"Resultsperpage","values":["999"]}
+          ]
+        }
+      }),
+      headers: {
+        'authority': 'emea5-foc.lumessetalentlink.com',
+        'lumesse-language': 'UK',
+        'content-type': 'application/json',
+        'username': 'QIMFK026203F3VBQBLO6GLOQP:guest:FO',
+        'sec-fetch-dest': 'empty',
+        'password': 'guest'
+      }
+    })
+
+    data = await response.json();
+  }
+  catch (err) {
+    core.setFailed(`Couldn't fetch jobs! ${err}`);
+  }
+
   let jobs = data.jobs;
   if (!jobs) jobs = [];
   console.log(`${jobs.length} jobs returned`, jobs);
@@ -41,7 +50,7 @@ const slugify = require("slugify");
     },
     {
       name: 'Engineering & DevOps',
-      keywords: ['Engineer', 'QA', 'Architect', 'Technical', 'Cloud', 'Data Scientist', 'Java', 'Developer', 'developer', 'engineer']
+      keywords: ['Engineer', 'QA', 'Architect', 'Technical', 'Cloud', 'Data Scientist', 'Java', 'Developer']
     },
     {
       name: 'Transformation',
