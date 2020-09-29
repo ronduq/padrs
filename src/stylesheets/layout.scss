@@ -17,7 +17,7 @@ html {
   position: relative;
 }
 
-@include respond-to("tablet"){
+@include respond-to("medium"){
   body {
     overflow-x: hidden;
   }

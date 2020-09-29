@@ -34,7 +34,7 @@
     color: $rose;
   }
 
-  @include respond-to("tablet") {
+  @include respond-to("medium") {
     margin-top: 32px;
     margin-left: 30px;
   }
@@ -43,7 +43,7 @@
 .masthead__nav {
   font-weight: 700;
   float: right;
-  @include respond-to("tablet"){
+  @include respond-to("medium"){
     display: none;
   }
 
@@ -96,7 +96,7 @@
 }
 .mobile-menu-container {
   display: none;
-  @include respond-to("tablet"){
+  @include respond-to("medium"){
     display: block;
     position: absolute;
     top: -5px;
