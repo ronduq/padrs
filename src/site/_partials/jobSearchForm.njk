@@ -11,7 +11,7 @@
     
     <select name="location" class="custom-select">
       <option value="">Location</option>
-      {%- for location in jobsLocations -%}
+      {%- for location in jobsLocations|sort(attribute="city") -%}
         <option {% if (location.city | jobsCountByCity) == 0 %}disabled{% endif %} value="{{ location.city }}">{{ location.city }}, {{ location.country }}</option>
       {%- endfor -%}
     </select>
