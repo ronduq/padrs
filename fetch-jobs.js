@@ -6,30 +6,6 @@ const core = require('@actions/core');
 
 (async() => {
 
-<<<<<<< HEAD
-  const response = await fetch(`https://emea5000-foc.lumessetalentlink.com/fo/rest/jobs?firstResult=0&maxResults=12&sortBy=52&sortOrder=desc`, {
-    method: 'post',
-    body: JSON.stringify({
-      "searchCriteria": {
-        "criteria": [
-          {"key":"LOV28","values":["11606"]},
-          {"key":"Resultsperpage","values":["999"]}
-        ]
-      }
-    }),
-    headers: {
-      'authority': 'emea5-foc.lumessetalentlink.com',
-      'lumesse-language': 'UK',
-      'content-type': 'application/json',
-      'username': 'QIMFK026203F3VBQBLO6GLOQP:guest:FO',
-      'sec-fetch-dest': 'empty',
-      'password': 'guest'
-    }
-  }).catch((error) => {
-    // Your error is here!
-    console.log(error)
-  });
-=======
   let data;
 
   try {
@@ -58,7 +34,6 @@ const core = require('@actions/core');
   catch (err) {
     core.setFailed(`Couldn't fetch jobs! ${err}`);
   }
->>>>>>> adaebd89086ef1b163f446cdd14e3a56fecfc86d
 
   let jobs = data.jobs;
   if (!jobs) jobs = [];
