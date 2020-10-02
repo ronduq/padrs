@@ -1,5 +1,3 @@
 node_modules
 dist
 src/site/_data
-src/site/assets/stylesheets
-src/site/assets/application.js

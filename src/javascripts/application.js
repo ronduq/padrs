@@ -1,10 +1,12 @@
 import Search from './components/search';
 import MobileMenu from './components/mobileMenu';
+import Collapsible from './components/collapse';
 
 const form = document.querySelector('form[action="/jobs"][data-enabled]');
 if (form) new Search(form);
 
 new MobileMenu();
+new Collapsible();
 
 // Console Message
 const styles = ['color: white', 'background: #D13339', 'padding: 20px', 'border-radius: 4px'].join(';');

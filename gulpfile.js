@@ -19,14 +19,6 @@ const paths = {
     manifest: 'src/stylesheets/application.scss',
     dist: 'src/site/assets/stylesheets'
   },
-  fonts: {
-    src: ['src/fonts/**/*'],
-    dist: 'src/site/assets/fonts'
-  },
-  images: {
-    src: 'src/images/**/*',
-    dist: 'src/site/assets/images'
-  },
   dist: 'src/site/assets'
 };
 
@@ -53,11 +45,6 @@ const fonts = () => {
     .pipe(gulp.dest(paths.fonts.dist));
 };
 
-const images = () => {
-  return gulp.src(paths.images.src)
-    .pipe(gulp.dest(paths.images.dist));
-};
-
 const javascripts = () => {
   return browserify({
     entries: [paths.javascripts.manifest],
@@ -81,4 +68,4 @@ gulp.task('watch', () => {
   gulp.watch(paths.javascripts.src, gulp.parallel(javascriptTests, javascripts));
 });
 
-gulp.task('default', gulp.parallel(javascripts, stylesheets, images, fonts));
+gulp.task('default', gulp.parallel(javascripts, stylesheets));
