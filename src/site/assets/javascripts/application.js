@@ -4129,7 +4129,7 @@ var Search = /*#__PURE__*/function () {
         return {
           element: element,
           id: element.getAttribute('data-search-id'),
-          content: _toConsumableArray(element.querySelectorAll('[data-search-fulltext')).map(function (e) {
+          content: _toConsumableArray(element.querySelectorAll('[data-search-fulltext]')).map(function (e) {
             return e.innerText;
           }).join(' '),
           location: element.querySelector('[data-search-location]').getAttribute('data-search-location'),

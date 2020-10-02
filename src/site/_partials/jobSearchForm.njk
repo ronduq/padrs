@@ -6,18 +6,21 @@
           <use xlink:href="#search"></use>
         </svg>
       </i>
-      <input type="text" name="q" class="form-control custom-input" placeholder="What's your passion?">
-    </span>  
-    
-    <select name="location" class="custom-select">
+      <label for="q" class="visibly-hidden">Search</label>
+      <input type="text" name="q" id="q" class="form-control custom-input" placeholder="What's your passion?">
+    </span>
+
+    <label for="location" class="visibly-hidden">Location</label>
+    <select name="location" id="location" class="custom-select">
       <option value="">Location</option>
       {%- for location in jobsLocations|sort(attribute="city") -%}
         <option {% if (location.city | jobsCountByCity) == 0 %}disabled{% endif %} value="{{ location.city }}">{{ location.city }}, {{ location.country }}</option>
       {%- endfor -%}
     </select>
-    <select name="capability" class="custom-select">
+
+    <label for="capability" class="visibly-hidden">Capability</label>
+    <select name="capability" id="capability" class="custom-select">
       <option value="">Discipline</option>
-      
       {%- for capability in capabilities -%}
         <option {% if (capability.name | jobsCountByCapability) == 0 %}disabled{% endif %} >{{ capability.name }}</option>
       {%- endfor -%}
