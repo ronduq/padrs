@@ -1,3 +1,5 @@
 node_modules
 dist
 src/site/_data
+src/site/assets/stylesheets/*.css
+src/site/assets/javascripts/*.js
