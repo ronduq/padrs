@@ -96,6 +96,11 @@
   transition: all .2s ease-in-out;
   display: flex;
   flex-flow: column;
+  min-height: calc(100% - 215px);
+
+  @include respond-to("medium") {
+    min-height: calc(100% - 205px);
+  }
 
   h3,
   .card__label,
